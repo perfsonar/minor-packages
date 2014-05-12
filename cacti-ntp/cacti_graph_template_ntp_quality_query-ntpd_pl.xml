@@ -88,7 +88,7 @@
 				<cdef_id>0</cdef_id>
 				<value></value>
 				<gprint_id>hash_060024e9c43831e54eca8069317a2ce8c6f751</gprint_id>
-				<text_format>Clock Wander (ms)</text_format>
+				<text_format>Clock Wander</text_format>
 				<hard_return></hard_return>
 				<sequence>4</sequence>
 			</hash_100024342571996c245261429fbbdff0b9faf1>
