@@ -9,7 +9,7 @@
  * 
  *   https://mail.internet2.edu/wws/info/i2-perfsonar
  * 
- * The perfSONAR-PS subversion repository is located at:
+ * The perfSONAR-PS git repository is located at:
  * 
  *   http://anonsvn.internet2.edu/svn/perfSONAR-PS
  * 
