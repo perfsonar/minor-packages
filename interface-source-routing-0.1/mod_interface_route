@@ -75,7 +75,7 @@ elsif ($command eq "add") {
     if ($ipv6_gateway and scalar(@ipv6_addresses) == 0) {
         my $ips = get_ips(interface => $device);
 
-        @ipv6_addresses = @{ $ips->{ipv4} };
+        @ipv6_addresses = @{ $ips->{ipv6} };
         unless (scalar(@ipv6_addresses) > 0) {
             die("Problem looking up ipv6 addresses associated with $device");
         }
