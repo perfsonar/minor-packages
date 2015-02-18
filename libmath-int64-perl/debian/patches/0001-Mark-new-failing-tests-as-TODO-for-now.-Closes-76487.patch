@@ -1,0 +1,41 @@
+From 9877b68385f2b8fd1b1ea0c9f3facf21d352abd8 Mon Sep 17 00:00:00 2001
+From: Niko Tyni <ntyni@debian.org>
+Date: Sun, 12 Oct 2014 20:17:31 +0300
+Subject: [PATCH] Mark new failing tests as TODO for now. (Closes: #764874)
+
+Bug-Debian: https://bugs.debian.org/764874
+Bug: https://rt.cpan.org/Ticket/Display.html?id=99442
+
+These failures are not functionality regressions, but rather
+look like a bug in newly added test cases. Mark them as
+TODO until we have upstream comments.
+---
+ t/Math-Int64.t | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/t/Math-Int64.t b/t/Math-Int64.t
+index 9647d8e..cb7df8a 100644
+--- a/t/Math-Int64.t
++++ b/t/Math-Int64.t
+@@ -158,7 +158,7 @@ my $four = int64(4);
+ is ($two  ** -1, 0, "signed pow 2**-1");
+ is ($four ** -1, 0, "signed pow 4**-1");
+ 
+-for my $j (0..63) {
++TODO: for my $j (0..63) {
+     my $one = int64(1);
+ 
+     is($two  ** $j, $one <<     $j, "signed pow 2**$j");
+@@ -171,6 +171,9 @@ for my $j (0..63) {
+ 
+     next unless $j;
+ 
++    local $TODO =
++     "floating point precision problems on some architectures, see #764874"
++      if $j == 63;
+     my $max = (((int64(2)**62)-1)*2)+1;
+     is($max >> $j, $max / ( 2**$j ), "max int64 >> $j");
+ 
+-- 
+2.1.1
+
