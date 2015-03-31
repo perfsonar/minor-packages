@@ -1,0 +1,24 @@
+Source: ndt
+Section: net
+Priority: optional
+Maintainer: Valentin Vidic <Valentin.Vidic@CARNet.hr>
+Build-Depends: debhelper (>= 9), autotools-dev, zlib1g-dev, libpcap-dev, libi2util-dev
+Standards-Version: 3.9.3
+Homepage: http://software.internet2.edu/ndt/
+#Vcs-Git: git://git.debian.org/collab-maint/ndt.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/ndt.git;a=summary
+
+Package: ndt-client
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Network Diagnostic Tool (NDT) client
+ The Network Diagnostic Tool (NDT) is a client/server program that provides
+ network configuration and performance testing to a users desktop or laptop
+ computer. The system is composed of a client program (command line or java
+ applet) and a pair of server programs (a webserver and a testing/analysis
+ engine). Both command line and web-based clients communicate with a
+ Web100-enhanced server to perform these diagnostic functions. Multi-level
+ results allow novice and expert users to view and understand the test results.
+ .
+ This package contains NDT command line tool for scheduling bandwidth
+ measurements with an NDT server.

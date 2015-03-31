@@ -1,0 +1,51 @@
+--- a/doc/web100clt.man
++++ b/doc/web100clt.man
+@@ -1,26 +1,26 @@
+ .TH web100clt 1 "$Date: 2006-08-18 06:16:24 -0400 (Fri, 18 Aug 2006) $"
+-." The first line of this file must contain the '"[e][r][t][v] line
+-." to tell man to run the appropriate filter "t" for table.
+-."
+-."	$Id: web100clt.man 139 2006-08-18 10:16:24Z jslawins $
+-."
+-."######################################################################
+-."#									#
+-."#			   Copyright (C)  2004				#
+-."#	     			Internet2				#
+-."#			   All Rights Reserved				#
+-."#									#
+-."######################################################################
+-."
+-."	File:		web100clt.1
+-."
+-."	Author:		Rich Carlson
+-."			Internet2
+-."
+-."	Date:		Sun May 20 16:01:25 CST 2004
+-."
+-."	Description:	
+-."
++.\" The first line of this file must contain the '"[e][r][t][v] line
++.\" to tell man to run the appropriate filter "t" for table.
++.\"
++.\"	$Id: web100clt.man 139 2006-08-18 10:16:24Z jslawins $
++.\"
++.\"######################################################################
++.\"#									#
++.\"#			   Copyright (C)  2004				#
++.\"#	     			Internet2				#
++.\"#			   All Rights Reserved				#
++.\"#									#
++.\"######################################################################
++.\"
++.\"	File:		web100clt.1
++.\"
++.\"	Author:		Rich Carlson
++.\"			Internet2
++.\"
++.\"	Date:		Sun May 20 16:01:25 CST 2004
++.\"
++.\"	Description:
++.\"
+ .SH NAME
+ web100clt \- NDT command line client.
+ .SH SYNOPSIS
