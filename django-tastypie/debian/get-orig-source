@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -ex
+
+PACKAGE=django-tastypie
+SHA=a9b6b23
+USER=toastdriven
+
+VERSION=${VERSION:-$2}
+TARFILE=${TARFILE:-$3}
+
+if [ -z ${VERSION}]; then
+VERSION=`dpkg-parsechangelog | sed -n -e 's/^Version: \(.*\)-[^-]*$/\1/p'`
+fi
+
+if [ -z ${TARFILE}]; then
+TARFILE=${PACKAGE}_${VERSION}.orig.tar.gz
+fi
+
+FOLDER=${PACKAGE}-${VERSION}
+
+wget https://github.com/${USER}/${PACKAGE}/tarball/v${VERSION} -O ${PACKAGE}-${VERSION}.tar.gz
+tar xvzf ${PACKAGE}-${VERSION}.tar.gz
+mv ${USER}-${PACKAGE}-${SHA} ${FOLDER}
+GZIP=-9 tar czf ${TARFILE} ${FOLDER}
+#rm -rf ${FOLDER}
