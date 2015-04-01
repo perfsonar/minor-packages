@@ -1,0 +1,13 @@
+python-django-discover-runner (1.0-2) unstable; urgency=low
+
+  * Fix non-plural BSD-3-clause reference in debian/copyright.
+  * Added Python3 support (Closes: #755641).
+  * Standards-Version: 3.9.5.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 04 Aug 2014 09:12:44 +0000
+
+python-django-discover-runner (1.0-1) unstable; urgency=low
+
+  * Initial releas (Closes: #714134).
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 26 Jun 2013 14:51:58 +0800
