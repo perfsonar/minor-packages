@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -e
+set -x
+
+usage() {
+  progname=$(basename $0)
+  echo "$progname --upstream-version <UPSTREAM-VERSION> <UPSTREAM-TARBALL>"
+}
+
+
+if [ "$#" -ne "3" ] ; then
+  usage
+  exit 1
+fi
+
+UPSTREAM_VERS="$2"
+UPSTREAM_TAR="$3"
+DEST_DIR=`dirname $3`
+
+PKG_NAME=`dpkg-parsechangelog | sed -n -e 's/^Source: //p'`
+DEB_RELEASE=`dpkg-parsechangelog | sed -ne 's/^Version: \(\([0-9]\+\):\)\?\(.*\)-.*/\3/p'`
+
+TEMP_DIR=$(mktemp -d -t)
+echo "Unpacking upstream tarball..."
+tar -xzf ${UPSTREAM_TAR} --directory ${TEMP_DIR}
+UPSTREAM_SRC=`ls ${TEMP_DIR}`
+mv ${TEMP_DIR}/${UPSTREAM_SRC} ${TEMP_DIR}/${PKG_NAME}
+rm -rf ${TEMP_DIR}/${PKG_NAME}/debian
+tar -C ${TEMP_DIR} --owner=root --group=root --mode=a+rX -c ${PKG_NAME} | xz -6 >${DEST_DIR}/${PKG_NAME}_${DEB_RELEASE}.orig.tar.xz
+rm -r ${TEMP_DIR}
+rm -r ${UPSTREAM_TAR}
+echo "Upstream archive ${DEST_DIR}/${PKG_NAME}_${DEB_RELEASE}.orig.tar.xz created"

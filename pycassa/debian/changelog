@@ -1,0 +1,5 @@
+pycassa (1.11.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #744164)
+
+ -- Sebastien Badia <seb@sebian.fr>  Fri, 11 Apr 2014 17:58:17 +0200
