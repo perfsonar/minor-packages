@@ -1,0 +1,17 @@
+02_disable-sources-in-sphinxdoc.diff
+03_manpage.diff
+06_use_debian_geoip_database_as_default.diff
+is_safe_url-1.4.diff
+ssi-tag-1.4.diff
+password-dos.diff
+password-2.5-compat.diff
+reverse-execution-1.4.x.patch
+cache-csrf-1.4.x.patch
+2601.patch
+is_safe_url_1_4.diff
+drop_fix_ie_for_vary_1_4.diff
+admin-data-leak-1.4.diff
+remote-user-1.4.diff
+reverse-1.4.diff
+CVE-2015-0219.diff
+CVE-2015-0220.diff
