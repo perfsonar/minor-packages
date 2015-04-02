@@ -1,4 +1,4 @@
-libmath-int64-perl (0.32-2) unstable; urgency=medium
+libmath-int64-perl (0.32-2) UNRELEASED; urgency=medium
 
   * Team upload.
   * Patch the test suite to mark new failing tests as TODO for now.
