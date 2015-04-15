@@ -1,8 +1,8 @@
-cassandra (2.0.14~bpo70+1) unstable; urgency=medium
+cassandra (2.0.14-1~bpo70+1) unstable; urgency=medium
 
   * Backport to Wheezy
 
- -- Antoine Delvaux <antoine.delvaux@dante.net>  Wed, 15 Apr 2015 14:29:41 +0000
+ -- Antoine Delvaux <antoine.delvaux@dante.net>  Wed, 15 Apr 2015 14:55:18 +0000
 
 cassandra (2.0.14) unstable; urgency=medium
 
