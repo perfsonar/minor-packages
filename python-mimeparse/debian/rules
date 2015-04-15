@@ -6,6 +6,9 @@ PY3VERS=$(shell py3versions -sv)
 %:
 	dh $@ --buildsystem=python_distutils --with python2,python3
 
+# We don't need to clean as we have the upstream tarball - perfSONAR Jenkins builds
+override_dh_auto_clean:
+
 override_dh_clean:
 	dh_clean
 	rm -rf build

@@ -1,3 +1,9 @@
+python-mimeparse (0.1.4-1~bpo70+1) unstable; urgency=low
+
+  * Backport to Wheezy
+
+ -- Antoine Delvaux <antoine.delvaux@dante.net>  Wed, 15 Apr 2015 14:29:41 +0000
+
 python-mimeparse (0.1.4-1) unstable; urgency=low
 
   * New upstream release.
