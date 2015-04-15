@@ -13,7 +13,8 @@ test:
 clean:
 	dh_testdir
 	dh_testroot
-	$(ANT) realclean
+# We don't need to clean as we have the upstream tarball - perfSONAR Jenkins builds
+#	$(ANT) realclean
 	rm -f build-stamp build.properties
 	rm -rf bin/java
 	find -name "*.pyc" -exec rm '{}' ';'
@@ -75,5 +76,3 @@ binary-arch: build install
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install
 
-# We don't need to clean as we have the upstream tarball
-override_dh_auto_clean:
