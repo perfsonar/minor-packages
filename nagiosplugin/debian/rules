@@ -12,3 +12,6 @@ override_dh_auto_install:
 override_dh_installdocs:
 	rm -rf src/nagiosplugin/examples/__pycache__ src/nagiosplugin/examples/*.pyc
 	dh_installdocs -O--buildsystem=pybuild
+
+# We don't need to clean as we have the upstream tarball
+override_dh_auto_clean:
