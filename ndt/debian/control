@@ -2,7 +2,7 @@ Source: ndt
 Section: net
 Priority: optional
 Maintainer: Valentin Vidic <Valentin.Vidic@CARNet.hr>
-Build-Depends: debhelper (>= 9), autotools-dev, zlib1g-dev, libpcap-dev, libi2util-dev
+Build-Depends: debhelper (>= 9), autotools-dev, zlib1g-dev, libpcap-dev, libi2util-dev, libjansson-dev, libssl-dev
 Standards-Version: 3.9.3
 Homepage: http://software.internet2.edu/ndt/
 #Vcs-Git: git://git.debian.org/collab-maint/ndt.git

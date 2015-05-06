@@ -20,7 +20,8 @@ export DH_OPTIONS
 	dh $@  --with autotools-dev
 
 override_dh_auto_configure:
-	dh_auto_configure -- --with-I2util=/usr/lib/$(DEB_HOST_MULTIARCH)
+	dh_auto_configure -- \
+		--with-I2util=/usr/lib/$(DEB_HOST_MULTIARCH)
 
 override_dh_auto_install:
 	dh_auto_install --destdir=debian/tmp
