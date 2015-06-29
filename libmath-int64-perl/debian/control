@@ -14,8 +14,6 @@ Testsuite: autopkgtest-pkg-perl
 
 Package: libmath-int64-perl
 Architecture: any
-Depends: ${misc:Depends},
-         ${perl:Depends},
-         ${shlibs:Depends}
+Depends: perl (>= 5.14), ${misc:Depends}, ${shlibs:Depends}
 Description: module to manipulate 64 bits integers in Perl
  Math::Int64 adds support for 64 bit integers, signed and unsigned, to Perl.
