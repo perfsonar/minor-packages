@@ -1,0 +1,22 @@
+Source: libnet-traceroute-perl
+Section: perl
+Priority: extra
+Maintainer: Taku YASUI <tach@debian.org>
+Build-Depends: debhelper (>= 8), perl, perl-modules
+Standards-Version: 3.9.3
+Homepage: http://search.cpan.org/dist/Net-Traceroute/
+Vcs-Git: git://git.debian.org/pkg-perl/packages/libnet-traceroute-perl.git
+Vcs-Browser: http://git.debian.org/?p=pkg-perl/packages/libnet-traceroute-perl.git;a=summary
+
+Package: libnet-traceroute-perl
+Architecture: all
+Depends: ${misc:Depends}, ${perl:Depends}, traceroute
+Description: traceroute(1) functionality in perl
+ Net::Traceroute implements a parser for various traceroute implementations.
+ At present, it can parse most LBL traceroute derivatives used on typical
+ unixes, and the traceroute of cisco IOS. Traceroutes known not to be
+ supported include that of Microsoft Windows and HP-UX.
+ .
+ This module has two basic modes of operation, one, where it will run
+ traceroute for you, and the other where you provide text from previously
+ runing traceroute to parse.

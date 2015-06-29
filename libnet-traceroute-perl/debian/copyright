@@ -1,0 +1,23 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Net-Traceroute
+Source: http://search.cpan.org/dist/Net-Traceroute/
+
+Files: *
+Copyright: 1998, 1999 Massachusetts Institute of Technology
+           2000, 2001 Daniel Hagerty
+License: MIT
+
+Files: debian/*
+Copyright: 2012, Taku YASUI <tach@debian.org>
+License: MIT
+
+License: MIT
+ Permission to use, copy, modify, distribute, and sell this software
+ and its documentation for any purpose is hereby granted without fee,
+ provided that the above copyright notice appear in all copies and that
+ both that copyright notice and this permission notice appear in
+ supporting documentation, and that the name of M.I.T. not be used in
+ advertising or publicity pertaining to distribution of the software
+ without specific, written prior permission.  M.I.T. makes no
+ representations about the suitability of this software for any
+ purpose.  It is provided "as is" without express or implied warranty.
