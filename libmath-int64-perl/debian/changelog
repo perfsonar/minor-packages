@@ -1,4 +1,10 @@
-libmath-int64-perl (0.32-2) UNRELEASED; urgency=medium
+libmath-int64-perl (0.32-2.1) UNRELEASED; urgency=medium
+
+  * Fix libmath-int64-perl dependencies for Ubuntu.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Mon, 29 Jun 2015 11:37:12 +0200
+
+libmath-int64-perl (0.32-2) unstable; urgency=medium
 
   * Team upload.
   * Patch the test suite to mark new failing tests as TODO for now.
