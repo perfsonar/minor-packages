@@ -2,7 +2,7 @@ nagiosplugin (1.2.2-1~bpo70+1) unstable; urgency=medium
 
   * Backport to Wheezy
 
- -- Antoine Delvaux <antoine.delvaux@dante.net>  Wed, 15 Apr 2015 14:29:41 +0000
+ -- Antoine Delvaux <antoine.delvaux@dante.net>  Thu, 12 Nov 2015 13:25:58 +0000
 
 nagiosplugin (1.2.2-1) unstable; urgency=medium
 
