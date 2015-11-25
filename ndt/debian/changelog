@@ -1,3 +1,9 @@
+ndt (3.7.0.2-2) perfsonar-jessie-staging; urgency=medium
+
+  * Release jessie version.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Wed, 25 Nov 2015 15:58:41 +0100
+
 ndt (3.7.0.2-1) perfsonar-wheezy-staging; urgency=low
 
   * New upstream version
