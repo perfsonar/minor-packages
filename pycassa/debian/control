@@ -9,6 +9,7 @@ Build-Depends: debhelper (>= 9),
                python-setuptools,
                python-sphinx,
                python-thrift (>= 0.5.0)
+X-Python-Version: >= 2.6
 Homepage: http://pycassa.github.io/pycassa/
 Vcs-Git: git://anonscm.debian.org/collab-maint/pycassa.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/pycassa.git
