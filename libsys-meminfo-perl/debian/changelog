@@ -1,0 +1,5 @@
+libsys-meminfo-perl (0.98-1) unstable; urgency=low
+
+  * Initial Release. (Closes: #764515)
+
+ -- Willi Mann <willi@debian.org>  Fri, 12 Jun 2015 20:17:50 +0200
