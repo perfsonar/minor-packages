@@ -1,0 +1,19 @@
+Source: libsys-meminfo-perl
+Section: perl
+Priority: optional
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: Willi Mann <willi@debian.org>
+Build-Depends: debhelper (>= 9.20120312~),
+ perl
+Standards-Version: 3.9.6
+Vcs-Git: git://anonscm.debian.org/pkg-perl/packages/libsys-meminfo-perl.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-perl/packages/libsys-meminfo-perl.git
+Homepage: https://metacpan.org/release/Sys-MemInfo
+
+Package: libsys-meminfo-perl
+Architecture: any
+Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+Description: module to query the total free and used physical memory
+ Sys::MemInfo is a Perl module to return the total amount of free and used
+ physical memory and swap-space. It is available for most major operating
+ systems.

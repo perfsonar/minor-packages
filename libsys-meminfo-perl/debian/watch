@@ -1,0 +1,3 @@
+version=3
+https://metacpan.org/release/Sys-MemInfo   .*/Sys-MemInfo-v?(\d[\d.-]*)\.(?:tar(?:\.gz|\.bz2)?|tgz|zip)$
+http://search.cpan.org/dist/Sys-MemInfo/   .*/Sys-MemInfo-v?(\d[\d.-]*)\.(?:tar(?:\.gz|\.bz2)?|tgz|zip)$
