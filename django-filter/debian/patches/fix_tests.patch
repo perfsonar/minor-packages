@@ -1,0 +1,39 @@
+From d2e50dcc8fd58b62ccca7adcaf3d90fe0e88d40b Mon Sep 17 00:00:00 2001
+From: SVN-Git Migration <python-modules-team@lists.alioth.debian.org>
+Date: Thu, 8 Oct 2015 08:52:07 -0700
+Subject: fix_tests
+
+Patch-Name: fix_tests.patch
+---
+ django_filters/filters.py | 2 +-
+ tests/test_filters.py     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/django_filters/filters.py b/django_filters/filters.py
+index 9295fe5..1042de0 100644
+--- a/django_filters/filters.py
++++ b/django_filters/filters.py
+@@ -84,9 +84,9 @@ class Filter(object):
+             lookup = self.lookup_type
+         if value in ([], (), {}, None, ''):
+             return qs
+-        qs = self.get_method(qs)(**{'%s__%s' % (self.name, lookup): value})
+         if self.distinct:
+             qs = qs.distinct()
++        qs = self.get_method(qs)(**{'%s__%s' % (self.name, lookup): value})
+         return qs
+ 
+ 
+diff --git a/tests/test_filters.py b/tests/test_filters.py
+index 68bbd37..a631b6d 100644
+--- a/tests/test_filters.py
++++ b/tests/test_filters.py
+@@ -189,7 +189,7 @@ class FilterTests(TestCase):
+         qs = mock.Mock(spec=['filter', 'distinct'])
+         f = Filter(name='somefield', distinct=True)
+         f.filter(qs, 'value')
+-        result = qs.distinct.assert_called_once()
++        result = qs.distinct.assert_called_once_with()
+         self.assertNotEqual(qs, result)
+ 
+ 
