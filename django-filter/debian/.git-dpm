@@ -1,0 +1,11 @@
+# see git-dpm(1) from git-dpm package
+d2e50dcc8fd58b62ccca7adcaf3d90fe0e88d40b
+d2e50dcc8fd58b62ccca7adcaf3d90fe0e88d40b
+9b2333ed6baed573a0058790b9678bb619d21bda
+9b2333ed6baed573a0058790b9678bb619d21bda
+django-filter_0.11.0.orig.tar.gz
+8a6c61511d5da419dd4eba0ba0e4ec8912a3b926
+203673
+debianTag="debian/%e%v"
+patchedTag="patched/%e%v"
+upstreamTag="upstream/%e%u"

@@ -1,0 +1,5 @@
+djangorestframework-filters (0.6.0-1) unstable; urgency=medium
+
+  * Initial packaging.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Thu, 14 Jan 2016 11:03:05 +0100
