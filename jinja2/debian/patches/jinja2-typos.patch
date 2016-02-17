@@ -1,0 +1,76 @@
+Description: doc typos
+Author: Jakub Wilk <jwilk@debian.org>
+Bug-Debian: http://bugs.debian.org/679534
+--- jinja2-2.7.orig/docs/tricks.rst
++++ jinja2-2.7/docs/tricks.rst
+@@ -15,7 +15,7 @@ Null-Master Fallback
+ Jinja2 supports dynamic inheritance and does not distinguish between parent
+ and child template as long as no `extends` tag is visited.  While this leads
+ to the surprising behavior that everything before the first `extends` tag
+-including whitespace is printed out instead of being igored, it can be used
++including whitespace is printed out instead of being ignored, it can be used
+ for a neat trick.
+ 
+ Usually child templates extend from one template that adds a basic HTML
+--- jinja2-2.7.orig/docs/templates.rst
++++ jinja2-2.7/docs/templates.rst
+@@ -474,7 +474,7 @@ include characters that affect the resul
+ manually escaping each variable or automatically escaping everything by default.
+ 
+ Jinja supports both, but what is used depends on the application configuration.
+-The default configuaration is no automatic escaping for various reasons:
++The default configuration is no automatic escaping for various reasons:
+ 
+ -   escaping everything except of safe values will also mean that Jinja is
+     escaping variables known to not include HTML such as numbers which is
+@@ -1033,7 +1033,7 @@ but exists for completeness' sake.  The
+     a look at the ``~`` operator.  ``{{ 1 + 1 }}`` is ``2``.
+ 
+ \-
+-    Substract the second number from the first one.  ``{{ 3 - 2 }}`` is ``1``.
++    Subtract the second number from the first one.  ``{{ 3 - 2 }}`` is ``1``.
+ 
+ /
+     Divide two numbers.  The return value will be a floating point number.
+--- jinja2-2.7.orig/docs/sandbox.rst
++++ jinja2-2.7/docs/sandbox.rst
+@@ -54,7 +54,7 @@ Operator Intercepting
+ 
+ .. versionadded:: 2.6
+ 
+-For maximum performace Jinja2 will let operators call directly the type
++For maximum performance Jinja2 will let operators call directly the type
+ specific callback methods.  This means that it's not possible to have this
+ intercepted by overriding :meth:`Environment.call`.  Furthermore a
+ conversion from operator to special method is not always directly possible
+--- jinja2-2.7.orig/docs/api.rst
++++ jinja2-2.7/docs/api.rst
+@@ -450,7 +450,7 @@ This is especially useful if you have a
+ the first request and Jinja compiles many templates at once which slows down
+ the application.
+ 
+-To use a bytecode cache, instanciate it and pass it to the :class:`Environment`.
++To use a bytecode cache, instantiate it and pass it to the :class:`Environment`.
+ 
+ .. autoclass:: jinja2.BytecodeCache
+     :members: load_bytecode, dump_bytecode, clear
+@@ -618,7 +618,7 @@ Evaluation Context
+ ------------------
+ 
+ The evaluation context (short eval context or eval ctx) is a new object
+-introducted in Jinja 2.4 that makes it possible to activate and deactivate
++introduced in Jinja 2.4 that makes it possible to activate and deactivate
+ compiled features at runtime.
+ 
+ Currently it is only used to enable and disable the automatic escaping but
+--- jinja2-2.7.orig/docs/extensions.rst
++++ jinja2-2.7/docs/extensions.rst
+@@ -213,7 +213,7 @@ Writing Extensions
+ 
+ .. module:: jinja2.ext
+ 
+-By writing extensions you can add custom tags to Jinja2.  This is a non trival
++By writing extensions you can add custom tags to Jinja2.  This is a non-trivial
+ task and usually not needed as the default tags and expressions cover all
+ common use cases.  The i18n extension is a good example of why extensions are
+ useful, another one would be fragment caching.
