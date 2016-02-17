@@ -1,0 +1,6 @@
+Tests: python-sqlparse
+Depends: python-all, python-sqlparse, python-pytest
+
+Tests: python3-sqlparse
+Depends: python-all, python3-sqlparse, python3-pytest
+Restrictions: allow-stderr

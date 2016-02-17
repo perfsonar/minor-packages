@@ -1,0 +1,36 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=sqlparse
+export PYBUILD_TEST_PYTEST=1
+export PYBUILD_TEST_ARGS=-v
+# Run 2to3 against tests files if testing against python3, clean up afterwards
+export PYBUILD_BEFORE_TEST=cp -R {dir}/tests {build_dir}; [ "{version.major}" = "2" ] || 2to3 -w {build_dir}/tests
+export PYBUILD_AFTER_TEST=rm -fR {build_dir}/tests
+
+%:
+	dh $@ --with python2,python3,sphinxdoc --buildsystem pybuild
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf docs/build
+
+override_dh_python2:
+	# No Python 2 cli script.
+	rm -rf debian/python-sqlparse/usr/bin
+	dh_python2
+
+override_dh_auto_install:
+	dh_auto_install
+	# Use the separate binary package for the cli script.
+	mkdir -p debian/sqlformat/usr/bin
+	mv debian/python3-sqlparse/usr/bin/sqlformat \
+	   debian/sqlformat/usr/bin
+	rm -rf debian/python3-sqlparse/usr/bin
+
+build: build-indep
+build-indep: docs/build/html
+
+build-arch:
+
+docs/build/html:
+	cd docs && $(MAKE) html

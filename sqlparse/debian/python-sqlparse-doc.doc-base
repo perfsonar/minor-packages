@@ -1,0 +1,10 @@
+Document: python-sqlparse
+Title: sqlparse: non-validating SQL parser module for Python
+Section: Programming/Python
+Author: Andi Albrecht
+Abstract: sqlparse is a non-validating SQL parser for Python.
+ It provides support for parsing, splitting and formatting SQL statements.
+
+Format: HTML
+Index: /usr/share/doc/python-sqlparse-doc/html/index.html
+Files: /usr/share/doc/python-sqlparse-doc/html/*.html
