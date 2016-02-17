@@ -1,0 +1,28 @@
+python-bcrypt (0.4-2) unstable; urgency=medium
+
+  * Team upload.
+  * Build-depend on python-all-dev and python3-all-dev, instead of just
+    default python3?-dev. (Closes: #741770)
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 31 Mar 2014 22:40:17 +0100
+
+python-bcrypt (0.4-1) unstable; urgency=low
+
+  * New Upstream release
+  * Migrate to git-buildpackage
+  * Update control file to reflect more modern debian standards (no changes)
+  * Update to use debhelper 9
+  * Add source/format of "3.0 (quilt)"
+  * Fix spelling of parametrised throughout debian/ directory
+  * Update watch file to use google code
+  * Remove depricated pycompat file
+  * Update copyright file to be machine-readable
+
+ -- Simon Fondrie-Teitler <simonft@riseup.net>  Sat, 21 Sep 2013 16:26:21 -0500
+
+python-bcrypt (0.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #454627)
+  * Added man page.
+
+ -- Kevin Coyner <kcoyner@debian.org>  Sat, 22 Dec 2007 13:45:05 -0500
