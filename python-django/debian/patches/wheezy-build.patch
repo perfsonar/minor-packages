@@ -1,0 +1,17 @@
+--- a/Django.egg-info/SOURCES.txt
++++ b/Django.egg-info/SOURCES.txt
+@@ -4709,7 +4709,6 @@
+ tests/staticfiles_tests/apps/test/static/test/nonascii.css
+ tests/staticfiles_tests/apps/test/static/test/test.ignoreme
+ tests/staticfiles_tests/apps/test/static/test/window.png
+-tests/staticfiles_tests/apps/test/static/test/⊗.txt
+ tests/staticfiles_tests/project/documents/test.txt
+ tests/staticfiles_tests/project/documents/cached/absolute.css
+ tests/staticfiles_tests/project/documents/cached/denorm.css
+@@ -5177,4 +5176,4 @@
+ tests/wsgi/__init__.py
+ tests/wsgi/tests.py
+ tests/wsgi/urls.py
+-tests/wsgi/wsgi.py
+\ No newline at end of file
++tests/wsgi/wsgi.py
