@@ -7,18 +7,8 @@ Build-Depends: debhelper (>= 8.0.0),
                dh-python,
                python-all (>= 2.6.5),
                python-setuptools,
-               python-django (>= 1.4.2),
-               python-defusedxml (>= 0.3),
-               python-django-filters (>= 0.5.4),
-               python-django-guardian (>= 1.1.1),
-               python-imaging,
-               python-xmlrunner,
                python3-all (>= 3.2),
-               python3-setuptools,
-               python3-django (>= 1.4.2),
-               python3-defusedxml (>= 0.3),
-               python3-django-filters (>= 0.5.4),
-               python3-django-guardian (>= 1.1.1),
+               python3-setuptools
 Standards-Version: 3.9.6
 X-Python-Version: >= 2.7
 Homepage: http://django-rest-framework.org
