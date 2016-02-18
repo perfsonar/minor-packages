@@ -1,0 +1,24 @@
+Description: Fixed title underline too short.
+Author: Kouhei Maeda
+Origin: https://github.com/mkouhei/django-guardian/commit/b09bda360c80ce08d886005be17e1add9b16c32d.patch
+Last-Update: 2014-07-19
+
+Index: django-guardian-1.2.4/CHANGES
+===================================================================
+--- django-guardian-1.2.4.orig/CHANGES	2014-07-15 00:20:13.000000000 +0900
++++ django-guardian-1.2.4/CHANGES	2014-07-19 11:54:44.400519698 +0900
+@@ -1,12 +1,12 @@
+ Release 1.2.4 (Jul 14, 2014)
+-===========================
++============================
+ 
+ * Fixed another issue with custom primary keys at admin extensions (Thanks Omer
+   Katz)
+ 
+ 
+ Release 1.2.3 (Jul 14, 2014)
+-===========================
++============================
+ 
+ Unfortunately this was broken release not including any important changes.
+ 

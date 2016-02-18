@@ -1,0 +1,30 @@
+Description: Fixed Field list ends without a blank line.
+Author: Kouhei Maeda
+Origin:
+Last-Update: 2014-07-19
+
+Index: django-guardian-1.2.4/guardian/core.py
+===================================================================
+--- django-guardian-1.2.4.orig/guardian/core.py	2014-07-19 13:49:17.213372845 +0900
++++ django-guardian-1.2.4/guardian/core.py	2014-07-19 13:57:41.216446284 +0900
+@@ -14,7 +14,7 @@
+ class ObjectPermissionChecker(object):
+     """
+     Generic object permissions checker class being the heart of
+-    ``django-guardian``.
++       ``django-guardian``.
+ 
+     .. note::
+        Once checked for single object, permissions are stored and we don't hit
+Index: django-guardian-1.2.4/guardian/forms.py
+===================================================================
+--- django-guardian-1.2.4.orig/guardian/forms.py	2014-07-19 13:49:17.213372845 +0900
++++ django-guardian-1.2.4/guardian/forms.py	2014-07-19 13:49:17.209372506 +0900
+@@ -18,6 +18,7 @@
+     def __init__(self, obj, *args, **kwargs):
+         """
+         :param obj: Any instance which form would use to manage object
++
+           permissions"
+         """
+         self.obj = obj

@@ -1,0 +1,21 @@
+Description: Name INSTALLED_APPS consistantly.
+Author: Brian May <brian@microcomaustralia.com.au>
+Bug-Debian: https://bugs.debian.org/758381
+Origin: https://github.com/brianmay/django-guardian/blob/master/debian/patches/0007-Name-INSTALLED_APPS-consistantly.patch
+Last-Update: 2014-08-25
+
+--- django-guardian-1.2.4.orig/example_project/settings.py
++++ django-guardian-1.2.4/example_project/settings.py
+@@ -36,9 +36,9 @@ INSTALLED_APPS = (
+     'django.contrib.staticfiles',
+     'guardian',
+     'guardian.testapp',
+-    'posts',
+-    'core',
+-    'integration_tests',
++    'example_project.posts',
++    'example_project.core',
++    'example_project.integration_tests',
+ )
+ 
+ if 'GUARDIAN_NO_TESTS_APP' in os.environ:

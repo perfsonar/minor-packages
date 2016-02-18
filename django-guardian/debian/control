@@ -1,0 +1,61 @@
+Source: django-guardian
+Section: python
+Priority: optional
+Maintainer: Kouhei Maeda <mkouhei@palmtb.net>
+Build-Depends: debhelper (>= 8.0.0), dh-python,
+    python-all, python-setuptools, python-django (>= 1.2),
+    python-mock (>= 0.7.2), python-six, python-unittest2,
+    python3-all, python3-setuptools, python3-django (>= 1.2),
+    python3-mock (>= 0.7.2), python3-six,
+    python3-sphinx,
+Standards-Version: 3.9.6
+X-Python-Version: >= 2.7
+Homepage: http://github.com/lukaszb/django-guardian
+
+Package: python-django-guardian
+Architecture: all
+Provides: ${python:Provides}
+Depends: ${python:Depends}, ${misc:Depends}, python-django (>= 1.2), python-six
+Suggests: python-django-guardian-doc
+Description: per object permissions of django
+ Implementation of per object permissions as authorization backend which is
+ supported since Django 1.2. It provides features as followings;
+  - Object permissions for Django_
+  - AnonymousUser support
+  - High level API
+  - Heavely tested
+  - Django's admin integration
+  - Decorators
+
+Package: python3-django-guardian
+Architecture: all
+Provides: ${python:Provides}
+Depends: ${python:Depends}, ${misc:Depends}, python3-django (>= 1.2), python3-six
+Suggests: python-django-guardian-doc
+Description: per object permissions of django for Python3
+ For Python3.
+ Implementation of per object permissions as authorization backend which is
+ supported since Django 1.2. It provides features as followings;
+  - Object permissions for Django_
+  - AnonymousUser support
+  - High level API
+  - Heavely tested
+  - Django's admin integration
+  - Decorators
+
+Package: python-django-guardian-doc
+Section: doc
+Architecture: all
+Depends: ${misc:Depends}, libjs-underscore, python-sphinx, sphinx-common
+Description: per object permissions of django (documentation)
+ Implementation of per object permissions as authorization backend which is
+ supported since Django 1.2. It provides features as followings;
+  - Object permissions for Django_
+  - AnonymousUser support
+  - High level API
+  - Heavely tested
+  - Django's admin integration
+  - Decorators
+ .
+ This package contains the HTML documentation.
+

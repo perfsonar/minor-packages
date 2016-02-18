@@ -1,0 +1,22 @@
+Description: Add MIDDLEWARE_CLASSES setting.
+Author: Brian May <brian@microcomaustralia.com.au>
+Bug-Debian: https://bugs.debian.org/758381
+Origin: https://github.com/brianmay/django-guardian/blob/master/debian/patches/0010-Add-MIDDLEWARE_CLASSES-setting.patch
+Last-Update: 2014-08-25
+
+--- django-guardian-1.2.4.orig/guardian/testsettings.py
++++ django-guardian-1.2.4/guardian/testsettings.py
+@@ -27,6 +27,13 @@ AUTHENTICATION_BACKENDS = (
+     'guardian.backends.ObjectPermissionBackend',
+ )
+ 
++
++MIDDLEWARE_CLASSES = (
++    'django.contrib.sessions.middleware.SessionMiddleware',
++    'django.contrib.auth.middleware.AuthenticationMiddleware',
++    'django.contrib.messages.middleware.MessageMiddleware',
++)
++
+ TEST_RUNNER = 'django.test.simple.DjangoTestSuiteRunner'
+ 
+ DATABASES = {

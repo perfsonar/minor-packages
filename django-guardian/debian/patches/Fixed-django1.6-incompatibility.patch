@@ -1,0 +1,22 @@
+Description: get_objects_for_user() is incompatible with Django 1.6
+ setting AUTH_USER_MODEL to an abstract user model results in a broken
+ get_objects_for_user method.
+Author: thepapermen <the.paper.men@gmail.com>
+Origin: https://github.com/lukaszb/django-guardian/commit/c27e3421784a51f8181aaf8e43ea8a9a31f84621.patch
+Bug: 739524
+Bug-Upstream: https://github.com/lukaszb/django-guardian/issues/164
+Last-Update: 2013-09-24
+
+Index: django-guardian-1.1.1/guardian/shortcuts.py
+===================================================================
+--- django-guardian-1.1.1.orig/guardian/shortcuts.py	2013-05-31 22:49:35.000000000 +0900
++++ django-guardian-1.1.1/guardian/shortcuts.py	2014-02-20 06:40:05.151450410 +0900
+@@ -394,7 +394,7 @@
+         group_filters = {
+             'permission__content_type': ctype,
+             'permission__codename__in': codenames,
+-            'group__%s' % get_user_model()._meta.module_name: user,
++            'group__%s' % get_user_model().groups.field.related_query_name(): user,
+         }
+         groups_obj_perms_queryset = group_model.objects.filter(**group_filters)
+         if group_model.objects.is_generic():

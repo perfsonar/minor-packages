@@ -1,0 +1,18 @@
+Description: Modified for Python3
+Origin: https://github.com/brianmay/django-guardian/blob/master/debian/patches/0004-python32.patch
+Author: Brian May <brian@microcomaustralia.com.au>
+Last-Update: 2014-08-25
+
+Index: django-guardian-1.2.4/guardian/models.py
+===================================================================
+--- django-guardian-1.2.4.orig/guardian/models.py	2014-08-19 10:46:03.875700385 +1000
++++ django-guardian-1.2.4/guardian/models.py	2014-08-19 10:46:25.363209417 +1000
+@@ -26,7 +26,7 @@
+         abstract = True
+ 
+     def __unicode__(self):
+-        return u'%s | %s | %s' % (
++        return '%s | %s | %s' % (
+             unicode(self.content_object),
+             unicode(getattr(self, 'user', False) or self.group),
+             unicode(self.permission.codename))

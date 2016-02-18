@@ -1,0 +1,29 @@
+Description: Fix conflicting related_name.
+Author: Brian May <brian@microcomaustralia.com.au>
+Bug-Debian: https://bugs.debian.org/758381
+Origin: https://github.com/brianmay/django-guardian/blob/master/debian/patches/0008-Fix-conflicting-related_name.patch
+Last-Update: 2014-08-25
+
+--- django-guardian-1.2.4.orig/example_project/core/models.py
++++ django-guardian-1.2.4/example_project/core/models.py
+@@ -1,9 +1,9 @@
+-from django.contrib.auth.models import AbstractUser
+ from django.db import models
++from guardian.testapp.models import CustomUser as BaseCustomUser
+ import datetime
+ 
+ 
+-class CustomUser(AbstractUser):
++class CustomUser(BaseCustomUser):
+     real_username = models.CharField(max_length=120, unique=True)
+     birth_date = models.DateField(null=True, blank=True)
+ 
+--- django-guardian-1.2.4.orig/guardian/testapp/models.py
++++ django-guardian-1.2.4/guardian/testapp/models.py
+@@ -61,4 +61,4 @@ class LogEntryWithGroup(LogEntry):
+ if django.VERSION > (1, 5):
+     from django.contrib.auth.models import AbstractUser
+     class CustomUser(AbstractUser, GuardianUserMixin):
+-        custom_id = models.AutoField(primary_key=True)
+\ No newline at end of file
++        custom_id = models.AutoField(primary_key=True)

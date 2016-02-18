@@ -1,0 +1,2 @@
+append_uncompressed_js_libraries.patch
+remove_non_local_image_uri.patch

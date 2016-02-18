@@ -1,0 +1,32 @@
+Description: Remove nonlocal image for Travis-ci.
+Author: Kouhei Maeda
+Last-Update: 2014-07-19
+
+Index: django-guardian-1.2.4/docs/index.rst
+===================================================================
+--- django-guardian-1.2.4.orig/docs/index.rst	2014-07-15 00:20:13.000000000 +0900
++++ django-guardian-1.2.4/docs/index.rst	2014-07-19 14:31:39.145160080 +0900
+@@ -9,9 +9,6 @@
+ 
+ **Documentation**:
+ 
+-.. image:: https://secure.travis-ci.org/lukaszb/django-guardian.png?branch=master
+-  :target: http://travis-ci.org/lukaszb/django-guardian
+-
+ .. toctree::
+     :maxdepth: 2
+ 
+Index: django-guardian-1.2.4/docs/develop/testing.rst
+===================================================================
+--- django-guardian-1.2.4.orig/docs/develop/testing.rst	2014-07-15 00:20:13.000000000 +0900
++++ django-guardian-1.2.4/docs/develop/testing.rst	2014-07-19 14:32:03.203447580 +0900
+@@ -102,9 +102,6 @@
+ 
+ .. versionadded:: 1.0.4
+ 
+-.. image:: https://secure.travis-ci.org/lukaszb/django-guardian.png?branch=master
+-  :target: http://travis-ci.org/lukaszb/django-guardian
+-
+ Recently we have added support for Travis_, continuous integration server so it
+ is even more easy to follow if test fails with new commits: http://travis-ci.org/#!/lukaszb/django-guardian.
+ 
