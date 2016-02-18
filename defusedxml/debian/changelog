@@ -1,0 +1,14 @@
+defusedxml (0.4.1-2) unstable; urgency=medium
+
+  * Added Python 3 support.
+  * Bumped Standards-Version to 3.9.5 (no changes needed)
+  * Updated VCS-* fields to canonical locations. 
+  * Added watch file.
+
+ -- Nikolaus Rath <Nikolaus@rath.org>  Sun, 29 Jun 2014 16:38:39 -0700
+
+defusedxml (0.4.1-1) unstable; urgency=low
+
+  * Initial release. (Closes: #705691)
+
+ -- Luke Faraone <lfaraone@debian.org>  Thu, 18 Apr 2013 11:15:53 -0400

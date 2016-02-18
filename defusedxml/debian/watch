@@ -1,0 +1,6 @@
+# watch control file for uscan
+version=3
+opts=pgpsigurlmangle=s/$/.asc/,filenamemangle=s/.*\/([^\/]+)#.+$/$1/ \
+  https://pypi.python.org/pypi/defusedxml/ \
+  .*/defusedxml-(.+)\.tar\.gz(?:#.*)? \
+  debian

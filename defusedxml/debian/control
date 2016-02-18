@@ -1,0 +1,45 @@
+Source: defusedxml
+Maintainer: Debian Python Modules Packaging Team <python-modules-team@lists.alioth.debian.org>
+Uploaders: Luke Faraone <lfaraone@debian.org>
+Section: python
+Priority: optional
+Build-Depends: python-all (>= 2.6.6-3),
+               python3-all,
+               debhelper (>= 8),
+               dh-python,
+               python-setuptools,
+               python3-setuptools
+Standards-Version: 3.9.5
+Homepage: https://pypi.python.org/pypi/defusedxml
+Vcs-Svn: svn://anonscm.debian.org/python-modules/packages/defusedxml/trunk/
+Vcs-Browser: http://anonscm.debian.org/viewvc/python-modules/packages/defusedxml/trunk/
+X-Python-Version: >= 2.6
+X-Python3-Version: >= 3.2
+
+Package: python-defusedxml
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}
+Description: XML bomb protection for Python stdlib modules (for Python 2)
+ The results of an attack on a vulnerable XML library can be fairly dramatic.
+ With just a few hundred bytes of XML data an attacker can occupy several
+ gigabytes of memory within seconds. An attacker can also keep
+ CPUs busy for a long time with a small to medium size request.
+ .
+ This library allows for XML to be parsed in a manner that avoids these
+ pitfalls.
+ .
+ This package contains the module for the Python 2 interpreter.
+
+Package: python3-defusedxml
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}
+Description: XML bomb protection for Python stdlib modules (for Python 3)
+ The results of an attack on a vulnerable XML library can be fairly dramatic.
+ With just a few hundred bytes of XML data an attacker can occupy several
+ gigabytes of memory within seconds. An attacker can also keep
+ CPUs busy for a long time with a small to medium size request.
+ .
+ This library allows for XML to be parsed in a manner that avoids these
+ pitfalls.
+ .
+ This package contains the module for the Python 3 interpreter.
