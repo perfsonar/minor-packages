@@ -18,12 +18,6 @@ override_dh_auto_build:
 	make -C docs html
 
 override_dh_auto_test:
-ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	cd tests && for python in $$(pyversions -s) $$(py3versions -s); do \
-	    	echo "——— Running tests with $$python ———"; \
-		LC_ALL=C.UTF-8 PYTHONPATH=.. $$python ./runtests.py --verbosity=2; \
-	done
-endif
 
 override_dh_clean:
 	# backup~ is used in tests
