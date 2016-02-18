@@ -13,4 +13,3 @@ override_dh_auto_build:
 
 .PHONY: override_dh_auto_test
 override_dh_auto_test:
-	dh_auto_test -- --system=custom --test-args="{interpreter} ./runtests.py"
