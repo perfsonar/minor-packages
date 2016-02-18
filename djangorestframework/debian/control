@@ -11,7 +11,7 @@ Build-Depends: debhelper (>= 8.0.0),
                python-defusedxml (>= 0.3),
                python-django-filters (>= 0.5.4),
                python-django-guardian (>= 1.1.1),
-               python-pil,
+               python-imaging,
                python-xmlrunner,
                python3-all (>= 3.2),
                python3-setuptools,
@@ -36,7 +36,7 @@ Recommends: python-yaml (>= 3.10),
             python-django-filters (>= 0.5.4),
             python-django-guardian (>= 1.1.1),
             python-markdown (>= 2.1.0),
-            python-pil
+            python-imaging
 Description: Web APIs for Django, made easy
  powerful and flexible toolkit that makes it easy to build Web APIs.
  Some reasons you might want to use REST framework:
@@ -55,8 +55,7 @@ Depends: ${python3:Depends},
 Recommends: python3-defusedxml (>= 0.3),
             python3-django-filters (>= 0.5.4),
             python3-django-guardian (>= 1.1.1),
-            python3-markdown (>= 2.1.0),
-            python3-pil
+            python3-markdown (>= 2.1.0)
 Description: Web APIs for Django, made easy for Python3
  For Python3.
  powerful and flexible toolkit that makes it easy to build Web APIs.
