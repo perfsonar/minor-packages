@@ -1,5 +1,0 @@
-libnet-traceroute-perl (1.13-1) unstable; urgency=low
-
-  * Initial Release. (Closes: #672565)
-
- -- Taku YASUI <tach@debian.org>  Sun, 13 May 2012 00:42:29 +0900
