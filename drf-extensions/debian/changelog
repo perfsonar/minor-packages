@@ -1,3 +1,9 @@
+drf-extensions (0.2.8-1~bpo70+1) unstable; urgency=medium
+
+  * Backport to Wheezy.
+
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Sun, 21 Feb 2016 22:52:44 +0000
+
 drf-extensions (0.2.8-1) unstable; urgency=medium
 
   * Initial packaging.
