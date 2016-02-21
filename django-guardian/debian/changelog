@@ -1,3 +1,9 @@
+django-guardian (1.2.4+git20141127-0.2~bpo70+1) unstable; urgency=low
+
+  * Backport to Wheezy.
+
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Sun, 21 Feb 2016 23:05:22 +0000
+
 django-guardian (1.2.4+git20141127-0.2) unstable; urgency=low
 
   * Non-maintainer upload.
