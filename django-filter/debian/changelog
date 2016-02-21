@@ -1,3 +1,9 @@
+django-filter (0.11.0-2~bpo80+1) unstable; urgency=medium
+
+  * Backport to Jessie.
+
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Sun, 21 Feb 2016 22:47:05 +0000
+
 django-filter (0.11.0-2) unstable; urgency=medium
 
   * Run tests for all Python 3.*
