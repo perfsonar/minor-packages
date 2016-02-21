@@ -1,3 +1,9 @@
+djangorestframework-filters (0.6.0-1~bpo70+1) unstable; urgency=medium
+
+  * Backport to Wheezy.
+
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Sun, 21 Feb 2016 22:51:04 +0000
+
 djangorestframework-filters (0.6.0-1) unstable; urgency=medium
 
   * Initial packaging.
