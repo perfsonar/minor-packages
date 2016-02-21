@@ -1,3 +1,9 @@
+django-tastypie (0.12.2-1~bpo70+1) unstable; urgency=medium
+
+  * Backport to Wheezy.
+
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Sun, 21 Feb 2016 22:36:35 +0000
+
 django-tastypie (0.12.2-1) unstable; urgency=medium
 
   * New upstream version required for django 1.8.
