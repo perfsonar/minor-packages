@@ -1,5 +1,5 @@
-python-dlnetsnmp (0.4.1-1) unstable; urgency=low
+python-dlnetsnmp (0.4.1-2) unstable; urgency=low
 
   * Initial release.
 
- -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Thu, 11 Dec 2014 09:01:43 +0100
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Sun, 21 Feb 2016 22:08:50 +0000
