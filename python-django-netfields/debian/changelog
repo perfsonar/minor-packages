@@ -1,3 +1,9 @@
+python-django-netfields (0.3.1-1~bpo70+1) unstable; urgency=medium
+
+  * Backport to Wheezy.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Sun, 21 Feb 2016 00:56:02 +0000
+
 python-django-netfields (0.3.1-1) unstable; urgency=medium
 
   * Initial packaging.
