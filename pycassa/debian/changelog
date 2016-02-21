@@ -1,3 +1,9 @@
+pycassa (1.11.0-1~bpo70+1) unstable; urgency=low
+
+  * Backport to Wheezy.
+
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Sun, 21 Feb 2016 00:08:15 +0000
+
 pycassa (1.11.0-1) unstable; urgency=low
 
   * Initial release (Closes: #744164)
