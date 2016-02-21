@@ -1,3 +1,9 @@
+python-django (1.8.7-2~bpo70+1) wheezy-backports; urgency=medium
+
+  * Backport to Wheezy.
+
+ - Antoine Delvaux <adelvaux@man.poznan.pl>  Sun, 21 Feb 2016 22:27:48 +0000
+
 python-django (1.8.7-2~bpo8+1) jessie-backports; urgency=medium
 
   * Rebuild for jessie-backports. Django 1.8 is an LTS version that I'd like
