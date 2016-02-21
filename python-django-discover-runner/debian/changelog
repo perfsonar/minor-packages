@@ -1,3 +1,9 @@
+python-django-discover-runner (1.0-2~bpo70+1) unstable; urgency=low
+
+  * Backport to Wheezy
+
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Sun, 21 Feb 2016 22:20:51 +0000
+
 python-django-discover-runner (1.0-2) unstable; urgency=low
 
   * Fix non-plural BSD-3-clause reference in debian/copyright.
