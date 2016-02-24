@@ -1,8 +1,8 @@
-cassandra (2.0.14-1~bpo80+1) unstable; urgency=medium
+cassandra (2.0.14-1~bpo8+1) unstable; urgency=medium
 
   * Backport to Jessie
 
- -- Antoine Delvaux <adelvaux@man.poznan.pl>  Sat, 20 Feb 2016 23:21:27 +0000
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Wed, 24 Feb 2016 23:13:49 +0000
 
 cassandra (2.0.14) unstable; urgency=medium
 

@@ -1,8 +1,8 @@
-libsys-meminfo-perl (0.98-1~bpo80+1) unstable; urgency=low
+libsys-meminfo-perl (0.98-1~bpo8+1) unstable; urgency=low
 
   * Backporting to Jessie.
 
- -- Antoine Delvaux <adelvaux@man.poznan.pl>  Sat, 20 Feb 2016 23:39:40 +0000
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Wed, 24 Feb 2016 23:13:05 +0000
 
 libsys-meminfo-perl (0.98-1) unstable; urgency=low
 
