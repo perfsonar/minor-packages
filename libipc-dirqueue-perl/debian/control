@@ -9,7 +9,7 @@ Homepage: http://search.cpan.org/dist/IPC-DirQueue/
 
 Package: libipc-dirqueue-perl
 Architecture: all
-Depends: ${misc:Depends}, ${perl:Depends}
+Depends: libpoe-perl, ${misc:Depends}, ${perl:Depends}
 Description: disk-based many-to-many task queue
  IPC::DirQueue implements a FIFO queueing infrastructure, using a directory as
  the communications and storage media. No daemon process is required to manage
