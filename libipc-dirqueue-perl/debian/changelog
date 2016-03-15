@@ -1,4 +1,10 @@
-libipc-dirqueue-perl (1.0-2) UNRELEASED; urgency=low
+libipc-dirqueue-perl (1.0-3) unstable; urgency=medium
+
+  * Add libpoe-perl dependency.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Tue, 15 Mar 2016 14:05:00 +0100
+
+libipc-dirqueue-perl (1.0-2) unstable; urgency=low
 
   * Initial Release.
 
