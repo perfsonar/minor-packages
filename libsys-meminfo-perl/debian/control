@@ -12,7 +12,7 @@ Homepage: https://metacpan.org/release/Sys-MemInfo
 
 Package: libsys-meminfo-perl
 Architecture: any
-Depends: ${misc:Depends}, ${perl:Depends}, ${shlibs:Depends}
+Depends: perl (>= 5.14), ${misc:Depends}, ${shlibs:Depends}
 Description: module to query the total free and used physical memory
  Sys::MemInfo is a Perl module to return the total amount of free and used
  physical memory and swap-space. It is available for most major operating
