@@ -5,7 +5,7 @@
 
 Name:           perl-Data-Validate-IP
 Version:        0.11
-Release:        2.%{disttag}
+Release:        2.%{disttag}%{?dist}
 Summary:        Ip validation methods
 License:        GPL+ or Artistic
 Group:          Development/Libraries
@@ -13,10 +13,11 @@ URL:            http://search.cpan.org/dist/Data-Validate-IP/
 Source0:        http://www.cpan.org/modules/by-module/Data/Data-Validate-IP-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
-Requires:       perl(Net::Netmask)
-Requires:       perl(Test::Simple)
-Requires:       perl
-Requires:       coreutils
+BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(Net::Netmask)
+BuildRequires:  perl(Test::Simple)
+BuildRequires:  perl
+BuildRequires:  coreutils
 
 %description
 This module collects ip validation routines to make input validation, and
