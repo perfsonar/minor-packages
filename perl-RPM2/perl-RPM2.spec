@@ -38,6 +38,7 @@ bindings for the RPM Package Manager API.
 %setup -q -n RPM2-%{version}
 
 %build
+sed -i 's/\(Module::Build.*0\)[.]42/\1/' META.*
 perl Build.PL installdirs=vendor
 ./Build
 
