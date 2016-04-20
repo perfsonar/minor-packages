@@ -5,7 +5,7 @@
 
 Name:           perl-Data-Validate-Domain
 Version:        0.09
-Release:        3.%{disttag}
+Release:        3.%{disttag}%{?dist}
 Summary:        Domain validation methods
 License:        CHECK(GPL+ or Artistic)
 Group:          Development/Libraries
@@ -13,10 +13,11 @@ URL:            http://search.cpan.org/dist/Data-Validate-Domain/
 Source0:        http://www.cpan.org/modules/by-module/Data/Data-Validate-Domain-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
-Requires:       perl(Net::Domain::TLD) >= 1.62
-Requires:       perl(Test::More)
-Requires:       perl
-Requires:       coreutils
+BuildRequires:  perl(ExtUtils::MakeMaker)
+BuildRequires:  perl(Test::More)
+BuildRequires:  perl(Net::Domain::TLD) >= 1.62
+BuildRequires:  perl
+BuildRequires:  coreutils
 
 %description
 This module collects domain validation routines to make input validation,
