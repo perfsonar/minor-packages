@@ -1,6 +1,6 @@
 Name: nuttcp
 Version: 7.2.1
-Release: 1
+Release: 1%{?dist}
 Source0: ftp://ftp.lcp.nrl.navy.mil/pub/nuttcp/%{name}-%{version}.tar.bz2
 URL: ftp://ftp.lcp.nrl.navy.mil/pub/nuttcp/
 Summary: Tool for testing TCP connections
