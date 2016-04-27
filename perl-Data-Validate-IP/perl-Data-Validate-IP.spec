@@ -27,7 +27,7 @@ untainting easier and more readable.
 %setup -q -n Data-Validate-IP-%{version}
 
 %build
-%{__perl} Makefile.PL INSTALL_BASE=%{perl_prefix}
+%{__perl} Makefile.PL INSTALLDIRS=vendor
 make %{?_smp_mflags}
 
 %install
@@ -42,7 +42,6 @@ find $RPM_BUILD_ROOT -depth -type d -exec rmdir {} 2>/dev/null \;
 
 %check || :
 %{!?_without_checks:%{__make} test}
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
