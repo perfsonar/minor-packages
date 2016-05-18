@@ -8,13 +8,14 @@ URL:		        http://www.xplot.org
 Source0:		http://www.tcptrace.org/useful/xplot.tar.gz
 BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:          libX11-devel
-
+Patch0:                 tcpdump2xplot.pl.patch
 
 %description
 The program xplot was written in the late 1980s to support the analysis of TCP packet traces. This version is patched to support tcptrace.
 
 %prep
 %setup -q -n xplot
+%patch0
 
 %build
 %configure
