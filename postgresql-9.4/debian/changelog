@@ -1,0 +1,253 @@
+postgresql-9.4 (9.4.7-0+deb8u1~bpo70+2) wheezy-backports; urgency=low
+
+  * Fix alignment issue in contrib/test_decoding only visible on sparc.
+    Thanks to Andres Freund and Tom Lane for patches.
+  * Update branch in Vcs-Git field.
+
+ -- Christoph Berg <myon@debian.org>  Thu, 14 Apr 2016 19:21:06 +0200
+
+postgresql-9.4 (9.4.7-0+deb8u1~bpo70+1) wheezy-backports; urgency=low
+
+  * Rebuild for wheezy-backports.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Mon, 11 Apr 2016 11:41:02 +0200
+
+postgresql-9.4 (9.4.7-0+deb8u1) jessie; urgency=medium
+
+  * New upstream bugfix release.
+  * Remove obsolete .bzr-builddeb/default.conf.
+
+ -- Christoph Berg <myon@debian.org>  Sat, 02 Apr 2016 13:22:58 +0200
+
+postgresql-9.4 (9.4.6-0+deb8u1~bpo70+1) wheezy-backports; urgency=low
+
+  * Rebuild for wheezy-backports.
+
+ -- Christoph Berg <myon@debian.org>  Thu, 18 Feb 2016 11:53:30 +0100
+
+postgresql-9.4 (9.4.6-0+deb8u1) jessie-security; urgency=medium
+
+  * New upstream version.
+    + Fix infinite loops and buffer-overrun problems in regular expressions.
+      Very large character ranges in bracket expressions could cause infinite
+      loops in some cases, and memory overwrites in other cases.
+      (CVE-2016-0773)
+    + Fix privilege escalation issue for users of PL/Java. Certain custom
+      configuration settings (GUCs) for PL/Java will now be modifiable only by
+      the database superuser. (CVE-2016-0766)
+    + Users will need to reindex any jsonb_path_ops indexes they have created,
+      in order to fix a persistent issue with missing index entries.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Thu, 11 Feb 2016 15:17:44 +0100
+
+postgresql-9.4 (9.4.5-0+deb8u1~bpo70+1) wheezy-backports; urgency=low
+
+  * Rebuild for wheezy-backports.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Tue, 24 Nov 2015 15:46:13 +0100
+
+postgresql-9.4 (9.4.5-0+deb8u1) jessie-security; urgency=medium
+
+  * New upstream security release.
+
+    + Guard against stack overflows in json parsing (Oskari Saarenmaa)
+
+      If an application constructs PostgreSQL json or jsonb values from
+      arbitrary user input, the application's users can reliably crash the
+      PostgreSQL server, causing momentary denial of service.  (CVE-2015-5289)
+
+    + Fix contrib/pgcrypto to detect and report too-short crypt() salts
+      (Josh Kupershmidt)
+
+      Certain invalid salt arguments crashed the server or disclosed a few
+      bytes of server memory.  We have not ruled out the viability of attacks
+      that arrange for presence of confidential information in the disclosed
+      bytes, but they seem unlikely.  (CVE-2015-5288)
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Thu, 08 Oct 2015 14:24:00 +0200
+
+postgresql-9.4 (9.4.4-0+deb8u1) jessie; urgency=medium
+
+  * New upstream version.
+    + Fix possible failure to recover from an inconsistent database state
+    + Fix rare failure to invalidate relation cache init file
+
+ -- Christoph Berg <myon@debian.org>  Thu, 11 Jun 2015 20:35:19 +0200
+
+postgresql-9.4 (9.4.3-0+deb8u1) jessie; urgency=medium
+
+  * New upstream version:
+    Avoid failures while fsync'ing data directory during crash restart
+    (Abhijit Menon-Sen, Tom Lane; Closes: #786874)
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Wed, 03 Jun 2015 11:53:43 +0200
+
+postgresql-9.4 (9.4.2-0+deb8u1) stable-security; urgency=medium
+
+  * New upstream version.
+
+    + Avoid possible crash when client disconnects just before the
+      authentication timeout expires (Benkocs Norbert Attila)
+
+      If the timeout interrupt fired partway through the session shutdown
+      sequence, SSL-related state would be freed twice, typically causing a
+      crash and hence denial of service to other sessions.  Experimentation
+      shows that an unauthenticated remote attacker could trigger the bug
+      somewhat consistently, hence treat as security issue. (CVE-2015-3165)
+
+    + Improve detection of system-call failures (Noah Misch)
+
+      Our replacement implementation of snprintf() failed to check for errors
+      reported by the underlying system library calls; the main case that
+      might be missed is out-of-memory situations. In the worst case this
+      might lead to information exposure, due to our code assuming that a
+      buffer had been overwritten when it hadn't been. Also, there were a few
+      places in which security-relevant calls of other system library
+      functions did not check for failure.
+
+      It remains possible that some calls of the *printf() family of functions
+      are vulnerable to information disclosure if an out-of-memory error
+      occurs at just the wrong time.  We judge the risk to not be large, but
+      will continue analysis in this area. (CVE-2015-3166)
+
+    + In contrib/pgcrypto, uniformly report decryption failures as Wrong key
+      or corrupt data (Noah Misch)
+
+      Previously, some cases of decryption with an incorrect key could report
+      other error message texts.  It has been shown that such variance in
+      error reports can aid attackers in recovering keys from other systems.
+      While it's unknown whether pgcrypto's specific behaviors are likewise
+      exploitable, it seems better to avoid the risk by using a
+      one-size-fits-all message. (CVE-2015-3167)
+
+    + Protect against wraparound of multixact member IDs
+      (Álvaro Herrera, Robert Haas, Thomas Munro)
+
+      Under certain usage patterns, the existing defenses against this might
+      be insufficient, allowing pg_multixact/members files to be removed too
+      early, resulting in data loss.
+      The fix for this includes modifying the server to fail transactions that
+      would result in overwriting old multixact member ID data, and improving
+      autovacuum to ensure it will act proactively to prevent multixact member
+      ID wraparound, as it does for transaction ID wraparound.
+
+  * Repository moved to git, update Vcs headers.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Thu, 21 May 2015 15:58:30 +0200
+
+postgresql-9.4 (9.4.1-1) unstable; urgency=medium
+
+  * New upstream version.
+    + libpq5: Name lookups fixed in minimal chroots (Closes: #756627)
+    + Fix buffer overruns in to_char() (CVE-2015-0241)
+    + Fix buffer overruns in contrib/pgcrypto (CVE-2015-0243)
+    + Fix possible loss of frontend/backend protocol synchronization after an
+      error (CVE-2015-0244)
+    + Fix information leak via constraint-violation error messages
+      (CVE-2014-8161)
+
+ -- Christoph Berg <myon@debian.org>  Wed, 04 Feb 2015 17:55:28 +0100
+
+postgresql-9.4 (9.4.0-1) unstable; urgency=medium
+
+  * 9.4 released.
+  * libpq5.symbols: PQhostaddr removed; it was new in 9.4.
+
+ -- Christoph Berg <myon@debian.org>  Wed, 17 Dec 2014 22:21:22 +0100
+
+postgresql-9.4 (9.4~rc1-1) unstable; urgency=medium
+
+  * First 9.4 RC release.
+  * Update psql call in dump-reload instructions.
+  * Reenable 010_pg_basebackup.t tests, fixed upstream.
+
+ -- Christoph Berg <myon@debian.org>  Tue, 18 Nov 2014 09:49:04 +0100
+
+postgresql-9.4 (9.4~beta3-3) unstable; urgency=medium
+
+  * Temporarily disable failing test in 010_pg_basebackup.t.
+
+ -- Christoph Berg <myon@debian.org>  Thu, 16 Oct 2014 09:32:06 +0200
+
+postgresql-9.4 (9.4~beta3-2) unstable; urgency=medium
+
+  * postgresql-9.4.preinst: Output detailed dump-reload instructions when
+    refusing the package upgrade, and also add a NEWS item about it.
+    (Closes: #764705)
+  * Add libipc-run-perl for the regression tests which otherwise skip large
+    parts.
+  * Update Standards-Version.
+
+ -- Christoph Berg <myon@debian.org>  Wed, 15 Oct 2014 19:44:43 +0200
+
+postgresql-9.4 (9.4~beta3-1) unstable; urgency=medium
+
+  * New upstream beta version.
+    + Catalog version number changed, older 9.4 clusters need to be dumped and
+      reloaded.
+    + Regexp regression fixed. (Closes: #760564)
+    + CACHE_LINE_SIZE definition renamed to mitigate conflict on *BSD.
+      (Closes: #763098)
+
+  [ Martin Pitt ]
+  * Add missing logrotate test dependency.
+
+  [ Christoph Berg ]
+  * Set Multi-Arch: foreign in postgresql-client-9.4 and postgresql-doc-9.4.
+    (Closes: #757520; do it even on non-multiarch dists, it doesn't hurt.)
+  * Fix postgresql_fdw in description, spotted by Zack Weinberg, thanks!
+    (Closes: #762389)
+
+ -- Christoph Berg <myon@debian.org>  Tue, 07 Oct 2014 20:39:57 +0200
+
+postgresql-9.4 (9.4~beta2-1) unstable; urgency=low
+
+  * New upstream beta version.
+    + Secure Unix-domain sockets of temporary postmasters started during make
+      check (Noah Misch)
+
+      Any local user able to access the socket file could connect as the
+      server's bootstrap superuser, then proceed to execute arbitrary code as
+      the operating-system user running the test, as we previously noted in
+      CVE-2014-0067. This change defends against that risk by placing the
+      server's socket in a temporary, mode 0700 subdirectory of /tmp.
+
+  * postgresql-9.4.preinst: Fail upgrade when upgrading from beta1, the
+    catalog version changed. People should dump/remove their old clusters
+    first.
+  * Use util-linux' uuid lib as backend for the uuid-ossp extension
+    (--with-uuid=e2fs).
+  * Enable sepgsql (--with-selinux). On systems with libselinux1-dev < 2.1.10,
+    this is automatically disabled.
+  * Revert multiarch for libpq-dev and libecpg-dev. (Closes: #750111, #750112)
+  * Remove our pg_regress patches to support --host=/path. Implemented
+    upstream as fix for CVE-2014-0067.
+  * debian/copyright: Say that there are various copyright holders for the
+    contrib modules. (Hello Lintian!)
+  * Update Vcs URLs.
+
+ -- Christoph Berg <myon@debian.org>  Mon, 21 Jul 2014 22:26:24 +0200
+
+postgresql-9.4 (9.4~beta1-2) experimental; urgency=medium
+
+  * Update watch file for 9.4.
+  * Enable multiarch support in libpq and friends. (Closes: #706849)
+    Support is automatically disabled when the distribution does not support
+    it.
+  * Stop providing postgresql-dbg in postgresql-9.4-dbg. Its only purpose was
+    to conflict with other postgresql-*-dbg packages, and that's no longer
+    needed with build-id debug symbols.
+  * Skip -pie on 32bit archs for performance and stability reasons.
+    Closes: #749686; details at
+    http://www.postgresql.org/message-id/20140519115318.GB7296@msgid.df7cb.de
+  * Update contrib copyright statements, and move them to a separate file.
+    Thanks to Thorsten Alteholz for reviewing the package.
+
+ -- Christoph Berg <myon@debian.org>  Fri, 30 May 2014 20:09:50 +0200
+
+postgresql-9.4 (9.4~beta1-1) experimental; urgency=low
+
+  * Update for 9.4. Packaging based on 9.3 branch.
+  * Bump to debhelper 9 to get debug symbol files based on build-ids.
+
+ -- Christoph Berg <myon@debian.org>  Mon, 12 May 2014 22:08:37 +0200
