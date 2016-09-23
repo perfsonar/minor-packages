@@ -1,3 +1,9 @@
+postgresql-9.4 (9.4.7-0+deb8u1~bpo70+3) perfsonar-wheezy-release; urgency=low
+
+  * Disabling test suite run for armhf.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Fri, 23 Sep 2016 15:16:06 +0000
+
 postgresql-9.4 (9.4.7-0+deb8u1~bpo70+2) wheezy-backports; urgency=low
 
   * Fix alignment issue in contrib/test_decoding only visible on sparc.
