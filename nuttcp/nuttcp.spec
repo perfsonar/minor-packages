@@ -1,5 +1,5 @@
 Name: nuttcp
-Version: 7.2.1
+Version: 8.1.3
 Release: 1%{?dist}
 Source0: ftp://ftp.lcp.nrl.navy.mil/pub/nuttcp/%{name}-%{version}.tar.bz2
 URL: ftp://ftp.lcp.nrl.navy.mil/pub/nuttcp/
@@ -46,6 +46,9 @@ rm -fr $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/xinetd.d/%{name}
 
 %changelog
+* Fri Sep 23 2016 Dan Doyle <daldoyle@globalnoc.iu.edu> - 8.1.3-1
+- 8.1.3 update 
+
 * Wed May 05 2010 Aaron Brown <aaron@internet2.edu> - 6.1.2-1
 - 6.1.2 update 
 
