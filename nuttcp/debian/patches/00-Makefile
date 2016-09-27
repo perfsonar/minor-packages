@@ -4,7 +4,7 @@ Author: Chris Taylor <ctaylor@debian.org>
 --- a/Makefile
 +++ b/Makefile
 @@ -1,8 +1,8 @@
--APP = nuttcp-7.2.1
+-APP = nuttcp-8.1.3
 -#EXTRAVERSION=-pre1
 +DESTDIR=
 +EXTRAVERSION=
