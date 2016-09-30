@@ -1,3 +1,9 @@
+postgresql-common (165+deb8u1~bpo7+2) perfsonar-wheezy-release; urgency=low
+
+  * Repackage for perfsonar-wheezy-staging.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Fri, 30 Sep 2016 13:39:11 +0000
+
 postgresql-common (165+deb8u1~bpo7+1) wheezy-backports; urgency=medium
 
   * Rebuild for wheezy-backports.
