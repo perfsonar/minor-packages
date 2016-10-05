@@ -1,8 +1,50 @@
-python-django (1.8.7-2~bpo70+1) wheezy-backports; urgency=medium
+python-django (1.8.15-1~bpo70+1) wheezy-backports; urgency=medium
 
-  * Backport to Wheezy.
+  * Wheezy backport.
+  * New upstream security release. Fixes CVE-2016-7401: CSRF protection bypass
+    on a site with Google Analytics.
 
- -- Antoine Delvaux <adelvaux@man.poznan.pl>  Sun, 21 Feb 2016 22:27:48 +0000
+ -- Raphaël Hertzog <hertzog@debian.org>  Tue, 27 Sep 2016 13:45:57 +0200
+
+python-django (1.8.14-1~bpo8+1) jessie-backports; urgency=medium
+
+  * New upstream security release.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Thu, 21 Jul 2016 09:04:57 +0200
+
+python-django (1.8.13-1~bpo8+1) jessie-backports; urgency=medium
+
+  * New upstream bugfix release.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Thu, 12 May 2016 10:28:30 +0200
+
+python-django (1.8.12-1~bpo8+1) jessie-backports; urgency=medium
+
+  * New upstream bugfix release.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Mon, 04 Apr 2016 13:53:21 +0200
+
+python-django (1.8.11-1~bpo8+1) jessie-backports; urgency=medium
+
+  * New upstream release of Django 1.8.x (LTS version) fixing
+    security issues CVE-2016-2513 and CVE-2016-2512.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Tue, 08 Mar 2016 17:51:47 +0100
+
+python-django (1.8.9-1~bpo8+1) jessie-backports; urgency=medium
+
+  * New upstream release of Django 1.8.x (LTS version).
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Tue, 02 Feb 2016 09:52:08 +0100
+
+python-django (1.8.8-1~bpo8+1) jessie-backports; urgency=medium
+
+  * New upstream release of Django 1.8.x (LTS version).
+  * Add some DEP-8 tests testing "django-admin" and running the test suite
+    against the installed package. In both cases, we do it with python2 and
+    python3.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Tue, 05 Jan 2016 10:57:29 +0100
 
 python-django (1.8.7-2~bpo8+1) jessie-backports; urgency=medium
 
