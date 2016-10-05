@@ -1,11 +1,11 @@
 # see git-dpm(1) from git-dpm package
-b3992b07f827d3c952aca397708b5d8074230686
-b3992b07f827d3c952aca397708b5d8074230686
-8dd68eb3da5a210762b7c540a252f1785e972297
-8dd68eb3da5a210762b7c540a252f1785e972297
-python-django_1.8.7.orig.tar.gz
-0ad68cb4a631121c715ebe295463bada97d04d74
-7276831
+a8f249a2b249680a891d1ed95a97efcf8fdb0b4d
+a8f249a2b249680a891d1ed95a97efcf8fdb0b4d
+ef4afdabb486be460f94a71fc40515c3590db64b
+ef4afdabb486be460f94a71fc40515c3590db64b
+python-django_1.8.15.orig.tar.gz
+5183e8e71bfcc1661ebd64a78feb5b2b8aff1239
+7295362
 debianTag="debian/%e%v"
 patchedTag="debian/patches/%e%v"
 upstreamTag="upstream/%e%u"
