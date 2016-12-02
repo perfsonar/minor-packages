@@ -91,7 +91,7 @@ endif
 TESTSUITE_FAIL_CMD=exit 1
 # hurd doesn't implement semaphores shared between processes yet; succeed anyway so they at least have libpq5
 # plperl currently fails on kfreebsd-*
-ifneq ($(filter $(DEB_HOST_ARCH), hurd-i386 kfreebsd-amd64 kfreebsd-i386),)
+ifneq ($(filter $(DEB_HOST_ARCH), hurd-i386 kfreebsd-amd64 kfreebsd-i386 armel armhf arm64),)
 TESTSUITE_FAIL_CMD=exit 0
 endif
 
