@@ -1,3 +1,10 @@
+postgresql-9.6 (9.6.1-2~bpo80+1) perfsonar-jessie-release; urgency=medium
+
+  * Rebuild for jessie.
+  * Disable tests on arm platforms.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Fri, 02 Dec 2016 16:50:06 +0100
+
 postgresql-9.6 (9.6.1-2) unstable; urgency=medium
 
   * Team upload.
