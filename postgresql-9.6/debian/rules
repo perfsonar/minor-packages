@@ -207,6 +207,7 @@ override_dh_auto_test-indep:
 	# nothing to do
 
 override_dh_auto_test-arch:
+ifneq ($(filter $(DEB_HOST_ARCH), amd64 i386),)
 ifeq (, $(findstring nocheck, $(DEB_BUILD_OPTIONS)))
 	# when tests fail, print all regression.diffs files, as well as the newest log files
 	# temp-install wants to be invoked from a top-level make, unset MAKELEVEL here
@@ -217,6 +218,7 @@ ifeq (, $(findstring nocheck, $(DEB_BUILD_OPTIONS)))
 	    done; \
 	    $(TESTSUITE_FAIL_CMD); \
 	fi
+endif
 endif
 
 override_dh_strip:
