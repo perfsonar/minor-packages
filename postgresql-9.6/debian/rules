@@ -55,6 +55,12 @@ SELINUX_FLAGS= --with-selinux
 endif
 endif
 
+ifneq ($(filter $(DEB_HOST_ARCH), armel armhf arm64),)
+THREAD_FLAGS = --disable-thread-safety
+else
+THREAD_FLAGS = --enable-thread-safety
+endif
+
 COMMON_CONFIGURE_FLAGS= \
   --mandir=/usr/share/postgresql/$(MAJOR_VER)/man \
   --docdir=/usr/share/doc/postgresql-doc-$(MAJOR_VER) \
@@ -67,7 +73,7 @@ COMMON_CONFIGURE_FLAGS= \
   --includedir=/usr/include/postgresql/ \
   --enable-nls \
   --enable-integer-datetimes \
-  --enable-thread-safety \
+  $(THREAD_FLAGS) \
   --enable-tap-tests \
   --enable-debug \
   --disable-rpath \
