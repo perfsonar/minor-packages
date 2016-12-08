@@ -12,6 +12,8 @@ use PgCommon;
 
 use Test::More tests => 127 * ($#MAJORS+1);
 
+$ENV{_SYSTEMCTL_SKIP_REDIRECT} = 1; # FIXME: testsuite is hanging otherwise
+
 sub check_major {
     my $v = $_[0];
     note "Running tests for $v";
@@ -22,10 +24,10 @@ sub check_major {
 
     # check that a /var/run/postgresql/ pid file is created
     unless ($PgCommon::rpm) {
-        ok_dir '/var/run/postgresql/', ['.s.PGSQL.5432', '.s.PGSQL.5432.lock', "$v-main.pid"], 
+        ok_dir '/var/run/postgresql/', ['.s.PGSQL.5432', '.s.PGSQL.5432.lock', "$v-main.pid", "$v-main.pg_stat_tmp"],
             'Socket and pid file are in /var/run/postgresql/';
     } else {
-        ok_dir '/var/run/postgresql/', ["$v-main.pid"], 'Pid File is in /tmp';
+        ok_dir '/var/run/postgresql/', ["$v-main.pid", "$v-main.pg_stat_tmp"], 'Pid File is in /var/run/postgresql/';
     }
 
     # verify that exactly one postmaster is running
@@ -47,7 +49,7 @@ sub check_major {
         die 'could not open environment file for appending';
     print E "PGEXTRAVAR1 = 1 # short one\nPGEXTRAVAR2='foo bar '\n\n# comment";
     close E;
-    is_program_out 'postgres', "pg_ctlcluster $v main restart", 0, '',
+    is_program_out 0, "pg_ctlcluster $v main restart", 0, '',
         'cluster restarts with new environment file';
 
     @pm_pids = pidof (($v >= '8.2') ? 'postgres' : 'postmaster');
@@ -59,7 +61,7 @@ sub check_major {
     # Now there should not be an external PID file any more, since we set it
     # explicitly
     unless ($PgCommon::rpm) {
-        ok_dir '/var/run/postgresql', ['.s.PGSQL.5432', '.s.PGSQL.5432.lock'], 
+        ok_dir '/var/run/postgresql', ['.s.PGSQL.5432', '.s.PGSQL.5432.lock', "$v-main.pg_stat_tmp"],
             'Socket, but not PID file in /var/run/postgresql/';
     } else {
         ok_dir '/var/run/postgresql', [], '/var/run/postgresql/ is empty';
@@ -109,7 +111,7 @@ sub check_major {
     ok !-e "/etc/postgresql/$v/main/log", 'no log symlink by default';
     ok !-z $default_log, "$default_log is the default log if log symlink is missing";
     like_program_out 'postgres', 'pg_lsclusters -h', 0, qr/^$v\s+main.*$default_log\n$/;
- 
+
     # verify that log symlink works
     is ((exec_as 'root', "pg_ctlcluster $v main stop"), 0, 'stopping cluster');
     open L, ">$default_log"; close L; # empty default log file
@@ -130,7 +132,7 @@ sub check_major {
     is ((exec_as 'root', "pg_ctlcluster $v main start"), 0, 
         'restarting cluster with explicitly configured log file');
     ok -z $default_log, "default log is not used";
-    ok -z $p, "log symlink target is not used";
+    ok !-z $p, "log symlink target is used for startup message";
     my @l = glob ((PgCommon::cluster_data_directory $v, 'main') .  "/pg_log/$v#main.log*");
     is $#l, 0, 'exactly one log file';
     ok (-e $l[0] && ! -z $l[0], 'custom log is actually used');
@@ -292,19 +294,24 @@ tel|2
     my $client_pid;
     while (!$client_pid) {
 	usleep $delay;
-	$client_pid = `ps --user postgres hu | grep 'postgres: nobody nobodydb' | grep -v grep | awk '{print \$2}'`;
+	$client_pid = `ps --user postgres hu | grep 'postgres.*: nobody nobodydb' | grep -v grep | awk '{print \$2}'`;
 	($client_pid) = ($client_pid =~ /(\d+)/); # untaint
     }
 
     # OOM score adjustment under Linux: postmaster gets bigger shields for >=
-    # 9.1, but client backends stay at default
+    # 9.0, but client backends stay at default; this might not work in
+    # containers with restricted privileges, so skip the check there
     my $adj;
+    my $detect_virt = system 'systemd-detect-virt --container --quiet';
     open F, "/proc/$master_pid/oom_score_adj";
     $adj = <F>;
     chomp $adj;
     close F;
-    if ($v >= '9.1' and not $PgCommon::rpm) {
-        cmp_ok $adj, '<=', -500, 'postgres master has OOM killer protection';
+    if ($v >= '9.0' and not $PgCommon::rpm) {
+        SKIP: {
+            skip 'skipping postmaster OOM killer adjustment in container', 1 if $detect_virt == 0;
+            cmp_ok $adj, '<=', -500, 'postgres master has OOM killer protection';
+        }
     } else {
         is $adj, 0, 'postgres master has no OOM adjustment';
     }
@@ -333,13 +340,13 @@ tel|2
     is ((exec_as 'postgres', 'dropuser nobody', $outref, 0), 0, 'dropuser nobody');
 
     # log file gets re-created by pg_ctlcluster
-    is ((exec_as 'postgres', "pg_ctlcluster $v main stop"), 0, 'stopping cluster');
+    is ((exec_as 0, "pg_ctlcluster $v main stop"), 0, 'stopping cluster');
     unlink $default_log;
-    is ((exec_as 'postgres', "pg_ctlcluster $v main start"), 0, 'starting cluster as postgres works without a log file');
+    is ((exec_as 0, "pg_ctlcluster $v main start"), 0, 'starting cluster as postgres works without a log file');
     ok (-e $default_log && ! -z $default_log, 'log file got recreated and used');
 
     # stop server, clean up, check for leftovers
-    ok ((system "pg_dropcluster $v main --stop") == 0, 
+    ok ((system "pg_dropcluster $v main --stop") == 0,
 	'pg_dropcluster removes cluster');
 
     check_clean;

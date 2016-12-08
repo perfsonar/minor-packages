@@ -1,7 +1,7 @@
 # Common functions for the postgresql-common framework
 #
 # (C) 2008-2009 Martin Pitt <mpitt@debian.org>
-# (C) 2012-2014 Christoph Berg <myon@debian.org>
+# (C) 2012-2016 Christoph Berg <myon@debian.org>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ our @EXPORT = qw/error user_cluster_map get_cluster_port set_cluster_port
     get_cluster_start_conf set_cluster_start_conf set_cluster_pg_ctl_conf
     get_program_path cluster_info get_versions get_newest_version version_exists
     get_version_clusters next_free_port cluster_exists install_file
-    change_ugid config_bool get_db_encoding get_db_locales get_cluster_locales
+    change_ugid config_bool get_db_encoding get_db_locales get_cluster_locales get_cluster_controldata
     get_cluster_databases read_cluster_conf_file read_pg_hba read_pidfile/;
 our @EXPORT_OK = qw/$confroot $binroot $rpm quote_conf_value read_conf_file get_conf_value
     set_conf_value set_conffile_value disable_conffile_value disable_conf_value
@@ -171,9 +171,20 @@ sub read_conf_file {
 # Arguments: <version> <cluster> <config file name>
 # Returns: hash (empty if the file does not exist)
 sub read_cluster_conf_file {
-     my $fname = "$confroot/$_[0]/$_[1]/$_[2]";
-     -e $fname or $fname = "$common_confdir/$_[2]";
-    return read_conf_file $fname;
+    my $fname = "$confroot/$_[0]/$_[1]/$_[2]";
+    -e $fname or $fname = "$common_confdir/$_[2]";
+    my %conf = read_conf_file $fname;
+
+    if ($_[0] >= 9.4 and $_[2] eq 'postgresql.conf') { # merge settings changed by ALTER SYSTEM
+        # data_directory cannot be changed by ALTER SYSTEM
+        my $data_directory = $conf{data_directory} || "/var/lib/postgresql/$_[0]/$_[1]";
+        my %auto_conf = read_conf_file "$data_directory/postgresql.auto.conf";
+        foreach my $guc (keys %auto_conf) {
+            $conf{$guc} = $auto_conf{$guc};
+        }
+    }
+
+    return %conf;
 }
 
 # Return parameter from a PostgreSQL configuration file, or undef if the parameter
@@ -494,12 +505,11 @@ sub set_cluster_start_conf {
 	close F;
     } else {
         $text = "# Automatic startup configuration
-# auto: automatically start/stop the cluster in the init script
-# manual: do not start/stop in init scripts, but allow manual startup with
-#         pg_ctlcluster
-# disabled: do not allow manual startup with pg_ctlcluster (this can be easily
-#           circumvented and is only meant to be a small protection for
-#           accidents).
+#   auto: automatically start the cluster
+#   manual: manual startup with pg_ctlcluster/postgresql@.service only
+#   disabled: refuse to start cluster
+# See pg_createcluster(1) for details. When running from systemd,
+# invoke 'systemctl daemon-reload' after editing this file.
 
 $val
 ";
@@ -620,23 +630,23 @@ sub cluster_info {
     }
     $result{'start'} = get_cluster_start_conf $v, $c;
 
-    # default log file (only if not explicitly configured in postgresql.conf)
-    unless (config_bool ($postgresql_conf{logging_collector}) or
-        ($postgresql_conf{'log_destination'} || '') =~ /syslog/) {
-        my $log_symlink = $result{'configdir'} . "/log";
-        if (-l $log_symlink) {
-            ($result{'logfile'}) = readlink ($log_symlink) =~ /(.*)/; # untaint
-        } else {
-            $result{'logfile'} = "/var/log/postgresql/postgresql-$v-$c.log";
-        }
+    # default log file (possibly used only for early startup messages)
+    my $log_symlink = $result{'configdir'} . "/log";
+    if (-l $log_symlink) {
+        ($result{'logfile'}) = readlink ($log_symlink) =~ /(.*)/; # untaint
     } else {
-        $result{log_destination} = $postgresql_conf{log_destination};
-        $result{log_directory} = $postgresql_conf{log_directory};
-        $result{log_filename} = $postgresql_conf{log_filename};
+        $result{'logfile'} = "/var/log/postgresql/postgresql-$v-$c.log";
     }
+    $result{logging_collector} = $postgresql_conf{logging_collector};
+    $result{log_destination} = $postgresql_conf{log_destination};
+    $result{log_directory} = $postgresql_conf{log_directory};
+    $result{log_filename} = $postgresql_conf{log_filename};
 
     # autovacuum defaults to on since 8.3
     $result{'avac_enable'} = config_bool $postgresql_conf{'autovacuum'} || ($v >= '8.3');
+
+    # pg_upgradecluster wants to peek at dsmt in the new config
+    $result{dynamic_shared_memory_type} = $postgresql_conf{dynamic_shared_memory_type};
 
     return %result;
 }
@@ -652,7 +662,7 @@ sub get_versions {
             next if $entry eq '.' || $entry eq '..';
             my $pfx = '';
             #redhat# $pfx = "pgsql-";
-            ($entry) = $entry =~ /^$pfx(\d+\.\d+)$/; # untaint
+            ($entry) = $entry =~ /^$pfx(\d+\.?\d+)$/; # untaint
             push @versions, $entry if get_program_path ('psql', $entry);
         }
         closedir D;
@@ -960,6 +970,34 @@ sub get_cluster_locales {
     }
     close CTRL;
     return ($lc_ctype, $lc_collate);
+}
+
+# Return the pg_control data for a cluster
+# Arguments: <version> <cluster>
+# Returns: hashref
+sub get_cluster_controldata {
+    my ($version, $cluster) = @_;
+
+    my $pg_controldata = get_program_path 'pg_controldata', $version;
+    if (! -e $pg_controldata) {
+        print STDERR "Error: pg_controldata not found, please install postgresql-$version\n";
+        exit 1;
+    }
+    prepare_exec ('LC_ALL', 'LANG', 'LANGUAGE');
+    $ENV{'LC_ALL'} = 'C';
+    my $result = open (CTRL, '-|', $pg_controldata, (cluster_data_directory $version, $cluster));
+    restore_exec;
+    return undef unless defined $result;
+    my $data = {};
+    while (<CTRL>) {
+	if (/^(.+?):\s*(.*)/) {
+            $data->{$1} = $2;
+	} else {
+            error "Invalid pg_controldata output: $_";
+	}
+    }
+    close CTRL;
+    return $data;
 }
 
 # Return an array with all databases of a cluster. This requires connection
