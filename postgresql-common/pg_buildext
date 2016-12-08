@@ -1,0 +1,270 @@
+#!/bin/sh
+#
+# build a PostgreSQL module based on PGXS for given list of supported major
+# versions
+#
+# (C) 2010 Dimitri Fontaine <dfontaine@hi-media.com>
+# (C) 2011-2016 Christoph Berg <myon@debian.org>
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+
+set -eu
+
+die() {
+    echo "$(basename $0): error: $*" >&2
+    exit 1
+}
+
+VENVARGS=""
+while getopts "c:i:o:s" opt ; do
+    case $opt in
+	c|i|o) VENVARGS="$VENVARGS -$opt $OPTARG" ;;
+	s) VENVARGS="$VENVARGS -$opt" ;;
+	*) exit 1 ;;
+    esac
+done
+# shift away args
+shift $(($OPTIND - 1))
+
+[ "${1:-}" ] || die "no action given"
+action="$1"
+if [ -d "${2:-}" ] && [ "${3:-}" ]; then # compat mode: $2 is source directory
+    srcdir="${2:-}"
+    shift
+else
+    srcdir="$PWD"
+fi
+target="${2:-}"
+opt="${3:-}"
+
+prepare_env() {
+    local version=$1
+    vtarget=`echo $target | sed -e "s:%v:$version:g"`
+    pgc="/usr/lib/postgresql/$version/bin/pg_config"
+    [ -e "$pgc" ] || die "$pgc does not exist"
+}
+
+configure() {
+    prepare_env $1
+    confopts=`echo $opt | sed -e "s:%v:$1:g"`
+
+    mkdir -p $vtarget
+    ( echo "calling configure in $vtarget" &&
+      cd $vtarget && $srcdir/configure $confopts PG_CONFIG="$pgc" VPATH="$srcdir" )
+}
+
+build() {
+    prepare_env $1
+    if [ "$opt" ]; then
+        cflags="$(echo $opt | sed -e "s:%v:$1:g")"
+    fi
+
+    mkdir -p $vtarget
+    # if a Makefile was created by configure, use it, else the top level Makefile
+    [ -f $vtarget/Makefile ] || makefile="-f $srcdir/Makefile"
+    make -C $vtarget ${makefile:-} ${cflags:+CFLAGS="$cflags"} PG_CONFIG="$pgc" VPATH="$srcdir" srcdir="$srcdir" USE_PGXS=1
+}
+
+install() {
+    prepare_env $1
+    package=`echo $opt | sed -e "s:%v:$1:g"`
+
+    mkdir -p $vtarget
+    # if a Makefile was created by configure, use it, else the top level Makefile
+    [ -f $vtarget/Makefile ] || makefile="-f $srcdir/Makefile"
+    make -C $vtarget ${makefile:-} install DESTDIR="$srcdir/debian/$package" PG_CONFIG="$pgc" VPATH="$srcdir" srcdir="$srcdir" USE_PGXS=1
+}
+
+clean() {
+    prepare_env $1
+
+    # if a Makefile was created by configure, use it, else the top level Makefile
+    [ -f $vtarget/Makefile ] || makefile="-f $srcdir/Makefile"
+    [ -d $vtarget ] && make -C $vtarget clean ${makefile:-} PG_CONFIG="$pgc" VPATH="$srcdir" srcdir="$srcdir" USE_PGXS=1
+    rm -rf $vtarget
+}
+
+loop() {
+    echo "### $1 ###"
+    prepare_env $1
+    package=$(echo $target | sed -e "s:%v:$1:g")
+
+    echo "# $1: make clean"
+    make clean   PG_CONFIG="$pgc" USE_PGXS=1
+    echo "# $1: make"
+    make         PG_CONFIG="$pgc" USE_PGXS=1
+    echo "# $1: make install"
+    make install DESTDIR="$PWD/debian/$package" PG_CONFIG="$pgc" USE_PGXS=1
+    echo "### done $1 ###"
+}
+
+installcheck() {
+    prepare_env $1
+
+    if [ "${PG_VIRTUALENV_UNSHARE-unset}" = "unset" ] && [ $(id -u) = 0 ]; then
+        export PG_VIRTUALENV_UNSHARE="-n" # request new network namespace by default
+    fi
+
+    # ask pg_virtualenv to create a non-system cluster
+    if [ "${NONROOT-unset}" = "unset" ]; then
+        export NONROOT=1
+    fi
+
+    if [ "$target" ]; then # if target is given, use it, else stay in the top source dir
+	# if a Makefile was created by configure, use it, else the top level Makefile
+	[ -f $vtarget/Makefile ] || makefile="-f $srcdir/Makefile"
+	if ! pg_virtualenv $VENVARGS -v $1 \
+	    make -C $vtarget ${makefile:-} installcheck \
+		PG_CONFIG="$pgc" VPATH="$srcdir" srcdir="$srcdir" USE_PGXS=1; then
+	    if [ -r $vtarget/regression.diffs ]; then
+		echo "**** $vtarget/regression.diffs ****"
+		cat $vtarget/regression.diffs
+	    fi
+	    exit 1
+	fi
+    else
+	if ! pg_virtualenv $VENVARGS -v $1 \
+	    make installcheck PG_CONFIG="$pgc" srcdir="$srcdir" USE_PGXS=1; then
+	    if [ -r regression.diffs ]; then
+		echo "**** regression.diffs ****"
+		cat regression.diffs
+	    fi
+	    exit 1
+	fi
+    fi
+}
+
+versions() {
+    [ -e /usr/share/postgresql-common/supported-versions ] ||
+	die "/usr/share/postgresql-common/supported-versions not found"
+    [ -e debian/pgversions ] || die "debian/pgversions not found"
+    supported_versions=$(/usr/share/postgresql-common/supported-versions)
+    local version
+    while read version; do
+	case $version in
+	    all) echo "$supported_versions" ;;
+	    [1-9]*+)
+		for sup_version in $supported_versions; do
+		    if expr $(echo "$version" | tr -d +) '<=' $sup_version > /dev/null; then echo "$sup_version"; fi
+		done ;;
+	    [1-9]*)
+		for sup_version in $supported_versions; do
+		    if [ "$version" = "$sup_version" ]; then echo "$sup_version"; fi
+		done ;;
+	    '#'*) ;;
+	    '') ;;
+	    *) echo "Syntax error in debian/pgversions: $version" >&2 ;;
+	esac
+    done < debian/pgversions
+}
+
+gencontrol() {
+    tmpcontrol=$(mktemp debian/control.XXXXXX)
+    if [ -f debian/tests/control.in ]; then
+        tmptestscontrol=$(mktemp debian/tests/control.XXXXXX)
+    fi
+    trap "rm -f $tmpcontrol ${tmptestscontrol:-}" 0 2 3 15
+
+    grep-dctrl -vP PGVERSION debian/control.in > $tmpcontrol
+    for v in $(versions); do
+        grep-dctrl -P PGVERSION debian/control.in | sed -e "s:PGVERSION:$v:g" >> $tmpcontrol
+    done
+
+    if [ -f debian/tests/control.in ]; then
+        cp debian/tests/control.in $tmptestscontrol
+        # find words (package names) containing PGVERSION
+        REGEXP='[[:alnum:]-]*PGVERSION[[:alnum:]-]*'
+        for pkgpattern in $(egrep -wo "$REGEXP" debian/tests/control.in); do
+            repl=""
+            # build an array of replacements separated by ,
+            for v in $(versions); do
+                repl="${repl:+$repl, }$(echo $pkgpattern | sed -e "s/PGVERSION/$v/g")"
+            done
+            # put array into control file
+            sed -i -e "s/$pkgpattern/$repl/g" $tmptestscontrol
+        done
+    fi
+}
+
+updatecontrol() {
+    cat $tmpcontrol > debian/control
+
+    if [ -f debian/tests/control.in ]; then
+        cat $tmptestscontrol > debian/tests/control
+    fi
+}
+
+# when a version is included in the action, just act on this one (this is
+# useful if some extra work needs to be done per version, so the loop over
+# supported-versions needs to be in the script calling pg_buildext)
+
+case $action in
+    configure-*|build-*|install-*|clean-*|installcheck-*)
+	a=${action%%-*}
+	v=${action##$a-}
+	echo "### $a $v ###"
+	$a $v
+	exit
+	;;
+
+    checkcontrol)
+        gencontrol
+        need_update=
+        if ! diff -u debian/control $tmpcontrol; then
+            if [ "${PG_UPDATECONTROL:-no}" != "no" ] || head -1 debian/changelog | egrep -q -- '-backports|-pgdg|-pgapt'; then
+                echo "Notice: Updating debian/control from debian/control.in."
+                need_update=1
+            else
+                echo "Error: debian/control needs updating from debian/control.in. Run 'pg_buildext updatecontrol'."
+                echo "If you are seeing this message in a buildd log, a sourceful upload is required."
+                exit 1
+            fi
+        fi
+        if [ -f debian/tests/control.in ] && ! diff -u debian/tests/control $tmptestscontrol; then
+            echo "Notice: Updating debian/tests/control from debian/tests/control.in."
+            need_update=1
+        fi
+        [ "$need_update" ] && updatecontrol
+        exit 0
+        ;;
+
+    updatecontrol)
+        gencontrol
+        updatecontrol
+        exit
+        ;;
+esac
+
+# loop over versions
+
+for v in $(versions)
+do
+    case "$action" in
+	"supported-versions")
+	    echo $v
+	    ;;
+
+	configure|build|install|clean|loop)
+	    [ "$target" ] || die "syntax: pg_buildext $action <target> [<opt>]"
+	    echo "### $action $v ###"
+	    $action $v
+	    ;;
+
+	installcheck)
+	    echo "### $action $v ###"
+	    $action $v
+	    ;;
+
+	*)
+	    die "unsupported action '$action'"
+	    ;;
+    esac
+done
