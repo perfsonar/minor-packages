@@ -1,3 +1,9 @@
+postgresql-common (177~bpo7+1) perfsonar-wheezy-release; urgency=medium
+
+  * Rebuild for wheezy.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Thu, 08 Dec 2016 12:48:12 +0100
+
 postgresql-common (177) unstable; urgency=medium
 
   [ Martin Pitt ]
