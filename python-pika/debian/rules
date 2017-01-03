@@ -1,0 +1,9 @@
+#!/usr/bin/make -f
+
+PYBUILD_NAME=python-pika
+
+%:
+	dh $@ --with python2 --buildsystem=pybuild
+
+override_dh_compress:
+	dh_compress -X.py
