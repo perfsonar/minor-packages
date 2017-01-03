@@ -1,8 +1,19 @@
-python-pika (0.9.13-2~bpo70+1) wheezy-backports; urgency=low
+python-pika (0.9.14-1~bpo70+1) wheezy-backports; urgency=low
 
   * Rebuild for wheezy-backports.
 
- -- Pierre-Elliott Bécue <becue@crans.org>  Sun, 11 May 2014 19:15:34 +0200
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Tue, 03 Jan 2017 10:07:26 +0100
+
+python-pika (0.9.14-1) unstable; urgency=medium
+
+  * New upstream version
+  * update debian/python-pika.docs, upstream renamed README.md to
+    README.rst
+  * upstream switched license to MPL 2.0, update debian/copyright
+  * install docs/version_history.rst as upstream changelog, add symlink to
+    original name
+
+ -- Jan Dittberner <jandd@debian.org>  Fri, 26 Sep 2014 20:23:33 +0200
 
 python-pika (0.9.13-2) unstable; urgency=medium
 

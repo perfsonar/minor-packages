@@ -5,5 +5,12 @@ PYBUILD_NAME=python-pika
 %:
 	dh $@ --with python2 --buildsystem=pybuild
 
+override_dh_installchangelogs:
+	dh_installchangelogs docs/version_history.rst
+
+override_dh_link:
+	rm $(CURDIR)/debian/python-pika/usr/share/doc/python-pika/version_history.rst
+	dh_link
+
 override_dh_compress:
 	dh_compress -X.py
