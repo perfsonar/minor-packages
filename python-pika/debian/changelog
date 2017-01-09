@@ -1,6 +1,6 @@
-python-pika (0.9.14-1~bpo70+1) wheezy-backports; urgency=low
+python-pika (0.9.14-1~bpo70+1) perfsonar-wheezy-staging; urgency=low
 
-  * Rebuild for wheezy-backports.
+  * Rebuild for perfsonar-wheezy-staging.
 
  -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Tue, 03 Jan 2017 10:07:26 +0100
 
