@@ -1,4 +1,4 @@
-postgresql-common (177~bpo8+1) perfsonar-wheezy-release; urgency=medium
+postgresql-common (177~bpo8+2) perfsonar-jessie-release; urgency=medium
 
   * Rebuild for jessie.
 
