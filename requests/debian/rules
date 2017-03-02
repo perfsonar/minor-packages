@@ -22,9 +22,3 @@ override_dh_auto_test:
 
 override_dh_installchangelogs:
 	dh_installchangelogs HISTORY.rst
-
-override_dh_auto_install:
-	dh_auto_install
-	python3 setup.py bdist_wheel \
-		--universal \
-		-d $(CURDIR)/debian/tmp/usr/share/python-wheels
