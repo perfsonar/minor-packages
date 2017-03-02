@@ -7,18 +7,13 @@ Build-Depends:
  debhelper (>= 9),
  dh-python,
  python-all (>= 2.6.6-3),
- python-coverage (>= 3.6),
  python-mock,
- python-nose (>=1.3.3),
  python-setuptools,
  python-six,
  python3-all,
- python3-coverage (>= 3.6),
  python3-mock,
- python3-nose (>=1.3.3),
  python3-setuptools,
- python3-six,
- python3-wheel,
+ python3-six
 Standards-Version: 3.9.6
 X-Python-Version: >= 2.6
 X-Python3-Version: >= 3.0
@@ -76,26 +71,3 @@ Description: HTTP library with thread-safe connection pooling for Python3
      building upon.
  .
  This package contains the Python 3 version of the library.
-
-Package: python-urllib3-whl
-Architecture: all
-Depends:
- ${misc:Depends},
- ${python3:Depends},
- python-six-whl
-Recommends:
- ca-certificates
-Description: HTTP library with thread-safe connection pooling
- urllib3 supports features left out of urllib and urllib2 libraries.
- .
-   - Re-use the same socket connection for multiple requests (HTTPConnectionPool
-     and HTTPSConnectionPool) (with optional client-side certificate
-     verification).
-   - File posting (encode_multipart_formdata).
-   - Built-in redirection and retries (optional).
-   - Supports gzip and deflate decoding.
-   - Thread-safe and sanity-safe.
-   - Small and easy to understand codebase perfect for extending and
-     building upon.
- .
- This package contains the universal wheel.
