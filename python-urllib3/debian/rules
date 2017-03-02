@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=urllib3
+export PYTHONWARNINGS=d
+
+%:
+	dh $@ --with python2,python3 --buildsystem=pybuild
+
+override_dh_auto_configure:
+	rm -f urllib3/packages/six.py
+
+override_dh_auto_install:
+	dh_auto_install
+	python3 setup.py bdist_wheel \
+		--universal \
+		-d $(CURDIR)/debian/tmp/usr/share/python-wheels
+
+override_dh_auto_test:
+	# Exclude dummyserver tests since they are also failing upstream.
+	PYBUILD_SYSTEM=custom \
+	PYBUILD_TEST_ARGS="cd {build_dir}; {interpreter} -m nose {dir}/test --with-coverage -e with_dummyserver" dh_auto_test
+	# Clean here .coverage because it is created by nose using the coverage
+	# plugin
+	find . -name .coverage -delete
+
+override_dh_installchangelogs:
+	dh_installchangelogs CHANGES.rst
