@@ -1,0 +1,116 @@
+Description: Use the system python-chardet and python-urllib3 instead of the
+ embedded copies but provide requests.packages package because it will be
+ used to supply a stub for ``requests.packages.urllib3``.
+Author: Daniele Tricoli <eriol@mornie.org>
+Forwarded: not-needed
+Last-Update: 2014-10-21
+
+--- a/requests/adapters.py
++++ b/requests/adapters.py
+@@ -11,21 +11,21 @@
+ import socket
+ 
+ from .models import Response
+-from .packages.urllib3 import Retry
+-from .packages.urllib3.poolmanager import PoolManager, proxy_from_url
+-from .packages.urllib3.response import HTTPResponse
+-from .packages.urllib3.util import Timeout as TimeoutSauce
++from urllib3 import Retry
++from urllib3.poolmanager import PoolManager, proxy_from_url
++from urllib3.response import HTTPResponse
++from urllib3.util import Timeout as TimeoutSauce
+ from .compat import urlparse, basestring
+ from .utils import (DEFAULT_CA_BUNDLE_PATH, get_encoding_from_headers,
+                     prepend_scheme_if_needed, get_auth_from_url, urldefragauth)
+ from .structures import CaseInsensitiveDict
+-from .packages.urllib3.exceptions import ConnectTimeoutError
+-from .packages.urllib3.exceptions import HTTPError as _HTTPError
+-from .packages.urllib3.exceptions import MaxRetryError
+-from .packages.urllib3.exceptions import ProxyError as _ProxyError
+-from .packages.urllib3.exceptions import ProtocolError
+-from .packages.urllib3.exceptions import ReadTimeoutError
+-from .packages.urllib3.exceptions import SSLError as _SSLError
++from urllib3.exceptions import ConnectTimeoutError
++from urllib3.exceptions import HTTPError as _HTTPError
++from urllib3.exceptions import MaxRetryError
++from urllib3.exceptions import ProxyError as _ProxyError
++from urllib3.exceptions import ProtocolError
++from urllib3.exceptions import ReadTimeoutError
++from urllib3.exceptions import SSLError as _SSLError
+ from .cookies import extract_cookies_to_jar
+ from .exceptions import (ConnectionError, ConnectTimeout, ReadTimeout, SSLError,
+                          ProxyError)
+--- a/requests/compat.py
++++ b/requests/compat.py
+@@ -4,7 +4,7 @@
+ pythoncompat
+ """
+ 
+-from .packages import chardet
++import chardet
+ 
+ import sys
+ 
+@@ -91,7 +91,7 @@
+     import cookielib
+     from Cookie import Morsel
+     from StringIO import StringIO
+-    from .packages.urllib3.packages.ordered_dict import OrderedDict
++    from urllib3.packages.ordered_dict import OrderedDict
+ 
+     builtin_str = str
+     bytes = str
+--- a/requests/models.py
++++ b/requests/models.py
+@@ -16,10 +16,10 @@
+ 
+ from .auth import HTTPBasicAuth
+ from .cookies import cookiejar_from_dict, get_cookie_header
+-from .packages.urllib3.fields import RequestField
+-from .packages.urllib3.filepost import encode_multipart_formdata
+-from .packages.urllib3.util import parse_url
+-from .packages.urllib3.exceptions import (
++from urllib3.fields import RequestField
++from urllib3.filepost import encode_multipart_formdata
++from urllib3.util import parse_url
++from urllib3.exceptions import (
+     DecodeError, ReadTimeoutError, ProtocolError)
+ from .exceptions import (
+     HTTPError, RequestException, MissingSchema, InvalidURL, 
+--- a/setup.py
++++ b/setup.py
+@@ -19,12 +19,6 @@
+ packages = [
+     'requests',
+     'requests.packages',
+-    'requests.packages.chardet',
+-    'requests.packages.urllib3',
+-    'requests.packages.urllib3.packages',
+-    'requests.packages.urllib3.contrib',
+-    'requests.packages.urllib3.util',
+-    'requests.packages.urllib3.packages.ssl_match_hostname',
+ ]
+ 
+ requires = []
+--- a/requests/__init__.py
++++ b/requests/__init__.py
+@@ -50,7 +50,7 @@
+ 
+ # Attempt to enable urllib3's SNI support, if possible
+ try:
+-    from .packages.urllib3.contrib import pyopenssl
++    from urllib3.contrib import pyopenssl
+     pyopenssl.inject_into_urllib3()
+ except ImportError:
+     pass
+--- a/requests/exceptions.py
++++ b/requests/exceptions.py
+@@ -7,7 +7,7 @@
+ This module contains the set of Requests' exceptions.
+ 
+ """
+-from .packages.urllib3.exceptions import HTTPError as BaseHTTPError
++from urllib3.exceptions import HTTPError as BaseHTTPError
+ 
+ 
+ class RequestException(IOError):
