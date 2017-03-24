@@ -1,4 +1,4 @@
-python-pika (0.9.14-1~bpo70+2) perfsonar-wheezy-staging; urgency=low
+python-pika (0.9.14-1~bpo70+2) perfsonar-wheezy-release; urgency=low
 
   * Rebuild for perfsonar-wheezy-staging.
 

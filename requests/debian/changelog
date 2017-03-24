@@ -1,4 +1,4 @@
-requests (2.4.3-6~bpo70+1) unstable; urgency=medium
+requests (2.4.3-6~bpo70+1) perfsonar-wheezy-release; urgency=medium
 
   * Backport to wheezy.
 
