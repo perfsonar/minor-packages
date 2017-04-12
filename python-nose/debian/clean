@@ -1,0 +1,6 @@
+*.egg-info/*
+.coverage
+functional_tests/doc_tests/test_xunit_plugin/support/nosetests.xml
+functional_tests/support/xunit.xml
+functional_tests/support/issue191/UNKNOWN.egg-info/*
+cover/*

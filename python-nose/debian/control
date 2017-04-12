@@ -1,0 +1,57 @@
+Source: nose
+Section: python
+Priority: optional
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Uploaders:
+ Torsten Marek <shlomme@debian.org>,
+ Dmitry Shachnev <mitya57@debian.org>,
+ Brian May <bam@debian.org>
+Build-Depends:
+ debhelper (>= 9),
+ dh-python,
+ libjs-jquery-hotkeys,  
+ libjs-jquery-isonscreen,
+ libjs-jquery-tablesorter,
+ python-all (>= 2.6.6-3~),
+ python-setuptools (>= 0.6a9),
+ python-sphinx (>= 1.0.7+dfsg),
+ python-coverage,
+ python3-all,
+ python3-setuptools
+X-Python-Version: >= 2.5
+X-Python3-Version: >= 3.2
+Standards-Version: 3.9.6
+Homepage: https://nose.readthedocs.org/en/latest/
+Vcs-Git: https://anonscm.debian.org/git/python-modules/packages/nose.git
+Vcs-Browser: https://anonscm.debian.org/cgit/python-modules/packages/nose.git
+
+Package: python-nose-doc
+Architecture: all
+Section: doc
+Breaks: python-nose (<< 1.1.2)
+Replaces: python-nose (<< 1.1.2)
+Depends: ${misc:Depends}, ${sphinxdoc:Depends}
+Description: documentation for discovery and running for Python's unittest
+ nose provides an alternate test discovery and running process for
+ unittest, one that is intended to mimic the behavior of py.test as
+ much as is reasonably possible without resorting to too much magic
+ .
+ This package provides the documentation for nose.
+
+Package: python-nose
+Architecture: all
+Depends: python-pkg-resources, ${misc:Depends}, ${python:Depends}
+Suggests: python-coverage, python-nose-doc
+Description: test discovery and running of Python's unittest
+ nose provides an alternate test discovery and running process for
+ unittest, one that is intended to mimic the behavior of py.test as
+ much as is reasonably possible without resorting to too much magic
+
+Package: python3-nose
+Architecture: all
+Depends: python3-pkg-resources, ${misc:Depends}, ${python3:Depends}
+Suggests: python-nose-doc
+Description: test discovery and running for Python3 unittest
+ nose provides an alternate test discovery and running process for Python3
+ unittest, one that is intended to mimic the behavior of py.test as
+ much as is reasonably possible without resorting to too much magic

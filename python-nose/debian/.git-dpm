@@ -1,0 +1,11 @@
+# see git-dpm(1) from git-dpm package
+bbca2ea3f3b7e3dee0b7e2198b56196b1478c6ce
+bbca2ea3f3b7e3dee0b7e2198b56196b1478c6ce
+f97053e0cd15a0709976837af19b8c3ecb4ebc3a
+f97053e0cd15a0709976837af19b8c3ecb4ebc3a
+nose_1.3.7.orig.tar.gz
+97f2a04c9d43b29ddf4794a1a1d1ba803f1074c6
+280488
+debianTag="debian/%e%v"
+patchedTag="patched/%e%v"
+upstreamTag="upstream/%e%u"

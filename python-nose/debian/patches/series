@@ -1,0 +1,5 @@
+no-install-data
+no-google-analytics
+no-distribute_setup
+disable-unstable-tests
+0005-Set-__qualname__-equal-to-__name__-on-derived-classe.patch
