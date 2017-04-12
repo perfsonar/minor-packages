@@ -1,0 +1,4 @@
+*.pyc
+**/*.pyc
+mock.egg-info/PKG-INFO
+mock.egg-info/SOURCES.txt

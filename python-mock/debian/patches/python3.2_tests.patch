@@ -1,0 +1,29 @@
+Description: Allow tests to be run with python3 (>= 3.2).
+Author: Michael Fladischer <FladischerMichael@fladi.at>
+Last-Update: 2012-05-30
+Forwarded: no
+
+--- a/setup.py
++++ b/setup.py
+@@ -7,7 +7,7 @@
+ from mock import __version__
+ 
+ import os
+-
++import sys
+ 
+ NAME = 'mock'
+ MODULES = ['mock']
+@@ -66,7 +66,10 @@
+ except ImportError:
+     from distutils.core import setup
+ else:
+-    params['tests_require'] = ['unittest2']
+-    params['test_suite'] = 'unittest2.collector'
++    if sys.version_info >= (3,):
++        params['test_suite'] = 'tests'
++    else:
++        params['tests_require'] = ['unittest2']
++        params['test_suite'] = 'unittest2.collector'
+ 
+ setup(**params)

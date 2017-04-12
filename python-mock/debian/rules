@@ -1,0 +1,63 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+PYVERS :=  $(shell pyversions -r)
+PY3VERS := $(shell py3versions -r)
+
+%:
+	dh $@ --with python2,python3,sphinxdoc
+	
+.PHONY: override_dh_auto_build
+override_dh_auto_build:
+	set -e; \
+	for py in $(PYVERS) $(PY3VERS); do \
+		$$py -B setup.py build; \
+	done
+	PYTHONPATH=. sphinx-build -b html -N docs/ docs/.build/html
+
+.PHONY: override_dh_auto_clean
+override_dh_auto_clean:
+	set -e; \
+	for py in $(PYVERS) $(PY3VERS); do \
+		$$py -B setup.py clean; \
+		rm -rf build; \
+	done
+
+.PHONY: override_dh_auto_install
+override_dh_auto_install:
+	set -e; \
+	for py in $(PYVERS); do \
+		$$py -B setup.py install --skip-build --root debian/python-mock \
+		                      --install-layout deb; \
+	done
+	set -e; \
+	for py in $(PY3VERS); do \
+		$$py -B setup.py install --skip-build --root debian/python3-mock \
+		                      --install-layout deb; \
+	done
+	rm debian/python*-mock/usr/lib/python*/*-packages/mock*.egg-info/SOURCES.txt
+
+.PHONY: override_dh_installchangelogs
+override_dh_installchangelogs:
+	dh_installchangelogs docs/changelog.txt
+
+.PHONY: override_dh_compress
+override_dh_compress:
+	dh_compress -X.js -X.html -X.txt
+
+.PHONY: override_dh_clean
+override_dh_clean:
+	rm -rf docs/.build tests/__pycache__ __pycache__
+	dh_clean
+
+.PHONY: override_dh_auto_test
+override_dh_auto_test:
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	set -e; \
+	for py in $(PYVERS) $(PY3VERS); do \
+		$$py setup.py test ; \
+	done
+endif
+
