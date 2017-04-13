@@ -1,4 +1,4 @@
-python-mock (1.0.1-3~bpo70+1) unstable; urgency=low
+python-mock (1.0.1-3~bpo70+1) perfsonar-wheezy-release; urgency=low
 
   * Backport to Wheezy.
 
