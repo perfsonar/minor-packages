@@ -1,2 +1,0 @@
-# source is actually in noname_wrapped.not_py
-nose source: source-is-missing unit_tests/support/doctest/noname_wrapped.not_pyc
