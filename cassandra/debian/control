@@ -11,7 +11,7 @@ Standards-Version: 3.8.3
 
 Package: cassandra
 Architecture: all
-Depends: default-jre-headless, adduser, libjna-java, python (>= 2.7), ${misc:Depends}
+Depends: openjdk-7-jre-headless | default-jre-headless, adduser, libjna-java, python (>= 2.7), ${misc:Depends}
 Recommends: ntp | time-daemon
 Conflicts: apache-cassandra1
 Replaces: apache-cassandra1
