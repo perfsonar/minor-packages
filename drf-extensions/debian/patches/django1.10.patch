@@ -1,0 +1,24 @@
+--- a/rest_framework_extensions/compat.py
++++ b/rest_framework_extensions/compat.py
+@@ -17,11 +17,11 @@
+ except ImportError:
+     from rest_framework import six
+ 
+-# location of patterns, url, include changes in 1.4 onwards
++# location of url, include changes in 1.4 onwards
+ try:
+-    from django.conf.urls import patterns, url, include
++    from django.conf.urls import url, include
+ except ImportError:
+-    from django.conf.urls.defaults import patterns, url, include
++    from django.conf.urls.defaults import url, include
+ 
+ # Handle django.utils.encoding rename:
+ # smart_unicode -> smart_text
+@@ -598,4 +598,4 @@
+                              klass.__name__)
+         klass.__unicode__ = klass.__str__
+         klass.__str__ = lambda self: self.__unicode__().encode('utf-8')
+-        return klass
+\ No newline at end of file
++        return klass
