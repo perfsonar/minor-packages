@@ -1,0 +1,38 @@
+Source: libmonitoring-plugin-perl
+Section: perl
+Priority: optional
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: Salvatore Bonaccorso <carnil@debian.org>, Jan Wagner <waja@cyconet.org>
+Build-Depends: debhelper (>= 9)
+Build-Depends-Indep:
+ libclass-accessor-perl,
+ libconfig-tiny-perl,
+ libmath-calc-units-perl,
+ libparams-validate-perl,
+ perl
+Standards-Version: 3.9.6
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-perl/packages/libmonitoring-plugin-perl.git
+Vcs-Git: git://anonscm.debian.org/pkg-perl/packages/libmonitoring-plugin-perl.git
+Homepage: https://metacpan.org/release/Monitoring-Plugin
+Testsuite: autopkgtest-pkg-perl
+
+Package: libmonitoring-plugin-perl
+Architecture: all
+Depends:
+ libclass-accessor-perl,
+ libconfig-tiny-perl,
+ libmath-calc-units-perl,
+ libparams-validate-perl,
+ ${misc:Depends},
+ ${perl:Depends}
+Description: family of perl modules to streamline writing Monitoring plugins
+ Monitoring::Plugin and its associated Monitoring::Plugin::* modules are a
+ family of perl modules to streamline writing Monitoring plugins. The main end
+ user modules are Monitoring::Plugin, providing an object-oriented interface
+ to the entire Monitoring::Plugin::* collection, and
+ Monitoring::Plugin::Functions, providing a simpler functional interface to a
+ useful subset of the available functionality.
+ .
+ The purpose of the collection is to make it as simple as possible for
+ developers to create plugins that conform the Monitoring Plugin guidelines
+ (https://www.monitoring-plugins.org/doc/guidelines.html).
