@@ -1,0 +1,28 @@
+Source: libgeo-ip-perl
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: Axel Beckert <abe@debian.org>
+Section: perl
+Priority: optional
+Build-Depends: debhelper (>= 9.20120312),
+               geoip-database,
+               libgeoip-dev,
+               perl
+Standards-Version: 3.9.6
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-perl/packages/libgeo-ip-perl.git
+Vcs-Git: git://anonscm.debian.org/pkg-perl/packages/libgeo-ip-perl.git
+Homepage: https://metacpan.org/release/Geo-IP
+Testsuite: autopkgtest-pkg-perl
+
+Package: libgeo-ip-perl
+Architecture: any
+Depends: ${misc:Depends},
+         ${perl:Depends},
+         ${shlibs:Depends}
+Description: Perl interface to GeoIP library
+ Geo::IP is a Perl external module which provides an interface to
+ GeoIP library.
+ .
+ GeoIP is a C library that enables the user to find the country that any
+ IP address or hostname originates from.  It uses a file based database
+ that simply contains IP blocks as keys, and countries as values.
+ This database is managed by the GeoIP library package.
