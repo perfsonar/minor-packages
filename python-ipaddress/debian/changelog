@@ -1,4 +1,4 @@
-python-ipaddress (1.0.16-1~bpo8+1) jessie-backports; urgency=medium
+python-ipaddress (1.0.16-1~bpo8+1) perfsonar-jessie-release; urgency=medium
 
   * Rebuild for jessie-backports.
   * Drop pypy package (no pypy-setuptools in jessie).

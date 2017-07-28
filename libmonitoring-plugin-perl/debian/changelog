@@ -1,4 +1,4 @@
-libmonitoring-plugin-perl (0.39-1~bpo8+1) jessie-backports; urgency=medium
+libmonitoring-plugin-perl (0.39-1~bpo8+1) perfsonar-jessie-release; urgency=medium
 
   * Rebuild for jessie-backports.
 

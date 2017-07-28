@@ -1,4 +1,4 @@
-drf-extensions (0.2.8-2) unstable; urgency=medium
+drf-extensions (0.2.8-2) perfsonar-jessie-release; urgency=medium
 
   * Adding patch for Django 1.10 and esmond.
 

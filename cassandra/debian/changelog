@@ -1,4 +1,4 @@
-cassandra (2.0.14-1~bpo80+2) unstable; urgency=medium
+cassandra (2.0.14-1~bpo80+2) perfsonar-jessie-release; urgency=medium
 
   * Backport to Jessie and Stretch
 
