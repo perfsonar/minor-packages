@@ -1,0 +1,38 @@
+Source: six
+Section: python
+Priority: optional
+Maintainer: Colin Watson <cjwatson@debian.org>
+Uploaders: Barry Warsaw <barry@debian.org>
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 7.2.11~), python (>= 2.6.6-3~), python-all, python3 (>= 3.1.2-8~), python3-all, python-pytest, python3-pytest, python-py, python3-py, python-setuptools, python3-setuptools, dh-python
+Homepage: http://pythonhosted.org/six/
+Vcs-Git: git://anonscm.debian.org/collab-maint/six.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/six.git
+X-Python-Version: >= 2.5
+X-Python3-Version: >= 3.0
+
+Package: python-six
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${python:Depends}
+Description: Python 2 and 3 compatibility library (Python 2 interface)
+ Six is a Python 2 and 3 compatibility library. It provides utility
+ functions for smoothing over the differences between the Python versions
+ with the goal of writing Python code that is compatible on both Python
+ versions.
+ .
+ This package provides Six on the Python 2 module path. It is complemented
+ by python3-six.
+
+Package: python3-six
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, ${python3:Depends}
+Description: Python 2 and 3 compatibility library (Python 3 interface)
+ Six is a Python 2 and 3 compatibility library. It provides utility
+ functions for smoothing over the differences between the Python versions
+ with the goal of writing Python code that is compatible on both Python
+ versions.
+ .
+ This package provides Six on the Python 3 module path. It is complemented
+ by python-six.
