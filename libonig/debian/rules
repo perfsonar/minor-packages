@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@ --with autoreconf
+
+override_dh_installman:
+	dh_installman -plibonig-dev -A debian/onig-config.1
+
+override_dh_strip:
+	set -e; \
+	for pkg in $(patsubst %-dbg,%,$(filter %-dbg,$(shell dh_listpackages))); do \
+		dh_strip -p$${pkg} --dbg-package=$${pkg}-dbg; \
+	done
+	dh_strip -s --remaining-packages
+
+override_dh_install:
+	dh_install --fail-missing -X.la -X.a
+
