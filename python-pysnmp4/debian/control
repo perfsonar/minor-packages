@@ -8,7 +8,7 @@ Uploaders: Jan Lübbe <jluebbe@debian.org>,
 Standards-Version: 3.9.8
 Build-Depends: debhelper (>= 9),
                dh-python,
-               python-sphinx, python-sphinx-rtd-theme,
+               python-sphinx (>= 1.4.9), python-sphinx-rtd-theme,
                python-all (>= 2.6.6-3~), python3-all,
 	       python-setuptools, python3-setuptools,
                python-crypto, python3-crypto,
