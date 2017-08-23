@@ -1,0 +1,24 @@
+From c2e3edc600b3c8548fdb0a9b919ef505b631411f Mon Sep 17 00:00:00 2001
+From: Vincent Bernat <vincent@bernat.im>
+Date: Sat, 2 Jul 2016 16:05:27 +0200
+Subject: Do not include analytics in documentation
+
+---
+ docs/source/.templates/layout.html | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/docs/source/.templates/layout.html b/docs/source/.templates/layout.html
+index 0f25e0e76b7e..bada42868146 100644
+--- a/docs/source/.templates/layout.html
++++ b/docs/source/.templates/layout.html
+@@ -133,10 +133,7 @@
+         <div class="rst-content">
+           {% include "breadcrumbs.html" %}
+           <div role="main" class="document">
+-            {% include "top.html" %}
+             {% block body %}{% endblock %}
+-            {% include "bottom.html" %}
+-            {% include "analytics.html" %}
+           <hr/>
+           </div>
+           {% include "footer.html" %}
