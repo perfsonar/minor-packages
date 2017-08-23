@@ -1,0 +1,5 @@
+The documentation and examples for this package is in
+python-pysnmp4-doc.
+
+When you install that package, you can find the documentation and
+examples in /usr/share/doc/python-pysnmp4-doc.
