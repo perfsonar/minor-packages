@@ -1,2 +1,0 @@
-extend-diff-ignore = "^[^/]*[.]egg-info/"
-extend-diff-ignore = "^sphinx/locale/[^/]+/LC_MESSAGES/"
