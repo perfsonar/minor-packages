@@ -1,0 +1,36 @@
+Tests: python-sphinx
+Depends: python-sphinx,
+         python-pygments (>= 2.1.1),
+         python-nose,
+         python-mock,
+         python-xapian,
+         python-whoosh,
+         texlive-latex-extra,
+         texlive-generic-extra,
+         texlive-fonts-recommended,
+         texlive-luatex,
+         texinfo,
+         dvipng,
+         graphviz
+
+Tests: python3-sphinx
+Depends: python3-sphinx,
+         python3-pygments (>= 2.1.1),
+         python3-nose,
+         python3-mock,
+         python3-xapian,
+         python3-whoosh,
+         texlive-latex-extra,
+         texlive-generic-extra,
+         texlive-fonts-recommended,
+         texlive-luatex,
+         texinfo,
+         dvipng,
+         graphviz
+
+Tests: sphinx-doc
+Depends: sphinx-doc,
+         python3-gi,
+         gir1.2-webkit2-4.0 (>= 2.10),
+         xauth,
+         xvfb
