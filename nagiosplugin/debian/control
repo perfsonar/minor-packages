@@ -6,7 +6,6 @@ Priority: optional
 Build-Depends: debhelper (>= 9),
                dh-python,
                python-all (>= 2.6.6-3),
-               python-argparse (>= 1.2.1-2),
                python-setuptools (>= 0.6b3),
                python-unittest2,
                python3-all (>= 3.2),
