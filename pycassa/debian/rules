@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --buildsystem=python_distutils --with python2,sphinxdoc
+
+PYTHONS:=$(shell pyversions -vr)
+override_dh_auto_install:
+	set -e && for pyvers in $(PYTHONS); do \
+                python$$pyvers setup.py install --install-layout=deb \
+                        --root $(CURDIR)/debian/python-pycassa ; \
+		rm $(CURDIR)/debian/python-pycassa/usr/lib/python$$pyvers/dist-packages/ez_setup.py ; \
+        done
+
+override_dh_installchangelogs:
+	dh_installchangelogs CHANGES
+
+override_dh_sphinxdoc:
+ifeq (,$(findstring nodocs, $(DEB_BUILD_OPTIONS)))
+	sphinx-build -b html doc/ $(CURDIR)/debian/pycassa-doc/usr/share/doc/pycassa-doc/html
+	dh_sphinxdoc -O--buildsystem=python_distutils
+endif
