@@ -1,0 +1,17 @@
+Description: Session fixation and cookie stealing.
+ See http://www.openwall.com/lists/oss-security/2015/03/14/4 for a complete
+ description.
+Origin: https://github.com/kennethreitz/requests/commit/3bd8afbff29e50b38f889b2f688785a669b9aafc
+Bug-Debian: https://bugs.debian.org/780506
+
+--- a/requests/sessions.py
++++ b/requests/sessions.py
+@@ -168,7 +168,7 @@
+             except KeyError:
+                 pass
+ 
+-            extract_cookies_to_jar(prepared_request._cookies, prepared_request, resp.raw)
++            extract_cookies_to_jar(prepared_request._cookies, req, resp.raw)
+             prepared_request._cookies.update(self.cookies)
+             prepared_request.prepare_cookies(prepared_request._cookies)
+ 

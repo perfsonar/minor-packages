@@ -1,0 +1,46 @@
+Description: Make Python import system know that requests.packages.urllib3 and
+urllib3 are the same thing.
+Author: Jakub Wilk <jwilk@debian.org>
+Forwarded: not-needed
+Bug-Debian: https://bugs.debian.org/769047
+Bug-Debian: https://bugs.debian.org/769496
+Last-Update: 2014-11-14
+
+--- a/requests/__init__.py
++++ b/requests/__init__.py
+@@ -48,6 +48,28 @@
+ __license__ = 'Apache 2.0'
+ __copyright__ = 'Copyright 2014 Kenneth Reitz'
+ 
++# On Debian make Python import system know that requests.packages.urllib3
++# and urllib3 are the same thing.
++import pkgutil
++import sys
++import urllib3
++
++def _attach_namespace(package, where):
++    # Attach package top namespace
++    sys.modules[where + '.' + package.__name__] = package
++    for loader, name, ispkg in pkgutil.walk_packages(package.__path__,
++                                                     package.__name__ + '.'):
++        try:
++            module = __import__(name)
++        except ImportError:
++            continue
++        sys.modules[where + '.' + name] = module
++
++_attach_namespace(urllib3, 'requests.packages')
++del _attach_namespace
++# Python 3 needs this imported explicitly.
++import requests.packages
++
+ # Attempt to enable urllib3's SNI support, if possible
+ try:
+     from urllib3.contrib import pyopenssl
+--- a/requests/packages/__init__.py
++++ b/requests/packages/__init__.py
+@@ -1,3 +1,3 @@
+ from __future__ import absolute_import
+ 
+-from . import urllib3
++import urllib3
