@@ -1,0 +1,29 @@
+Author: Jamie Strandboge <jamie@canonical.com>
+Description: require SSL certificate validation by default by using
+ CERT_REQUIRED and using the system /etc/ssl/certs/ca-certificates.crt
+Bug-Ubuntu: https://launchpad.net/bugs/1047054
+Bug-Debian: http://bugs.debian.org/686872
+Last-Update: 2014-09-01
+
+--- a/urllib3/connectionpool.py
++++ b/urllib3/connectionpool.py
+@@ -628,6 +628,8 @@
+     ``ssl_version`` are only used if :mod:`ssl` is available and are fed into
+     :meth:`urllib3.util.ssl_wrap_socket` to upgrade the connection socket
+     into an SSL socket.
++
++    On Debian, SSL certificate validation is required by default
+     """
+ 
+     scheme = 'https'
+@@ -637,8 +639,8 @@
+                  strict=False, timeout=Timeout.DEFAULT_TIMEOUT, maxsize=1,
+                  block=False, headers=None, retries=None,
+                  _proxy=None, _proxy_headers=None,
+-                 key_file=None, cert_file=None, cert_reqs=None,
+-                 ca_certs=None, ssl_version=None,
++                 key_file=None, cert_file=None, cert_reqs='CERT_REQUIRED',
++                 ca_certs='/etc/ssl/certs/ca-certificates.crt', ssl_version=None,
+                  assert_hostname=None, assert_fingerprint=None,
+                  **conn_kw):
+ 

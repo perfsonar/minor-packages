@@ -1,0 +1,22 @@
+Description: Do not use embedded copy of ssl.match_hostname, when possible
+ The system python has the necessary features backported, since 2.7.8-7 (and
+ 221a1f9155e2, releasing in 2.7.9, upstream). However, alternative python
+ implementations don't, yet, and urllib3 is used by pip in virtualenvs.
+Author: Stefano Rivera <stefanor@debian.org>
+Forwarded: not-needed
+Last-Update: 2014-11-18
+
+--- a/urllib3/packages/__init__.py
++++ b/urllib3/packages/__init__.py
+@@ -1,4 +1,9 @@
+ from __future__ import absolute_import
+ 
+-from . import ssl_match_hostname
+-
++try:
++    # cPython >= 2.7.9 has ssl features backported from Python3
++    from ssl import CertificateError
++    del CertificateError
++    import ssl as ssl_match_hostname
++except ImportError:
++    from . import ssl_match_hostname
