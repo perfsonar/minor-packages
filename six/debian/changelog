@@ -1,4 +1,4 @@
-six (1.8.0-1~bpo70+1) wheezy-backports; urgency=medium
+six (1.8.0-1~bpo70+1) perfsonar-wheezy-release; urgency=medium
 
   * Rebuild for wheezy-backports.
   * Disable wheel support for wheezy-backports, as python3-wheel is not
