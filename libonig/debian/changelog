@@ -1,4 +1,10 @@
-libonig (5.9.5-3.2+deb8u1) perfsonar-jessie-release; urgency=medium
+libonig (5.9.5-3.2+deb8u1~deb9+1) perfsonar-jessie-staging; urgency=medium
+
+  * Backport for stretch.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Thu, 05 Oct 2017 17:06:43 +0200
+
+libonig (5.9.5-3.2+deb8u1) jessie; urgency=medium
 
   * New debian/patches/0500-CVE-2017-922[4-9].patch:
     - Cherrypicked from upstream to correct:
