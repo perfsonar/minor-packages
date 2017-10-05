@@ -1,4 +1,4 @@
-libonig (5.9.5-3.2+deb8u1) jessie; urgency=medium
+libonig (5.9.5-3.2+deb8u1) perfsonar-jessie-release; urgency=medium
 
   * New debian/patches/0500-CVE-2017-922[4-9].patch:
     - Cherrypicked from upstream to correct:
