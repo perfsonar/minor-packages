@@ -1,3 +1,9 @@
+django-filter (0.11.0-2~bpo80+2) perfsonar-jessie-staging; urgency=medium
+
+  * Update distribution to staging.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Mon, 09 Oct 2017 12:09:20 +0200
+
 django-filter (0.11.0-2~bpo80+1) unstable; urgency=medium
 
   * Backport to Jessie.
