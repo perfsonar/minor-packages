@@ -1,3 +1,9 @@
+djangorestframework (3.3.2-1~bpo8+1) perfsonar-jessie-staging; urgency=medium
+
+  * Update distribution to staging.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Mon, 09 Oct 2017 11:54:13 +0200
+
 djangorestframework (3.3.2-1) unstable; urgency=medium
 
   * New upstream version.
