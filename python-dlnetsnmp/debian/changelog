@@ -1,4 +1,4 @@
-python-dlnetsnmp (0.4.1-2) unstable; urgency=low
+python-dlnetsnmp (0.4.1-2) perfsonar-jessie-staging; urgency=low
 
   * Initial release.
 
