@@ -1,3 +1,9 @@
+libipc-dirqueue-perl (1.0-3~bpo8+1) perfsonar-jessie-staging; urgency=medium
+
+  * Rebuild for jessie staging.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Fri, 13 Oct 2017 12:39:14 +0200
+
 libipc-dirqueue-perl (1.0-3) unstable; urgency=medium
 
   * Add libpoe-perl dependency.
