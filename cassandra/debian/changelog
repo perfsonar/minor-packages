@@ -1,3 +1,9 @@
+cassandra (2.0.14-1~bpo80+3) perfsonar-jessie-release; urgency=medium
+
+  * Adding Conflicts: with openjdk-9
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Fri, 28 Jul 2017 14:33:00 +0200
+
 cassandra (2.0.14-1~bpo80+2) perfsonar-jessie-release; urgency=medium
 
   * Backport to Jessie and Stretch
