@@ -1,6 +1,30 @@
-python-django (1.8.15-1~bpo70+1) wheezy-backports; urgency=medium
+python-django (1.8.18-1~bpo7+1) wheezy-backports; urgency=medium
 
-  * Wheezy backport.
+  * Rebuild for wheezy.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Fri, 10 Nov 2017 12:02:41 +0100
+
+python-django (1.8.18-1~bpo8+1) jessie-backports; urgency=medium
+
+  * New upstream security release. Fixes:
+    - CVE-2017-7233: Open redirect and possible XSS attack via user-supplied
+      numeric redirect URLs
+    - CVE-2017-7234: Open redirect vulnerability in django.views.static.serve()
+  * Sphinx >= 1.3 is now required, bump version in Build-Depends.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Sat, 20 May 2017 15:34:31 +0200
+
+python-django (1.8.16-1~bpo8+1) jessie-backports; urgency=medium
+
+  * New upstream security release. Fixes:
+    - CVE-2016-9013: User with hardcoded password created when running tests
+      on Oracle
+    - CVE-2016-9014: DNS rebinding vulnerability when DEBUG=True
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Tue, 08 Nov 2016 13:56:26 +0100
+
+python-django (1.8.15-1~bpo8+1) jessie-backports; urgency=medium
+
   * New upstream security release. Fixes CVE-2016-7401: CSRF protection bypass
     on a site with Google Analytics.
 
