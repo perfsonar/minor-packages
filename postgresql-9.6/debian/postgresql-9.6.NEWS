@@ -1,0 +1,6 @@
+postgresql-9.6 (9.6.6-0+deb9u1) stretch-security; urgency=medium
+
+  If you are using BRIN indexes, it may be necessary to reindex existing
+  indexes. See the release notes for details.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Wed, 08 Nov 2017 10:47:26 +0100
