@@ -1,8 +1,76 @@
-postgresql-common (177~bpo7+1) perfsonar-wheezy-release; urgency=medium
+postgresql-common (181+deb9u1~bpo7+1) perfsonar-wheezy-release; urgency=medium
 
   * Rebuild for wheezy.
 
- -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Thu, 08 Dec 2016 12:48:12 +0100
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Fri, 10 Nov 2017 08:33:27 +0100
+
+postgresql-common (181+deb9u1) stretch-security; urgency=medium
+
+  * pg_ctlcluster, pg_createcluster, pg_upgradecluster: Use lchown instead
+    of chown to mitigate privilege escalation via symlinks. (CVE-2017-8806.
+    Related to CVE-2017-12172 in PostgreSQL; extends our earlier fix for
+    CVE-2016-1255.)
+
+ -- Christoph Berg <myon@debian.org>  Tue, 07 Nov 2017 20:54:52 +0100
+
+postgresql-common (181) unstable; urgency=medium
+
+  * debian/postgresql-common.config: Fix deprecation warning debconf message
+    to use a numerical comparison on the version number.
+  * pg_buildext: Fix to use a numerical comparison on the version number.
+  * pg_buildext.pod: Drop outdated PG_VIRTUALENV_UNSHARE=-n documentation.
+  * pgdg/apt.postgresql.org.sh: Add known distributions.
+  * Updated Danish debconf translation by Joe Dalton, thanks!
+    (Closes: #856787)
+
+ -- Christoph Berg <myon@debian.org>  Sat, 15 Apr 2017 18:56:38 +0200
+
+postgresql-common (180) unstable; urgency=medium
+
+  * supported-versions: Retire 9.1 on apt.postgresql.org.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Thu, 09 Feb 2017 15:30:23 +0100
+
+postgresql-common (179) unstable; urgency=medium
+
+  * Catch all pg_ctl output by redirecting it to /var/log/postgresql.
+    (Closes: #830485)
+  * Dump locale environment variables if setlocale fails.
+    (Closes: #848869)
+  * Set default log_line_prefix to '%m [%p] %q%u@%d ' to match upstream
+    moving to '%m [%p] ' in PostgreSQL 10.
+  * Support include_dir in read_conf_file. Patch by Andreas Dewes, thanks!
+  * Support adding include directives to the new postgresql.conf from
+    createcluster.conf; harness directives with an "add_" prefix, e.g.
+    "add_include_dir".
+  * Import new apt.postgresql.org key.
+  * Support 9.6 for jessie-backports.
+
+ -- Christoph Berg <myon@debian.org>  Tue, 24 Jan 2017 23:03:12 +0100
+
+postgresql-common (178) unstable; urgency=medium
+
+  [ Christoph Berg ]
+  * pg_buildext: Don't ask pg_virtualenv for a new network namespace by
+    default.
+  * postgresql-all: New meta package depending on all server packages in all
+    supported versions. Intended to be used for installing test dependencies.
+  * pg_upgradecluster: Properly upgrade databases with non-login role owners.
+    (Closes: #614374, #838812)
+  * pg_upgradecluster, pg_renamecluster: Update cluster_name.
+  * Rebuild upgrades libreadline to 7 in unstable. (Closes: #845356)
+  * Replace most occurrences of "postmaster" by "postgres". Notable leftover
+    is the postmaster.1.gz leader of the manpages alternatives group.
+  * pg_ctlcluster, t/020_create_sql_remove.t: Protect against symlink in
+    /var/log/postgresql/ allowing the creation of arbitrary files elsewhere.
+    Discovered by Dawid Golunski, thanks! (CVE-2016-1255)
+
+  [ Martin Pitt ]
+  * debian/supported-versions: Add Ubuntu 17.04, drop EOLed releases.
+  * t/TestLib.pm, check_clean(): Quiesce stderr of netstat, which shows a "Not
+    all processes could be identified" warning in unprivileged containers.
+
+ -- Christoph Berg <myon@debian.org>  Tue, 20 Dec 2016 17:11:15 +0100
 
 postgresql-common (177) unstable; urgency=medium
 

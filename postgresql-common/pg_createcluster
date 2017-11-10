@@ -4,7 +4,7 @@
 # the postgresql-common infrastructure.
 #
 # (C) 2005-2013 Martin Pitt <mpitt@debian.org>
-# (C) 2012-2016 Christoph Berg <myon@debian.org>
+# (C) 2012-2017 Christoph Berg <myon@debian.org>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 
 use PgCommon;
 use Getopt::Long;
-use POSIX qw/setlocale LC_ALL LC_CTYPE/;
+use POSIX qw/lchown setlocale LC_ALL LC_CTYPE/;
 
 $ENV{'PATH'} = '/bin:/usr/bin'; # untaint
 
@@ -229,7 +229,10 @@ exit 1 unless GetOptions ('u|user=s' => \$owneruid, 'g|group=s' => \$ownergid,
 
 # check validity of locale
 unless (setlocale (LC_ALL, "")) {
-    error ('The locale requested by the environment is invalid.')
+    my $env = join "\n",
+        map { "  $_: $ENV{$_}" }
+        grep { /^(LC_|LANG)/ } sort keys %ENV;
+    error ("The locale requested by the environment is invalid:\n$env")
 }
 
 if (@ARGV < 2) {
@@ -385,8 +388,9 @@ set_cluster_pg_ctl_conf $version, $cluster, '';
 move_conffile "$datadir/postgresql.conf", $confdir, $owneruid, $ownergid, '644';
 move_conffile "$datadir/pg_hba.conf", $confdir, $owneruid, $ownergid, '640', 'hba_file';
 move_conffile "$datadir/pg_ident.conf", $confdir, $owneruid, $ownergid, '640', 'ident_file';
-chown $owneruid, $ownergid, $datadir, $confdir, "$confdir/start.conf" or die "chown: $!";
-chown $owneruid, $ownergid, $datadir, $confdir, "$confdir/pg_ctl.conf" or die "chown: $!";
+foreach my $f ($datadir, $confdir, "$confdir/start.conf", "$confdir/pg_ctl.conf") {
+    lchown $owneruid, $ownergid, $f or error "lchown $f: $!";
+}
 
 PgCommon::set_conf_value $version, $cluster, 'postgresql.conf', 'data_directory', $datadir;
 
@@ -428,7 +432,7 @@ if (! -d '/var/log/postgresql') {
     mkdir '/var/log/postgresql' or
 	error "could not create log directory; you might need to run this program with root privileges";
     chmod 01775, '/var/log/postgresql';
-    chown 0, $postgres_user[3], '/var/log/postgresql';
+    lchown 0, $postgres_user[3], '/var/log/postgresql';
 }
 $real_logfile = $custom_logfile || "/var/log/postgresql/postgresql-$version-$cluster.log";
 error "logfile $real_logfile is a directory, not a file" if (-d $real_logfile);
@@ -443,11 +447,11 @@ if ($owneruid < 500) {
 } else {
     $g = $ownergid;
 }
-chown $owneruid, $g, $real_logfile;
+lchown $owneruid, $g, $real_logfile;
 # if we are using a non-default log file, create a log symlink
 if ($custom_logfile) {
     symlink $real_logfile, "$confdir/log";
-    chown $owneruid, $ownergid, "$confdir/log";
+    lchown $owneruid, $ownergid, "$confdir/log";
 }
 
 # version specific default configuration tweaking
@@ -543,7 +547,7 @@ if ($want_ssl && $newcluster && -e "$PgCommon::common_confdir/root.crl") {
 }
 
 # create default (empty) environment file
-my $defaultenv = "# environment variables for postmaster process
+my $defaultenv = "# environment variables for postgres processes
 # This file has the same syntax as postgresql.conf:
 #  VARIABLE = simple_value
 #  VARIABLE2 = 'any value!'
@@ -562,7 +566,7 @@ open ENV, ">$confdir/environment" or error "could not create environment file $c
 print ENV $defaultenv;
 close ENV;
 chmod 0644, "$confdir/environment";
-chown $owneruid, $ownergid, "$confdir/environment";
+lchown $owneruid, $ownergid, "$confdir/environment";
 
 $cleanup_cruft = 0;
 
@@ -577,6 +581,14 @@ foreach my $guc (sort keys %defaultconf) {
     next if $guc eq 'logging_collector' and $version < 8.3;
     next if $guc eq 'cluster_name' and $version < 9.5;
     my $val = replace_v_c ($defaultconf{$guc}, $version, $cluster);
+    $guc =~ s/^add_include/include/; # remove harness from include directives in createcluster.conf
+    if ($guc eq 'include_dir') {
+        next if ($version < 9.3);
+        if ($val =~ /^[\w.]+$/ and not -e "$confdir/$val") { # create directory relative to new config directory
+            mkdir "$confdir/$val", 0755;
+            lchown $owneruid, $ownergid, "$confdir/$val";
+        }
+    }
     PgCommon::set_conf_value $version, $cluster, 'postgresql.conf', $guc, $val;
 }
 
@@ -622,7 +634,7 @@ B<pg_createcluster> [I<options>] I<version> I<name> [B<--> I<initdb options>]
 =head1 DESCRIPTION
 
 B<pg_createcluster> creates a new PostgreSQL server cluster (i. e. a
-collection of databases served by a L<postmaster(1)> instance) and
+collection of databases served by a L<postgres(1)> instance) and
 integrates it into the multi-version/multi-cluster architecture of the
 B<postgresql-common> package. 
 
@@ -703,7 +715,7 @@ C</var/lib/postgresql/>I<version>C</>I<cluster>.
 
 =item B<-s> I<dir>, B<--socketdir=>I<dir>
 
-Explicitly set the directory where the L<postmaster(1)> server stores the Unix
+Explicitly set the directory where the L<postgres(1)> server stores the Unix
 socket for local connections. Defaults to C</var/run/postgresql/> for clusters
 owned by the user B<postgres>, and C</tmp> for clusters owned by other users.
 Please be aware that C</tmp> is an unsafe directory since everybody can create
@@ -712,7 +724,7 @@ not exist, it is created with appropriate permissions.
 
 =item B<-l> I<path>, B<--logfile=>I<path>
 
-Explicitly set the path for the L<postmaster(1)> server log file. Defaults to
+Explicitly set the path for the L<postgres(1)> server log file. Defaults to
 C</var/log/postgresql/postgresql->I<version>C<->I<cluster>C<.log>.
 
 =item B<--locale=>I<locale>
@@ -798,7 +810,7 @@ will be left untouched.
 =head1 STARTUP CONTROL
 
 The C<start.conf> file in the cluster configuration directory controls the
-start/stop behavior of that cluster's postmaster process. The file can contain
+start/stop behavior of that cluster's postgres process. The file can contain
 comment lines (started with '#'), empty lines, and must have exactly one
 line with one of the following keywords:
 
@@ -806,7 +818,7 @@ line with one of the following keywords:
 
 =item B<auto>
 
-The postmaster process is started/stopped automatically in the init script.
+The postgres process is started/stopped automatically in the init script.
 
 When running from B<systemd>, the cluster is started/stopped when
 B<postgresql.service> is started/stopped.
@@ -814,7 +826,7 @@ This is also the default if the file is missing.
 
 =item B<manual>
 
-The postmaster process is not handled by the init script, but manually
+The postgres process is not handled by the init script, but manually
 controlling the cluster with L<pg_ctlcluster(1)> is permitted.
 
 When running from B<systemd>, the cluster is not started automatically when
@@ -826,7 +838,7 @@ using B<systemctl start postgresql@>I<version>B<->I<cluster>.
 
 Neither the init script, L<pg_ctlcluster(1)>, nor B<postgresql@.service> are permitted to start/stop the
 cluster. Please be aware that this will not stop the cluster owner from calling
-lower level tools to control the postmaster process; this option is only meant
+lower level tools to control the postgres process; this option is only meant
 to prevent accidents during maintenance, not more.
 
 =back
@@ -892,6 +904,30 @@ are readable for the cluster owner as detailed above.
 
 Only added to postgresql.conf if existing, and writable for the cluster owner,
 or else if the parent directory is writable.
+
+=back
+
+=item Include files
+
+=over 4
+
+=item B<include>
+
+=item B<include_if_exists>
+
+=item B<include_dir>
+
+B<createcluster.conf> supports the same include directives as
+B<postgresql.conf>.
+
+=item B<add_include>
+
+=item B<add_include_if_exists>
+
+=item B<add_include_dir>
+
+To add include directives to the new postgresql.conf file, use the B<add_*>
+directives. The B<add_> prefix is removed.
 
 =back
 

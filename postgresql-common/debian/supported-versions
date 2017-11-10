@@ -37,7 +37,7 @@
 # X.Y: consider this version supported
 #
 # (C) 2005-2016 Martin Pitt <mpitt@debian.org>
-# (C) 2012-2016 Christoph Berg <myon@debian.org>
+# (C) 2012-2017 Christoph Berg <myon@debian.org>
 
 set -eu
 
@@ -81,8 +81,8 @@ ubuntu() {
     case "$1" in
         12.04) /bin/echo -e "9.1" ;;
         14.04) /bin/echo -e "9.3" ;;
-        14.10|15.04|15.10) /bin/echo -e "9.4" ;;
         16.04|16.10) /bin/echo -e "9.5" ;;
+        17.04) /bin/echo -e "9.6" ;;
         *)
             echo "supported-versions: WARNING: Unknown Ubuntu release: $1" >&2
             /bin/echo -e "$DEFAULT" ;;
@@ -108,7 +108,7 @@ debian_backports() {
     case "$1" in
         5.0*)  /bin/echo -e "8.3" ;; # Lenny
         6.0*)  /bin/echo -e "8.4\n9.1" ;; # Squeeze
-        7|7.*) /bin/echo -e "9.1\n9.4\n9.6" ;; # Wheezy
+        7|7.*) /bin/echo -e "9.1\n9.4" ;; # Wheezy
         8|8.*) /bin/echo -e "9.4\n9.6" ;; # Jessie
         9|9.*) /bin/echo -e "9.6" ;; # Stretch
         testing | unstable)
@@ -120,7 +120,7 @@ debian_backports() {
 }
 
 pgdg() {
-    /bin/echo -e "9.1\n9.2\n9.3\n9.4\n9.5\n9.6"
+    /bin/echo -e "9.2\n9.3\n9.4\n9.5\n9.6"
 }
 
 installed() {
