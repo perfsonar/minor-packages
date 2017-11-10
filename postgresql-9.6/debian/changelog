@@ -1,9 +1,47 @@
-postgresql-9.6 (9.6.4-0+deb9u1~bpo70+1) perfsonar-wheezy-release; urgency=high
+postgresql-9.6 (9.6.6-0+deb9u1~bpo70+1) perfsonar-wheezy-release; urgency=medium
 
   * Rebuild for wheezy.
   * Disable tests on arm platforms.
 
- -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Thu, 17 Aug 2017 09:13:20 +0200
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Fri, 10 Nov 2017 08:58:50 +0100
+
+postgresql-9.6 (9.6.6-0+deb9u1) stretch-security; urgency=medium
+
+  * New upstream version.
+
+    + Ensure that INSERT ... ON CONFLICT DO UPDATE checks table permissions
+      and RLS policies in all cases (Dean Rasheed)
+
+      The update path of INSERT ... ON CONFLICT DO UPDATE requires SELECT
+      permission on the columns of the arbiter index, but it failed to check
+      for that in the case of an arbiter specified by constraint name. In
+      addition, for a table with row level security enabled, it failed to
+      check updated rows against the table's SELECT policies (regardless of
+      how the arbiter index was specified). (CVE-2017-15099)
+
+    + Fix crash due to rowtype mismatch in json{b}_populate_recordset()
+      (Michael Paquier, Tom Lane)
+
+      These functions used the result rowtype specified in the FROM ... AS
+      clause without checking that it matched the actual rowtype of the
+      supplied tuple value.  If it didn't, that would usually result in a
+      crash, though disclosure of server memory contents seems possible as
+      well. (CVE-2017-15098)
+
+    + Fix BRIN index summarization to handle concurrent table extension
+      correctly (Álvaro Herrera)
+
+      Previously, a race condition allowed some table rows to be omitted from
+      the index.  It may be necessary to reindex existing BRIN indexes to
+      recover from past occurrences of this problem.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Wed, 08 Nov 2017 10:40:59 +0100
+
+postgresql-9.6 (9.6.5-0+deb9u1) stretch; urgency=medium
+
+  * New upstream bugfix release.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Fri, 08 Sep 2017 08:55:29 +0200
 
 postgresql-9.6 (9.6.4-0+deb9u1) stretch-security; urgency=high
 
