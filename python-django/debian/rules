@@ -7,15 +7,7 @@ PREFIX3 = debian/python3-django
 PREFIXC = debian/python-django-common
 
 %:
-	dh $@ --with sphinxdoc,python2,python3 --buildsystem=pybuild
-
-override_dh_auto_clean:
-	dh_auto_clean
-	make -C docs clean
-
-override_dh_auto_build:
-	dh_auto_build
-	make -C docs html
+	dh $@ --with python2,python3 --buildsystem=pybuild
 
 override_dh_auto_test:
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))

@@ -6,7 +6,7 @@ Uploaders: Luke Faraone <lfaraone@debian.org>,
  Raphaël Hertzog <hertzog@debian.org>,
  Brian May <bam@debian.org>
 Standards-Version: 3.9.6
-Build-Depends: debhelper (>= 9), dh-python, python-all (>= 2.6.6-3~), python3-all, python-sphinx (>= 1.0.8), locales (>= 0),
+Build-Depends: debhelper (>= 9), dh-python, python-all (>= 2.6.6-3~), python3-all, locales (>= 0),
 # Needed to enable supplementary tests in test suite
  python-bcrypt, python3-bcrypt,
  python-docutils, python3-docutils,
@@ -103,21 +103,3 @@ Description: High-level Python web development framework (common)
  to simply to reduce development time even further.
  .
  This package contains files common to both Python 2.7 and Python 3.
-
-Package: python-django-doc
-Section: doc
-Architecture: all
-Depends: ${misc:Depends}, ${sphinxdoc:Depends}
-Description: High-level Python web development framework (documentation)
- Django is a high-level web application framework that loosely follows the
- model-view-controller design pattern.
- .
- Python's equivalent to Ruby on Rails, Django lets you build complex
- data-driven websites quickly and easily - Django focuses on automating as much
- as possible and adhering to the "Don't Repeat Yourself" (DRY) principle.
- .
- Django additionally emphasizes reusability and "pluggability" of components;
- many generic third-party "applications" are available to enhance projects or
- to simply to reduce development time even further.
- .
- This package contains the HTML documentation and example projects.
