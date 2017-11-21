@@ -1,3 +1,9 @@
+python-bcrypt (0.4-2~bpo7+1) perfsonar-wheezy-staging; urgency=medium
+
+  * Backport to wheezy.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Tue, 21 Nov 2017 14:08:13 +0100
+
 python-bcrypt (0.4-2) unstable; urgency=medium
 
   * Team upload.
