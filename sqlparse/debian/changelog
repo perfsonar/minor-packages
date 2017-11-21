@@ -1,3 +1,9 @@
+sqlparse (0.1.13-2~bpo7+1) perfsonar-wheezy-staging; urgency=medium
+
+  * Backport to wheezy.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Tue, 21 Nov 2017 14:45:53 +0100
+
 sqlparse (0.1.13-2) unstable; urgency=medium
 
   * Update debian/watch.
