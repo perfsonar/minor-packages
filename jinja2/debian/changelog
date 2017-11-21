@@ -1,3 +1,9 @@
+jinja2 (2.7.3-1~bpo7+1) perfsonar-wheezy-staging; urgency=medium
+
+  * Backport to wheezy.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Tue, 21 Nov 2017 14:10:45 +0100
+
 jinja2 (2.7.3-1) unstable; urgency=medium
 
   * New upstream release
