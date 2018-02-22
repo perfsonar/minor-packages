@@ -8,6 +8,7 @@ Build-Depends: debhelper (>= 10)
 Build-Depends-Indep: libboolean-perl,
                      libdata-validate-domain-perl,
                      libdata-validate-ip-perl,
+                     libhash-multivalue-perl,
                      libmojolicious-perl (>= 7.15),
                      libtest-warnings-perl,
                      libyaml-libyaml-perl,
