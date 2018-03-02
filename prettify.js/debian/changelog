@@ -1,0 +1,31 @@
+prettify.js (2013.03.04+dfsg-4~bpo80+1) perfsonar-jessie-staging; urgency=medium
+
+  * Backport for trusty.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Fri, 02 Mar 2018 15:44:20 +0100
+
+prettify.js (2013.03.04+dfsg-4) unstable; urgency=medium
+
+  * control: fixed vcs urls
+  * control: updated Standards-Version
+
+ -- Dominique Dumont <dod@debian.org>  Sat, 27 Sep 2014 18:15:53 +0200
+
+prettify.js (2013.03.04+dfsg-3) unstable; urgency=medium
+
+  * copyright: added missing entries
+
+ -- Dominique Dumont <dod@debian.org>  Sat, 20 Sep 2014 18:22:31 +0200
+
+prettify.js (2013.03.04+dfsg-2) unstable; urgency=medium
+
+  * added README.source and updated lintian override comment to clarify
+    why the lintian error is overridden.
+
+ -- Dominique Dumont <dod@debian.org>  Tue, 19 Aug 2014 16:11:45 +0200
+
+prettify.js (2013.03.04+dfsg-1) unstable; urgency=medium
+
+  * Initial release (Closes: #755430)
+
+ -- Dominique Dumont <dod@debian.org>  Sun, 27 Jul 2014 18:38:03 +0200
