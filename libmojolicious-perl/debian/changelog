@@ -1,3 +1,9 @@
+libmojolicious-perl (7.61+dfsg-1~bpo80+2) perfsonar-jessie-staging; urgency=medium
+
+  * Correcting compatibility to IO::Socket::SSL <= 1.965
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Fri, 20 Apr 2018 19:54:43 +0000
+
 libmojolicious-perl (7.61+dfsg-1~bpo80+1) perfsonar-jessie-staging; urgency=medium
 
   * Backport for jessie.

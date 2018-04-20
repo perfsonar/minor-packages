@@ -1,0 +1,16 @@
+# Correct Mojo::Reactor::Poll: I/O watcher failed: SSL_ca_file does not exist error
+# See https://github.com/kraih/mojo/pull/1129/commits/66c0c1b261793dc2ccd92befb0dc43fd2389c057
+
+--- libmojolicious-perl.orig/lib/Mojo/IOLoop/TLS.pm	2018-01-03 12:49:52.000000000 +0000
++++ libmojolicious-perl/lib/Mojo/IOLoop/TLS.pm	2018-04-20 20:17:23.000000000 +0000
+@@ -10,8 +10,8 @@
+   ? 0
+   : eval { require IO::Socket::SSL; IO::Socket::SSL->VERSION('1.94'); 1 };
+ use constant DEFAULT => eval { IO::Socket::SSL->VERSION('1.965') }
+-  ? \undef
+-  : '';
++  ? ''
++  : \undef;
+ use constant READ  => TLS ? IO::Socket::SSL::SSL_WANT_READ()  : 0;
+ use constant WRITE => TLS ? IO::Socket::SSL::SSL_WANT_WRITE() : 0;
+ 
