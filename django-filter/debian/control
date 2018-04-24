@@ -6,8 +6,7 @@ Uploaders: Debian Python Modules Team <python-modules-team@lists.alioth.debian.o
 Build-Depends: debhelper (>=8.1.0), dh-python,
  python-all (>= 2.6.6-3~), python-django (>= 1.4.5), python-setuptools,
  python3-all, python3-django (>= 1.4.5), python3-setuptools,
- python-mock, python3-mock, python-sphinx-rtd-theme,
- python-djangorestframework
+ python-mock, python3-mock
 Build-Depends-Indep: libjs-jquery, python-sphinx (>= 1.0.7+dfsg-1~)
 Standards-Version: 3.9.6
 X-Python-Version: >= 2.6
