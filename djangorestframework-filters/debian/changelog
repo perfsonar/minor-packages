@@ -1,3 +1,9 @@
+djangorestframework-filters (0.10.2-1) perfsonar-jessie-snapshot; urgency=medium
+
+  * New upstream version.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Tue, 24 Apr 2018 11:25:35 +0200
+
 djangorestframework-filters (0.6.0-2) perfsonar-jessie-staging; urgency=medium
 
   * Update distribution to staging.
