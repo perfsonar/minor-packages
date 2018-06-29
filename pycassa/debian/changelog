@@ -1,3 +1,9 @@
+pycassa (1.11.0-1~bpo70+2) perfsonar-jessie-staging; urgency=low
+
+  * Backport for Trusty.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Fri, 29 Jun 2018 16:14:11 +0000
+
 pycassa (1.11.0-1~bpo70+1) unstable; urgency=low
 
   * Backport to Wheezy.
