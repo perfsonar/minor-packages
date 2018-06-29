@@ -1,3 +1,9 @@
+nagiosplugin (1.2.2-1~bpo70+2) perfsonar-jessie-staging; urgency=medium
+
+  * Backport for Trusty
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Fri, 29 Jun 2018 16:19:12 +0000
+
 nagiosplugin (1.2.2-1~bpo70+1) unstable; urgency=medium
 
   * Backport to Wheezy
