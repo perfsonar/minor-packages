@@ -1,4 +1,4 @@
-firewalld (0.3.12-1) unstable; urgency=medium
+firewalld (0.3.12-1) perfsonar-jessie-staging; urgency=medium
 
   * New upstream release.
   * Bump Standards-Version to 3.9.6. No further changes.
