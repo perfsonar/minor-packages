@@ -1,3 +1,9 @@
+python-pika (0.9.14-1~bpo70+3) perfsonar-jessie-release; urgency=low
+
+  * Backport for Trusty.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Fri, 29 Jun 2018 16:10:20 +0000
+
 python-pika (0.9.14-1~bpo70+2) perfsonar-wheezy-release; urgency=low
 
   * Rebuild for perfsonar-wheezy-staging.
