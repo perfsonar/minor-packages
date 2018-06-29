@@ -1,4 +1,4 @@
-geoip-database (20150209-1~bpo70+1) perfsonar-wheezy-release; urgency=low
+geoip-database (20150209-1~bpo70+2) perfsonar-jessie-release; urgency=low
 
   * Rebuild for wheezy-backports.
   * Add tilde to versioned build depends to support the wheezy-backports
