@@ -1,3 +1,9 @@
+django-filter (1.1.0-2) jessie-backports; urgency=medium
+
+  * Rebuild for staging.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Mon, 09 Jul 2018 14:47:58 +0200
+
 django-filter (1.1.0-1) unstable; urgency=medium
 
   * New upstream version.
