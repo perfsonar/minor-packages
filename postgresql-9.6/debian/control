@@ -41,7 +41,7 @@ Build-Depends:
  zlib1g-dev | libz-dev
 Homepage: http://www.postgresql.org/
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-postgresql/postgresql.git/
-Vcs-Git: https://anonscm.debian.org/git/pkg-postgresql/postgresql.git -b 9.6
+Vcs-Git: https://anonscm.debian.org/git/pkg-postgresql/postgresql.git -b 9.6-stretch
 XS-Testsuite: autopkgtest
 
 Package: libpq-dev
