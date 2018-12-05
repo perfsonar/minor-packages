@@ -1,14 +1,45 @@
-libmojolicious-perl (7.61+dfsg-1~bpo80+2) perfsonar-jessie-staging; urgency=medium
+libmojolicious-perl (7.81+dfsg-1~bpo80+2) perfsonar-jessie-staging; urgency=medium
 
   * Correcting compatibility to IO::Socket::SSL <= 1.965
 
  -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Fri, 20 Apr 2018 19:54:43 +0000
 
-libmojolicious-perl (7.61+dfsg-1~bpo80+1) perfsonar-jessie-staging; urgency=medium
+libmojolicious-perl (7.81+dfsg-1~bpo80+1) perfsonar-jessie-staging; urgency=medium
 
   * Backport for jessie.
 
  -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Thu, 22 Feb 2018 14:14:50 +0100
+
+
+libmojolicious-perl (7.81+dfsg-1) unstable; urgency=medium
+
+  * Import upstream version 7.81+dfsg.
+
+ -- Nick Morrott <knowledgejunkie@gmail.com>  Tue, 22 May 2018 10:18:05 +0100
+
+libmojolicious-perl (7.79+dfsg-1) unstable; urgency=medium
+
+  * Import upstream version 7.79+dfsg.
+  * Update Homepage field in debian/control.
+
+ -- gregor herrmann <gregoa@debian.org>  Thu, 17 May 2018 21:56:44 +0200
+
+libmojolicious-perl (7.74+dfsg-1) unstable; urgency=medium
+
+  * Import upstream version 7.74+dfsg.
+  * Declare compliance with Debian Policy 4.1.4.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 08 Apr 2018 17:52:37 +0200
+
+libmojolicious-perl (7.71+dfsg-1) unstable; urgency=medium
+
+  [ Salvatore Bonaccorso ]
+  * Update Vcs-* headers for switch to salsa.debian.org
+
+  [ gregor herrmann ]
+  * Import upstream version 7.71+dfsg.
+
+ -- gregor herrmann <gregoa@debian.org>  Mon, 19 Mar 2018 20:04:55 +0100
 
 libmojolicious-perl (7.61+dfsg-1) unstable; urgency=medium
 
