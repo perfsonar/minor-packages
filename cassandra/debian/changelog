@@ -1,3 +1,10 @@
+cassandra (2.0.14-1~bpo80+4) perfsonar-jessie-release; urgency=medium
+
+  * Try to use java 8
+  * Conflicts with java 9, 10, 11, 12
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Tue, 19 Mar 2019 16:50:25 +0100
+
 cassandra (2.0.14-1~bpo80+3) perfsonar-jessie-release; urgency=medium
 
   * Adding Conflicts: with openjdk-9
