@@ -1,0 +1,36 @@
+# From: Jordan Metzmeier <jmetzmeier01@gmail.com>
+# Subject: Change shebang in examples to an absolute path
+# The examples provided have a relative path to python. Without this
+# patch, the examples would likely fail if a user attempted to run them.
+--- a/src/nagiosplugin/examples/check_haproxy_log.py
++++ b/src/nagiosplugin/examples/check_haproxy_log.py
+@@ -1,4 +1,4 @@
+-#!python
++#!/usr/bin/env python
+ # Copyright (c) gocept gmbh & co. kg
+ # See also LICENSE.txt
+ 
+--- a/src/nagiosplugin/examples/check_load.py
++++ b/src/nagiosplugin/examples/check_load.py
+@@ -1,4 +1,4 @@
+-#!python
++#!/usr/bin/env python
+ # Copyright (c) gocept gmbh & co. kg
+ # See also LICENSE.txt
+ 
+--- a/src/nagiosplugin/examples/check_users.py
++++ b/src/nagiosplugin/examples/check_users.py
+@@ -1,4 +1,4 @@
+-#!python
++#!/usr/bin/env python
+ # Copyright (c) gocept gmbh & co. kg
+ # See also LICENSE.txt
+ 
+--- a/src/nagiosplugin/examples/check_world.py
++++ b/src/nagiosplugin/examples/check_world.py
+@@ -1,4 +1,4 @@
+-#!python
++#!/usr/bin/env python
+ 
+ """Hello world Nagios check."""
+ 

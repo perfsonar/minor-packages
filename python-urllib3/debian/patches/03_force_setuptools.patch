@@ -1,0 +1,15 @@
+Author: Barry Warsaw <barry@debian.org>
+Description: Use setuptools.setup() so that the bdist_wheel
+ command will work.
+Last-Update: 2014-05-15
+
+--- a/setup.py
++++ b/setup.py
+@@ -1,6 +1,6 @@
+ #!/usr/bin/env python
+ 
+-from distutils.core import setup
++from setuptools import setup
+ 
+ import os
+ import re

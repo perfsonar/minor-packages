@@ -1,0 +1,25 @@
+From ffe2f4fd834b16ec7bf44e89d70f8b82c60e3e87 Mon Sep 17 00:00:00 2001
+From: SVN-Git Migration <python-modules-team@lists.alioth.debian.org>
+Date: Thu, 8 Oct 2015 08:58:39 -0700
+Subject: Removed remote resouces in index.md
+
+Last-Update: 2014-06-10
+Patch-Name: remove_remote_resources.patch
+---
+ docs/index.md | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/docs/index.md b/docs/index.md
+index 622e35a..0b4b551 100644
+--- a/docs/index.md
++++ b/docs/index.md
+@@ -220,9 +220,6 @@ For support please see the [REST framework discussion group][group], try the  `#
+ 
+ For updates on REST framework development, you may also want to follow [the author][twitter] on Twitter.
+ 
+-<a style="padding-top: 10px" href="https://twitter.com/_tomchristie" class="twitter-follow-button" data-show-count="false">Follow @_tomchristie</a>
+-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+-
+ ## Security
+ 
+ If you believe you’ve found something in Django REST framework which has security implications, please **do not raise the issue in a public forum**.

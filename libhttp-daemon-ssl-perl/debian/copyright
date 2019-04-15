@@ -1,0 +1,22 @@
+This is the Debian package for the HTTP::Daemon::SSL module, put together by
+Matej Vela <vela@debian.org> from sources found on CPAN:
+
+  <http://search.cpan.org/dist/HTTP-Daemon-SSL/>
+
+HTTP::Daemon::SSL was written by Peter Behroozi (behrooz at fas.harvard.edu),
+largely based on the HTTP::Daemon module by Gisle Aas.  It is currently
+maintained by Mark Aufflick <mark@aufflick.com>.
+
+Copyright (C) 1996-2001  Gisle Aas (code and documentation from HTTP::Daemon)
+Copyright (C) 2003-2004  Peter Behroozi
+Copyright (C) 2007-2008  Mark Aufflick
+
+This library is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
+Perl is distributed under your choice of the GNU General Public License or
+the Artistic License.  On Debian GNU/Linux systems, the complete text of the
+GNU General Public License can be found in `/usr/share/common-licenses/GPL'
+and the Artistic License in `/usr/share/common-licenses/Artistic'.
+
+The Debian packaging is in the public domain.

@@ -1,0 +1,7 @@
+python-pysnmp4 (4.2.2-1) unstable; urgency=low
+
+  Version  2 of  pysnmp API,  previously available  in python-pysnmp2,  is now
+  deprecated and not supported upstream anymore. Please consider updating your
+  code to version 4 of pysnmp API.
+
+ -- Arnaud Fontaine <arnau@debian.org>  Mon, 21 May 2012 19:24:19 +0900

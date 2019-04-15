@@ -1,0 +1,56 @@
+Source: libonig
+Section: libs
+Priority: extra
+Maintainer: Jörg Frings-Fürst <debian@jff-webhosting.net>
+Homepage: http://www.geocities.jp/kosako3/oniguruma/
+Build-Depends: 
+ debhelper (>= 9), 
+ dh-autoreconf,
+ hardening-wrapper
+Standards-Version: 3.9.5
+
+Package: libonig2
+Priority: optional
+Architecture: any
+Multi-Arch: same
+Depends: 
+ ${misc:Depends}, 
+ ${shlibs:Depends}
+Pre-Depends:
+ ${misc:Pre-Depends}
+Description: Oniguruma regular expressions library
+ The characteristics of this library is that different
+ character encoding for every regular expression object 
+ can be specified.
+
+Package: libonig2-dbg
+Section: debug
+Architecture: any
+Multi-Arch: same
+Pre-Depends:
+ dpkg (>= 1.17.5),
+Depends: 
+ ${misc:Depends}, 
+ ${shlibs:Depends}, 
+ libonig2 (= ${binary:Version})
+Description: Debugging symbols for libonig2
+ The characteristics of this library is that different 
+ character encoding for every regular expression object 
+ can be specified.
+ .
+ This package provides the debugging symbols.
+
+Package: libonig-dev
+Section: libdevel
+Priority: optional
+Architecture: any
+Depends: 
+ ${misc:Depends}, 
+ ${shlibs:Depends}, 
+ libonig2 (= ${binary:Version})
+Description: Development files for libonig2
+ The characteristics of this library is that different 
+ character encoding for every regular expression object 
+ can be specified.
+ .
+ This package provides development files and static libraries.

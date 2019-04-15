@@ -1,0 +1,11 @@
+# see git-dpm(1) from git-dpm package
+c2e3edc600b3c8548fdb0a9b919ef505b631411f
+c2e3edc600b3c8548fdb0a9b919ef505b631411f
+c4be338869467b796fd2fecff2c13ac8563ee08a
+c4be338869467b796fd2fecff2c13ac8563ee08a
+python-pysnmp4_4.3.2.orig.tar.gz
+9060d4d80145828470e27bfca931880940f4b468
+398593
+debianTag="debian/%e%v"
+patchedTag="patched/%e%v"
+upstreamTag="upstream/%e%u"
