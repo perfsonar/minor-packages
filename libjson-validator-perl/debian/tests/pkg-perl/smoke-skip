@@ -1,0 +1,10 @@
+# needs cache or internet
+t/acceptance.t
+t/id-keyword.t
+t/load-and-validate-spec.t
+t/load-from-app.t
+t/load-json.t
+t/recursion.t
+t/validate-schema.t
+# empty file
+t/spec/invalid-ref.t

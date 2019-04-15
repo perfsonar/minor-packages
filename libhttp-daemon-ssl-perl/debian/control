@@ -1,0 +1,18 @@
+Source: libhttp-daemon-ssl-perl
+Section: perl
+Priority: extra
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: perl, libio-socket-ssl-perl, libhttp-daemon-perl | libwww-perl (<< 6)
+Maintainer: Matej Vela <vela@debian.org>
+Standards-Version: 3.9.1
+Homepage: http://search.cpan.org/dist/HTTP-Daemon-SSL/
+
+Package: libhttp-daemon-ssl-perl
+Architecture: all
+Depends: ${perl:Depends}, ${misc:Depends}, libio-socket-ssl-perl, libhttp-daemon-perl | libwww-perl (<< 6)
+Suggests: libhttp-message-perl
+Description: A simple HTTP server class with SSL support
+ HTTP::Daemon::SSL is a descendant of HTTP::Daemon that uses SSL sockets
+ (via IO::Socket::SSL) instead of cleartext sockets.  It also handles
+ SSL-specific problems, such as dealing with HTTP clients that attempt
+ to connect to it without using SSL.

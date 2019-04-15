@@ -1,0 +1,16 @@
+Fixes a spelling error.
+
+Author: Chris Taylor <ctaylor@debian.org>
+Index: nuttcp/nuttcp-8.1.3.c
+===================================================================
+--- nuttcp.orig/nuttcp-8.1.3.c
++++ nuttcp/nuttcp-8.1.3.c
+@@ -9949,7 +9949,7 @@ getoptvalp( char **argv, int index, int 
+ #define NETSTAT			"netstat"
+ 
+ #if defined(linux)
+-#define RETRANS			"segments retransmited"
++#define RETRANS			"segments retransmitted"
+ #define NETSTAT_DIR		"/bin/"
+ #define NRETRANS_BEFORE
+ #elif defined(__FreeBSD__)

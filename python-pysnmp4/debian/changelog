@@ -1,0 +1,169 @@
+python-pysnmp4 (4.3.2-2~bpo80+1) perfsonar-jessie-release; urgency=medium
+
+  * Backport to jessie.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Thu, 05 Oct 2017 16:53:18 +0200
+
+python-pysnmp4 (4.3.2-2) unstable; urgency=medium
+
+  * Disable network access for Sphinx. Closes: #830605.
+
+ -- Vincent Bernat <bernat@debian.org>  Sun, 17 Jul 2016 07:28:22 +0200
+
+python-pysnmp4 (4.3.2-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Fixed VCS URL (https)
+
+  [ Vincent Bernat ]
+  * New upstream release.
+  * Remove manual pages for tools not shipped anymore by PySNMP.
+  * Switch buildsystem to pybuild.
+  * Switch to sphinx to build documentation.
+  * Give ownership to DPMT.
+  * Bump Standards-Version.
+
+ -- Vincent Bernat <bernat@debian.org>  Sat, 02 Jul 2016 16:12:53 +0200
+
+python-pysnmp4 (4.2.5-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Vincent Bernat <bernat@debian.org>  Fri, 01 Nov 2013 11:19:33 +0100
+
+python-pysnmp4 (4.2.4-2) unstable; urgency=low
+
+  * Depends on smitools for build-pysnmp-mib. Closes: #691228.
+  * Build python3-pysnmp package. Closes: #706718.
+  * Remove dependency on libsmi*: we only need smidump.
+
+ -- Vincent Bernat <bernat@debian.org>  Tue, 24 Sep 2013 00:12:33 +0200
+
+python-pysnmp4 (4.2.4-1) unstable; urgency=low
+
+  [ Jakub Wilk ]
+  * Use canonical URIs for Vcs-* fields.
+
+  [ Vincent Bernat ]
+  * New upstream release.
+     + Remove patch for libsmi2pysnmp: applied upstream.
+  * Add myself as an uploader.
+  * Bump Standards-Version to 3.9.4.
+
+ -- Vincent Bernat <bernat@debian.org>  Fri, 26 Jul 2013 22:27:29 +0200
+
+python-pysnmp4 (4.2.2-1) unstable; urgency=low
+
+  * Team upload.
+
+  [ Deepak Tripathi ]
+  * Bumped Standard version to 3.8.4 (No changes).
+  * debian/control
+     + added myself to uploaders.
+     + added ${misc:Depends} because debhelper required now.
+     + removed python-dev and added python.
+     + added python-twisted as Depends.
+     + added python-setuptools as BD.
+  * debian/copyright
+     + added debian's copyright information.
+     + formated and updated copy information.
+  * debian/
+     + added python-pysnmp4-doc.doc-base because package has some
+       html,pdf files.
+  * debian/source
+     + switch to dpkg-source 3.0 (quilt) format.
+  * debian/libsmi2pysnmp.1
+     + removed hyphen-used-as-minus-sign.
+
+  [ Arnaud Fontaine ]
+  * New upstream release. Closes: #620229, #585321.
+    + API versioning has been retired since 4.1.12a and pysnmp version 2
+      is not supported nor available anymore, so drop python-pysnmp-common.
+  * debian/control:
+    + Remove myself from Maintainer as Jan Lübbe is now the maintainer.
+    + Bump Standards-Version to 3.9.3. No changes needed.
+  * Switch from deprecated python-support to dh_python2.
+  * Switch debian/copyright to machine-readable format.
+  * Add debian/source/options to fix double build issue because of
+    .egg-info by ignoring it.
+
+ -- Arnaud Fontaine <arnau@debian.org>  Mon, 21 May 2012 15:07:04 +0900
+
+python-pysnmp4 (4.1.9a-2) unstable; urgency=medium
+
+  * Team upload.
+  * Update Vcs-* fields.
+  * Make sure that pysnmp/__init__.py is removed from the python-pysnmp4
+    package even when built with python-support (>= 0.90). Thanks to Adam D.
+    Barratt for spotting the bug.
+  * Ensure that python-pysnmp{2,4,-common} use the same directory layout
+    (closes: #591503).
+    + Make python-pysnmp4 depend on python-pysnmp-common (>= 4.1.9a-2);
+    + Make python-pysnmp-common break and replace python-pysnmp2 (<< 2.0.9-3).
+    + Make python-pysnmp-common break python-pysnmp4 (<< 4.1.9a-2).
+    Thanks to Christoph Egger for the bug report.
+
+ -- Jakub Wilk <jwilk@debian.org>  Wed, 12 Jan 2011 00:11:54 +0100
+
+python-pysnmp4 (4.1.9a-1) unstable; urgency=low
+
+  [ Arnaud Fontaine ]
+  * New upstream release.
+  * New email address.
+  * Remove useless debian/control.in.
+  * debian/control:
+    + Update Standards-Version to 3.7.3. No changes needed.
+    + Rename libsmi2 to libsmi2ldbl in Depends due to long double
+      transition.  Closes: #469846.
+    + Stated that pysnmp4 also supports SNMP v.3. Closes: #469739.
+
+  [ Piotr Ożarowski ]
+  * debian/control:
+    + Vcs-Browser and Homepage fields added (dpkg support them now).
+    + XS-Vcs-Svn field renamed to Vcs-Svn (dpkg support it now).
+
+  [ Sandro Tosi ]
+  * debian/control
+    - Uniforming Vcs-Browser field.
+
+ -- Arnaud Fontaine <arnau@debian.org>  Tue, 11 Mar 2008 15:32:48 +0000
+
+python-pysnmp4 (4.1.8a-1) unstable; urgency=low
+
+  * New upstream release
+  * Update my maintainer address
+
+ -- Jan Luebbe <jluebbe@debian.org>  Sun, 26 Aug 2007 13:48:44 +0200
+
+python-pysnmp4 (4.1.7a-1) unstable; urgency=low
+
+  [ Arnaud Fontaine ]
+  * New upstream release.
+    + Now choose the last version of pysnmp when multiple versions are
+      installed. Closes: #415032.
+
+  [ Piotr Ozarowski ]
+  * Added XS-Vcs-Svn field
+
+ -- Arnaud Fontaine <arnaud@andesi.org>  Tue, 17 Apr 2007 00:14:22 +0200
+
+python-pysnmp4 (4.1.6a-2) unstable; urgency=low
+
+   * New Python policy changes.
+    + debian/rules:
+      - Add DEB_PYTHON_SYSTEM=pysupport.
+      - Clean debian/rules.
+    + debian/control.in
+      - Clean Build-Depends and Depends, cdbs handles that
+        automatically now.
+      - XB-Python-Version and Provides for binary package.
+    + debian/postinst && debian/prerm:
+      - Remove "hand made" python-support stuff, cdbs does this.
+
+ -- Arnaud Fontaine <arnaud@andesi.org>  Tue, 20 Jun 2006 12:20:29 +0200
+
+python-pysnmp4 (4.1.6a-1) unstable; urgency=low
+
+  * Initial release. Closes: #263417.
+
+ -- Jan Luebbe <jluebbe@lasnet.de>  Thu,  1 Jun 2006 16:39:10 +0200

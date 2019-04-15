@@ -1,0 +1,11 @@
+python-django-netfields (0.5.3-1) perfsonar-jessie-release; urgency=medium
+
+  * New upstream version to support Django 1.10.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Tue, 30 May 2017 10:06:15 +0200
+
+python-django-netfields (0.3.1-1) unstable; urgency=medium
+
+  * Initial packaging.
+
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Thu, 01 Oct 2015 14:03:53 +0200

@@ -1,0 +1,3 @@
+# 'isnt' is the name of a function.
+# And quoting the POD: "For those grammatical pedants out there, there's an C<isn't()> function which is an alias of C<isnt()>."
+libtest-simple-perl: spelling-error-in-manpage usr/share/man/man3/Test::More.3pm.gz isnt isn't

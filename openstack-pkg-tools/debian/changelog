@@ -1,0 +1,85 @@
+openstack-pkg-tools (8~bpo70+1) wheezy-backports; urgency=low
+
+  * Backport to wheezy-backports.
+  * Add myself to Uploaders.
+
+ -- Micah Anderson <micah@debian.org>  Thu, 24 Oct 2013 12:08:29 -0400
+
+openstack-pkg-tools (8) unstable; urgency=low
+
+  * Allow the upstart thing to also work with package.daemon.upstart.in
+    (replaced the cut -d by a sed s/.upstart.in//).
+  * Adds a git show in the gen-orig-xz, to check if the tag exists before
+    creating the orig.tar.xz.
+  * Added functions to automatically configure rabbit_* directives.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 28 Jun 2013 16:18:55 +0800
+
+openstack-pkg-tools (7) unstable; urgency=low
+
+  * Adds a pkgos_safesed function which doesn't put the (eventual) passwords
+    visible using "ps", which makes it safe to use sed for passwords. Then
+    pkgos_inifile uses that function now.
+  * Added a function to remove a [SECTION] in a config file.
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 11 Jun 2013 11:58:32 +0800
+
+openstack-pkg-tools (6) unstable; urgency=low
+
+  * Removed the -R flag when doing chown -R /var/lib/<package>.
+  * Extracted the adduser / addgroup function from pkgos_var_user_group as a
+    separate (callable) function.
+  * Bumped standard-version to 3.9.4.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 30 May 2013 23:52:11 +0800
+
+openstack-pkg-tools (5) unstable; urgency=low
+
+  * Uploading to SID.
+  * Split the get-vcs-source: into 3 targets:
+    - fetch-upstream-remote:
+    - gen-orig-xz:
+    - +get-master-branch:
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 10 May 2013 18:14:51 +0800
+
+openstack-pkg-tools (4) experimental; urgency=low
+
+  * Clean-ups of function parameter calling order.
+  * Rewrite of the pkgos_* functions for parsing ini files.
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 12 Mar 2013 00:43:02 +0800
+
+openstack-pkg-tools (3) experimental; urgency=low
+
+  [ Thomas Goirand ]
+  * Don't attempt to read anything from the config file if it isn't
+    installed in /etc (in the pkgos_read_admin_creds pkgos.make target).
+
+  [ James Page ]
+  * Fixup handling of d/*.upstart.in to fix build failures
+    downstream in Ubuntu. 
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 02 Feb 2013 11:30:43 +0000
+
+openstack-pkg-tools (2) experimental; urgency=low
+
+  * Now copying the orig.tar.xz in the build-area after creating it.
+  * Now using the debian branch name defined in debian/gbp.conf for
+    get-vcs-source.
+  * Added code to handle auth_url instead of auth_host / auth_port /
+    auth_proto.
+  * Added a workround the fact that DPKG_MAINTSCRIPT_PACKAGE isn't always
+    set (bug in debconf?)
+  * Added a gen-author-list: target.
+  * Sets various debconf questions with priority medium instead of high.
+  * Added gen-upstream-changelog to generate a debian/CHANGELOG from
+    upstream git log.
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 20 Dec 2012 09:50:58 +0000
+
+openstack-pkg-tools (1) experimental; urgency=low
+
+  * Initial release.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 16 Nov 2012 14:29:41 +0000

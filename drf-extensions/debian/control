@@ -1,0 +1,25 @@
+Source: drf-extensions
+Maintainer: Valentin Vidic <Valentin.Vidic@CARNet.hr>
+Section: python
+Priority: optional
+Build-Depends: debhelper (>= 9), dh-python, python-all (>=2.6.6-3), python-setuptools
+Standards-Version: 3.9.5
+Homepage: https://github.com/chibisov/drf-extensions
+X-Python-Version: >= 2.6
+X-Python3-Version: >= 3.3
+
+Package: python-djangorestframework-extensions
+Architecture: all
+Depends: ${python:Depends}, ${misc:Depends}
+Description: Collection of custom extensions for Django REST Framework
+ Provides several mixins and extensions to code mechanics of Django REST
+ framework.
+ .
+ Some of the features included:
+  * DetailSerializerMixin
+  * Caching
+  * Conditional requests
+  * Customizable key construction for caching and conditional requests
+  * Nested routes
+  * Bulk operations
+ .

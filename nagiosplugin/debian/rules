@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=nagiosplugin
+
+%:
+	dh $@ --with python2,python3 --buildsystem=pybuild
+
+override_dh_auto_install:
+	dh_auto_install -O--buildsystem=pybuild
+	rm -rf debian/python*-nagiosplugin/usr/lib/python*/dist-packages/nagiosplugin/examples/
+
+override_dh_installdocs:
+	rm -rf src/nagiosplugin/examples/__pycache__ src/nagiosplugin/examples/*.pyc
+	dh_installdocs -O--buildsystem=pybuild
+
+# We don't need to clean as we have the upstream tarball - perfSONAR Jenkins builds
+override_dh_auto_clean:

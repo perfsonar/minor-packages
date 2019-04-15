@@ -1,0 +1,30 @@
+Description: Use the bundle provided by ca-certificates instead of
+ the embedded one.
+Author: Daniele Tricoli <eriol@mornie.org>
+Forwarded: not-needed
+Last-Update: 2014-10-08
+
+--- a/requests/certs.py
++++ b/requests/certs.py
+@@ -18,8 +18,8 @@
+ except ImportError:
+     def where():
+         """Return the preferred certificate bundle."""
+-        # vendored bundle inside Requests
+-        return os.path.join(os.path.dirname(__file__), 'cacert.pem')
++        # On Debian systems use ca-certificates
++        return '/etc/ssl/certs/ca-certificates.crt'
+ 
+ if __name__ == '__main__':
+     print(where())
+--- a/setup.py
++++ b/setup.py
+@@ -43,7 +43,7 @@
+     author_email='me@kennethreitz.com',
+     url='http://python-requests.org',
+     packages=packages,
+-    package_data={'': ['LICENSE', 'NOTICE'], 'requests': ['*.pem']},
++    package_data={'': ['LICENSE', 'NOTICE'],},
+     package_dir={'requests': 'requests'},
+     include_package_data=True,
+     install_requires=requires,

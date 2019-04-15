@@ -1,0 +1,56 @@
+Author: Martin Pitt <mpitt@debian.org>
+Description: Use version specific installation directories so that several major versions can be installed in parallel.
+Forwarded: No, Debian specific packaging with postgresql-common
+
+ * Install lib files into /usr/lib/postgresql/<version>/lib/
+ * Install server related header files into /usr/include/postgresql/<version>/server/
+ * Disable PostgreSQL's automagic path mangling and fix libdir for pg_config,
+   so that pg_config in /usr/bin and /usr/lib/postgresql/<version>/bin behave
+   identically.
+
+Bug-Debian: http://bugs.debian.org/462037
+
+--- a/src/Makefile.global.in
++++ b/src/Makefile.global.in
+@@ -120,7 +120,7 @@ libdir := @libdir@
+ pkglibdir = $(libdir)
+ ifeq "$(findstring pgsql, $(pkglibdir))" ""
+ ifeq "$(findstring postgres, $(pkglibdir))" ""
+-override pkglibdir := $(pkglibdir)/postgresql
++override pkglibdir := /usr/lib/postgresql/@PG_MAJORVERSION@/lib
+ endif
+ endif
+ 
+@@ -168,7 +168,7 @@ endif # PGXS
+ 
+ # These derived path variables aren't separately configurable.
+ 
+-includedir_server = $(pkgincludedir)/server
++includedir_server = $(pkgincludedir)/@PG_MAJORVERSION@/server
+ includedir_internal = $(pkgincludedir)/internal
+ pgxsdir = $(pkglibdir)/pgxs
+ 
+--- a/src/bin/pg_config/pg_config.c
++++ b/src/bin/pg_config/pg_config.c
+@@ -27,6 +27,8 @@
+ #include "port.h"
+ #include "common/config_info.h"
+ 
++#include "../port/pg_config_paths.h"
++
+ static const char *progname;
+ 
+ /*
+@@ -148,11 +150,7 @@ main(int argc, char **argv)
+ 		}
+ 	}
+ 
+-	if (find_my_exec(argv[0], my_exec_path) < 0)
+-	{
+-		fprintf(stderr, _("%s: could not find own program executable\n"), progname);
+-		exit(1);
+-	}
++	snprintf(my_exec_path, sizeof(my_exec_path), "%s/%s", PGBINDIR, progname);
+ 
+ 	configdata = get_configdata(my_exec_path, &configdata_len);
+ 	/* no arguments -> print everything */
