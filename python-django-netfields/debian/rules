@@ -4,6 +4,6 @@
 export PYBUILD_NAME=django-netfields
 
 %:
-	dh $@ --with python2,python3 --buildsystem=pybuild
+	dh $@ --with python2 --buildsystem=pybuild
 
 override_dh_auto_test:
