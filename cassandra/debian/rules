@@ -3,6 +3,9 @@
 # Uncomment to enable verbose mode.
 #export DH_VERBOSE=1
 
+# Setting a correct JAVA_HOME for the build
+export JAVA_HOME=/usr
+
 ANT = /usr/bin/ant
 VERSION = $(shell dpkg-parsechangelog | sed -ne 's/^Version: \([^-|~|+]*\).*/\1/p')
 
