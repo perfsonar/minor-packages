@@ -9,21 +9,26 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+#
+# Test for gcc-6 support
+#
+#export CC=gcc-6
+#export CXX=g++-6
+
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+VERSION = $(shell head -n1 debian/changelog | sed -e 's/.*(//;s/-.*).*//;s/\+/\-/')
 
 %:
 	dh $@ --with autoreconf
 
-override_dh_installman:
-	dh_installman -plibonig-dev -A debian/onig-config.1
-
 override_dh_strip:
-	set -e; \
-	for pkg in $(patsubst %-dbg,%,$(filter %-dbg,$(shell dh_listpackages))); do \
-		dh_strip -p$${pkg} --dbg-package=$${pkg}-dbg; \
-	done
-	dh_strip -s --remaining-packages
+	dh_strip --dbg-package=libonig4-dbg
 
 override_dh_install:
+	$(RM) debian/tmp/usr/bin/onig-config
 	dh_install --fail-missing -X.la -X.a
 
+override_dh_makeshlibs:
+	dh_makeshlibs
+	dpkg-gensymbols -v$(VERSION) -plibonig4

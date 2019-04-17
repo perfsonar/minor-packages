@@ -1,4 +1,4 @@
-libonig.so.2 libonig2 #MINVER#
+libonig.so.4 libonig4 #MINVER#
  OnigAsciiLowerMap@Base 5.9.5
  OnigDefaultCaseFoldFlag@Base 5.9.5
  OnigDefaultSyntax@Base 5.9.5
@@ -46,10 +46,15 @@ libonig.so.2 libonig2 #MINVER#
  OnigSyntaxPosixBasic@Base 5.9.5
  OnigSyntaxPosixExtended@Base 5.9.5
  OnigSyntaxRuby@Base 5.9.5
+ OnigUnicodeFolds1@Base 6.0.0
+ OnigUnicodeFolds2@Base 6.0.0
+ OnigUnicodeFolds3@Base 6.0.0
+ euc_jp_lookup_property_name@Base 6.0.0
+ onig_add_end_call@Base 5.9.6
  onig_bbuf_init@Base 5.9.5
  onig_capture_tree_traverse@Base 5.9.5
- onig_chain_link_add@Base 5.9.5
- onig_chain_reduce@Base 5.9.5
+ onig_codes_byte_at@Base 6.0.0
+ onig_codes_cmp@Base 6.0.0
  onig_compile@Base 5.9.5
  onig_copy_encoding@Base 5.9.5
  onig_copy_syntax@Base 5.9.5
@@ -60,8 +65,6 @@ libonig.so.2 libonig2 #MINVER#
  onig_foreach_name@Base 5.9.5
  onig_free@Base 5.9.5
  onig_free_body@Base 5.9.5
- onig_free_node_list@Base 5.9.5
- onig_free_shared_cclass_table@Base 5.9.5
  onig_get_capture_tree@Base 5.9.5
  onig_get_case_fold_flag@Base 5.9.5
  onig_get_default_case_fold_flag@Base 5.9.5
@@ -74,6 +77,8 @@ libonig.so.2 libonig2 #MINVER#
  onig_get_syntax_op@Base 5.9.5
  onig_get_syntax_options@Base 5.9.5
  onig_init@Base 5.9.5
+ onig_initialize@Base 6.0.0
+ onig_initialize_encoding@Base 6.0.0
  onig_is_code_in_cc@Base 5.9.5
  onig_is_code_in_cc_len@Base 5.9.5
  onig_is_in_code_range@Base 5.9.5
@@ -111,6 +116,7 @@ libonig.so.2 libonig2 #MINVER#
  onig_region_resize@Base 5.9.5
  onig_region_set@Base 5.9.5
  onig_renumber_name_table@Base 5.9.5
+ onig_scan@Base 6.1.0
  onig_scan_env_set_error_string@Base 5.9.5
  onig_scan_unsigned_number@Base 5.9.5
  onig_search@Base 5.9.5
@@ -146,9 +152,12 @@ libonig.so.2 libonig2 #MINVER#
  onig_strcpy@Base 5.9.5
  onig_strncmp@Base 5.9.5
  onig_transfer@Base 5.9.5
+ onig_unicode_define_user_property@Base 6.0.0
  onig_version@Base 5.9.5
+ onig_warning@Base 6.1.0
  onigenc_always_false_is_allowed_reverse_match@Base 5.9.5
  onigenc_always_true_is_allowed_reverse_match@Base 5.9.5
+ onigenc_always_true_is_valid_mbc_string@Base 6.1.0
  onigenc_apply_all_case_fold_with_map@Base 5.9.5
  onigenc_ascii_apply_all_case_fold@Base 5.9.5
  onigenc_ascii_get_case_fold_codes_by_str@Base 5.9.5
@@ -161,6 +170,8 @@ libonig.so.2 libonig2 #MINVER#
  onigenc_get_right_adjust_char_head_with_prev@Base 5.9.5
  onigenc_init@Base 5.9.5
  onigenc_is_mbc_newline_0x0a@Base 5.9.5
+ onigenc_is_valid_mbc_string@Base 6.1.0
+ onigenc_length_check_is_valid_mbc_string@Base 6.1.0
  onigenc_mb2_code_to_mbc@Base 5.9.5
  onigenc_mb2_code_to_mbclen@Base 5.9.5
  onigenc_mb2_is_code_ctype@Base 5.9.5
@@ -171,8 +182,6 @@ libonig.so.2 libonig2 #MINVER#
  onigenc_mbn_mbc_to_code@Base 5.9.5
  onigenc_minimum_property_name_to_ctype@Base 5.9.5
  onigenc_not_support_get_ctype_code_range@Base 5.9.5
- onigenc_property_list_add_property@Base 5.9.5
- onigenc_property_list_init@Base 5.9.5
  onigenc_set_default_caseconv_table@Base 5.9.5
  onigenc_set_default_encoding@Base 5.9.5
  onigenc_single_byte_code_to_mbc@Base 5.9.5
@@ -210,3 +219,9 @@ libonig.so.2 libonig2 #MINVER#
  regerror@Base 5.9.5
  regexec@Base 5.9.5
  regfree@Base 5.9.5
+ sjis_lookup_property_name@Base 6.0.0
+ unicode_fold1_key@Base 6.0.0
+ unicode_fold2_key@Base 6.0.0
+ unicode_fold3_key@Base 6.0.0
+ unicode_lookup_property_name@Base 6.0.0
+ unicode_unfold_key@Base 6.0.0

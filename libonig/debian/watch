@@ -1,5 +1,2 @@
-version=3
-
-http://www.geocities.jp/kosako3/oniguruma/ \
- archive/onig-(\S+)\.tar\.gz
-
+version=4
+https://github.com/kkos/oniguruma/tags .*/v?(\d\S*)\.tar\.gz

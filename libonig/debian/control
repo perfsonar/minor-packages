@@ -2,41 +2,43 @@ Source: libonig
 Section: libs
 Priority: extra
 Maintainer: Jörg Frings-Fürst <debian@jff-webhosting.net>
-Homepage: http://www.geocities.jp/kosako3/oniguruma/
-Build-Depends: 
- debhelper (>= 9), 
- dh-autoreconf,
- hardening-wrapper
-Standards-Version: 3.9.5
+Build-Depends:
+ debhelper (>= 10),
+ dh-autoreconf
+Standards-Version: 3.9.8
+Homepage: https://github.com/kkos/oniguruma
+Vcs-Git: https://anonscm.debian.org/cgit/collab-maint/libonig.git
+Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/libonig.git
 
-Package: libonig2
+Package: libonig4
 Priority: optional
 Architecture: any
 Multi-Arch: same
-Depends: 
- ${misc:Depends}, 
+Depends:
+ ${misc:Depends},
  ${shlibs:Depends}
 Pre-Depends:
  ${misc:Pre-Depends}
-Description: Oniguruma regular expressions library
- The characteristics of this library is that different
- character encoding for every regular expression object 
- can be specified.
+Description: regular expressions library
+ Oniguruma is a library for working with regular expressions.
+ .
+ Different character encoding for every regular expression object can
+ be specified.
 
-Package: libonig2-dbg
+Package: libonig4-dbg
 Section: debug
 Architecture: any
 Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ libonig4 (= ${binary:Version})
 Pre-Depends:
- dpkg (>= 1.17.5),
-Depends: 
- ${misc:Depends}, 
- ${shlibs:Depends}, 
- libonig2 (= ${binary:Version})
-Description: Debugging symbols for libonig2
- The characteristics of this library is that different 
- character encoding for every regular expression object 
- can be specified.
+ ${misc:Pre-Depends}
+Description: regular expressions library — debugging symbols
+ Oniguruma is a library for working with regular expressions.
+ .
+ Different character encoding for every regular expression object can
+ be specified.
  .
  This package provides the debugging symbols.
 
@@ -44,13 +46,13 @@ Package: libonig-dev
 Section: libdevel
 Priority: optional
 Architecture: any
-Depends: 
- ${misc:Depends}, 
- ${shlibs:Depends}, 
- libonig2 (= ${binary:Version})
-Description: Development files for libonig2
- The characteristics of this library is that different 
- character encoding for every regular expression object 
- can be specified.
+Depends:
+ ${misc:Depends},
+ libonig4 (= ${binary:Version})
+Description: regular expressions library — development files
+ Oniguruma is a library for working with regular expressions.
+ .
+ Different character encoding for every regular expression object can
+ be specified.
  .
  This package provides development files and static libraries.

@@ -1,20 +1,118 @@
-libonig (5.9.5-3.2+deb8u1~deb9+1) perfsonar-jessie-staging; urgency=medium
+libonig (6.1.3-2~bpo9+1) perfsonar-minor-snapshot; urgency=medium
 
-  * Backport for stretch.
+  * Rebuild for buster.
 
- -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Thu, 05 Oct 2017 17:06:43 +0200
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Wed, 17 Apr 2019 15:16:41 +0200
 
-libonig (5.9.5-3.2+deb8u1) jessie; urgency=medium
+libonig (6.1.3-2) unstable; urgency=high
 
   * New debian/patches/0500-CVE-2017-922[4-9].patch:
     - Cherrypicked from upstream to correct:
       + CVE-2017-9224 (Closes: #863312)
+      + CVE-2017-9225 (Closes: #863313)
       + CVE-2017-9226 (Closes: #863314)
       + CVE-2017-9227 (Closes: #863315)
       + CVE-2017-9228 (Closes: #863316)
       + CVE-2017-9229 (Closes: #863318)
 
- -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Sun, 02 Jul 2017 14:28:34 +0200
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Sat, 27 May 2017 12:05:50 +0200
+
+libonig (6.1.3-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Thu, 15 Dec 2016 09:23:30 +0100
+
+libonig (6.1.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control:
+    - Bump debhelper B-D minimum version to 10.
+  * New debian/patches/0100-source_typos.patch.
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Wed, 09 Nov 2016 23:16:44 +0100
+
+libonig (6.1.1-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Sun, 04 Sep 2016 21:26:20 +0200
+
+libonig (6.1.1-1) experimental; urgency=medium
+
+  * New upstream release.
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Sat, 03 Sep 2016 02:42:58 +0200
+
+libonig (6.1.0-1) experimental; urgency=medium
+
+  * New upstream release.
+    - NEW API: onig_scan().
+  * debian/control:
+    - To match with the soname rename packages from liboing3 to libonig4.
+  * debian/rules:
+    - Rename liboing3 to libonig4.
+  * Renew debian/symbols.
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Wed, 31 Aug 2016 04:18:16 +0200
+
+libonig (6.0.0-1) experimental; urgency=medium
+
+  * New upstream release.
+  * debian/control:
+    - Remove dpkg from libonig2-dbg Pre-Depends because redundance
+      with ${misc:Pre-Depends}.
+    - Replace homepage to the new loacation.
+    - To match with the soname rename packages from liboing2 to libonig3.
+    - Bump Standards-Version to 3.9.8 (no changes required).
+    - Change Vcs-* to secure URIs.
+  * debian/rules:
+    - Rename liboing2 to libonig3.
+  * debian/watch:
+    - Move to github.
+    - Bump version to 4 (no changes required).
+  * debian/copyright:
+    - Replace homepage and upstream mail address.
+    - Add year 2016.
+  * Remove the not Multi-Arch conform file /usr/bin/onig-config and
+    the man page.
+  * Remove now useless debian/libonig3-dbg.maintscript.
+  * Set compat level to 10.
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Sat, 14 May 2016 17:53:39 +0200
+
+libonig (5.9.6-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Refresh debian/patches/001-changes_build_sys.diff.
+  * Refresh debian/symbols.
+  * debian/rules:
+    - rewrite override_dh_strip.
+    - Add dpkg-gensymbols to generate symbol file(s) 
+      on every build.
+  * debian/copyright:
+    Add year 2015 to my entry at debian/*.
+  * debian/control:
+    - Remove useless Depends ${shlibs:Depends} from libonig2-dbg
+      and libonig-dev
+    - Add dpkg and ${misc:Pre-Depends} to Depends of libonig2-dbg 
+      to prevent error on upgrade wheezy to jessie (Closes: #769556).
+    - Bump Standards-Version to 3.9.6 (no changes required).
+    - Add Vcs-* fields pointed to alioth.
+    - Remove deprecated hardening-wrapper from Build-Depends
+      (Closes: #774485).
+    - Rewrite Descriptions (Closes: #774520).
+  * debian/*.postrm, debian/*.postinst, debian/*.preinst:
+    - Delete them and move the dpkg-maintscript-helper to
+      debian/libonig2-dbg.maintscript.
+  * New debian/libonig2-dbg.maintscript:
+    - Add symlink_to_dir calls.
+    - Change version in calls of symlink_to_dir to 5.9.6-1~.
+  * Add Vcs
+  * Add missing MNU changelog entries. Both don't provide a patch with
+    the changes and the first one causes a new RC-Bug.
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Mon, 05 Jan 2015 10:49:52 +0100
 
 libonig (5.9.5-3.2) unstable; urgency=medium
 

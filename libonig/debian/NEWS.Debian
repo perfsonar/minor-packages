@@ -1,0 +1,6 @@
+libonig (6.0.0-1) unstable; urgency=medium
+
+  The file /usr/bin/onig-config is not Multi-Arch conform. So it is removed
+  in this release. You can use pkg-config instead.
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Tue, 06 Jan 2015 11:09:12 +0100
