@@ -3,6 +3,9 @@
 # Uncomment to enable verbose mode.
 #export DH_VERBOSE=1
 
+# Setting a correct JAVA_HOME for the build
+export JAVA_HOME=/usr
+
 include /usr/share/dpatch/dpatch.make
 
 ANT = /usr/bin/ant
