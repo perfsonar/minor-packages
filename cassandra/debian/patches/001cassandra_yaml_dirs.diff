@@ -5,10 +5,11 @@
 ## DP: No description.
 
 @DPATCH@
-diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' '--exclude=.hg' '--exclude=_darcs' '--exclude=.bzr' cassandra~/conf/cassandra.yaml cassandra/conf/cassandra.yaml
---- cassandra~/conf/cassandra.yaml	2014-06-05 13:36:22.000000000 -0500
-+++ cassandra/conf/cassandra.yaml	2014-06-05 13:39:20.569034040 -0500
-@@ -94,13 +94,13 @@
+Index: cassandra/conf/cassandra.yaml
+===================================================================
+--- cassandra.orig/conf/cassandra.yaml
++++ cassandra/conf/cassandra.yaml
+@@ -103,13 +103,13 @@ partitioner: org.apache.cassandra.dht.Mu
  # will spread data evenly across them, subject to the granularity of
  # the configured compaction strategy.
  # If not set, the default directory is $CASSANDRA_HOME/data/data.
@@ -24,8 +25,8 @@ diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' 
 +commitlog_directory: /var/lib/cassandra/commitlog
  
  # policy for data disk failures:
- # stop_paranoid: shut down gossip and Thrift even for single-sstable errors.
-@@ -203,7 +203,7 @@
+ # die: shut down gossip and client transports and kill the JVM for any fs errors or
+@@ -224,7 +224,7 @@ counter_cache_save_period: 7200
  
  # saved caches
  # If not set, the default directory is $CASSANDRA_HOME/data/saved_caches.
@@ -33,4 +34,4 @@ diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' 
 +saved_caches_directory: /var/lib/cassandra/saved_caches
  
  # commitlog_sync may be either "periodic" or "batch." 
- # When in batch mode, Cassandra won't ack writes until the commit log
+ # 
