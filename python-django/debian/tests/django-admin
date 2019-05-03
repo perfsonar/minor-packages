@@ -19,7 +19,7 @@ run() {
 }
 
 # Test startproject
-cd $ADTTMP
+cd $AUTOPKGTEST_TMP
 run django-admin startproject testproject
 
 ensure_files_exist testproject/manage.py testproject/testproject/settings.py
@@ -31,4 +31,12 @@ run django-admin startapp testapp
 ensure_files_exist testapp/models.py testapp/tests.py testapp/views.py
 
 # Test manage.py
-./manage.py check
+#./manage.py check
+
+# Needed because upstream doesn't want to rewrite shebang of ./manage.py
+# see https://code.djangoproject.com/ticket/20027
+if [ -e /usr/bin/python ]; then
+    ./manage.py check
+else
+    python3 ./manage.py check
+fi

@@ -1,76 +1,525 @@
-python-django (1.8.18-1~bpo8+1) jessie-backports; urgency=medium
+python-django (1:1.11.20-1~bpo9+1) stretch-backports; urgency=medium
 
-  * New upstream security release. Fixes:
-    - CVE-2017-7233: Open redirect and possible XSS attack via user-supplied
-      numeric redirect URLs
-    - CVE-2017-7234: Open redirect vulnerability in django.views.static.serve()
-  * Sphinx >= 1.3 is now required, bump version in Build-Depends.
+  * Rebuild for stretch-backports.
 
- -- Raphaël Hertzog <hertzog@debian.org>  Sat, 20 May 2017 15:34:31 +0200
+ -- Chris Lamb <lamby@debian.org>  Fri, 22 Feb 2019 09:44:56 +0000
 
-python-django (1.8.16-1~bpo8+1) jessie-backports; urgency=medium
-
-  * New upstream security release. Fixes:
-    - CVE-2016-9013: User with hardcoded password created when running tests
-      on Oracle
-    - CVE-2016-9014: DNS rebinding vulnerability when DEBUG=True
-
- -- Raphaël Hertzog <hertzog@debian.org>  Tue, 08 Nov 2016 13:56:26 +0100
-
-python-django (1.8.15-1~bpo8+1) jessie-backports; urgency=medium
-
-  * New upstream security release. Fixes CVE-2016-7401: CSRF protection bypass
-    on a site with Google Analytics.
-
- -- Raphaël Hertzog <hertzog@debian.org>  Tue, 27 Sep 2016 13:45:57 +0200
-
-python-django (1.8.14-1~bpo8+1) jessie-backports; urgency=medium
+python-django (1:1.11.20-1) unstable; urgency=medium
 
   * New upstream security release.
+    - CVE-2019-6975: Fix memory exhaustion in utils.numberformat.format().
+      (Closes: #922027)
 
- -- Raphaël Hertzog <hertzog@debian.org>  Thu, 21 Jul 2016 09:04:57 +0200
+ -- Chris Lamb <lamby@debian.org>  Mon, 11 Feb 2019 19:08:53 +0100
 
-python-django (1.8.13-1~bpo8+1) jessie-backports; urgency=medium
+python-django (1:1.11.18-1~bpo9+1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+
+ -- Chris Lamb <lamby@debian.org>  Mon, 07 Jan 2019 08:21:00 +0100
+
+python-django (1:1.11.18-1) unstable; urgency=medium
+
+  * New upstream security release:
+    - CVE-2019-3498: Content spoofing possibility in the default 404 page.
+      (Closes: #918230)
+    <https://www.djangoproject.com/weblog/2019/jan/04/security-releases/>
+  * Move to debhelper-compat virtual package.
+  * Bump debhelper compatibility level to 12.
+  * Bump Standards-Version to 4.3.0.
+  * 0007-Fixed-29182-Adjusted-SQLite-schema-table-.patch: Fix grammar/spelling
+    error in upstream patch.
+
+ -- Chris Lamb <lamby@debian.org>  Fri, 04 Jan 2019 18:23:06 +0100
+
+python-django (1:1.11.17-2~bpo9+1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+
+ -- Chris Lamb <lamby@debian.org>  Sun, 09 Dec 2018 15:58:31 +0100
+
+python-django (1:1.11.17-2) unstable; urgency=medium
+
+  * Backport patch from upstream to fix compatibility with SQLite 3.26.
+    (Closes: #915626)
+
+ -- Chris Lamb <lamby@debian.org>  Fri, 07 Dec 2018 14:14:22 +0100
+
+python-django (1:1.11.17-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+    - https://docs.djangoproject.com/en/stable/releases/1.11.17/
+  * Drop patches that have been applied upstream:
+    - 0005-Fix-SyntaxError-Generator-expression-must-be-parenth.patch,
+    - 0007-Refs-28814-Fixed-migrations-crash-with-namespace-pac.patch
+    - 0008-Refs-28814-Fixed-test_runner-failure-on-Python-3.7.patch
+
+ -- Chris Lamb <lamby@debian.org>  Mon, 03 Dec 2018 22:34:53 +0100
+
+python-django (1:1.11.16-4) unstable; urgency=medium
+
+  * Cherry-pick two patches from upstream to fix test failures under Python
+    3.7. Thanks to Gaudenz Steinlin for the in-depth investigation.
+    (Closes: #891753)
+  * Add libsqlite3-mod-spatialite to Build-Depends to ensure we test our patch
+    for Spatialite 4.2 introduced as part of the fix for #910240.
+
+ -- Chris Lamb <lamby@debian.org>  Sun, 02 Dec 2018 23:13:07 +0100
+
+python-django (1:1.11.16-3) unstable; urgency=medium
+
+  * Default to supporting Spatialite >= 4.2. (Closes: #910240)
+  * debian/control:
+    - Update libgdal's SONAME in Suggests.
+    - Add libsqlite3-mod-spatialite to Suggests.
+
+ -- Chris Lamb <lamby@debian.org>  Thu, 04 Oct 2018 10:38:34 +0100
+
+python-django (1:1.11.16-2) unstable; urgency=medium
+
+  * Fix broken contrib/admin/static/admin/{img,fonts}/README.txt symlinks.
+    (Closes: #910120)
+  * debian/rules:
+    - Rename PREFIX -> PREFIX2 variable for clarity.
+    - Use variables for the Python 2.x and 3.x "dist-packages" directories.
+
+ -- Chris Lamb <lamby@debian.org>  Thu, 04 Oct 2018 09:31:33 +0100
+
+python-django (1:1.11.16-1) unstable; urgency=medium
+
+  * New upstream bugfix release:
+    - Fix a race condition in QuerySet.update_or_create() that could result in
+      data loss. <https://code.djangoproject.com/ticket/29499>
+  * debian/tests/control: Drop deprecated needs-recommends test restriction.
+  * Move "fonts" and "img" README documentation to /usr/share/doc.
+  * Bump Standards-Version to 4.2.1.
+
+ -- Chris Lamb <lamby@debian.org>  Mon, 01 Oct 2018 13:39:15 +0100
+
+python-django (1:1.11.15-1) unstable; urgency=medium
+
+  * New upstream security release.
+    - CVE-2018-14574: Open redirect possibility in CommonMiddleware.
+      (Closes: #905216)
+
+ -- Chris Lamb <lamby@debian.org>  Wed, 01 Aug 2018 23:06:03 +0800
+
+python-django (1:1.11.14-1~bpo9+1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports. (Closes: #904138)
+
+ -- Chris Lamb <lamby@debian.org>  Fri, 20 Jul 2018 21:27:57 +0800
+
+python-django (1:1.11.14-1) unstable; urgency=medium
+
+  * New upstrem bugfix release.
+    <https://docs.djangoproject.com/en/2.0/releases/1.11.14/>
+
+ -- Chris Lamb <lamby@debian.org>  Mon, 02 Jul 2018 17:49:29 +0100
+
+python-django (1:1.11.13-2) unstable; urgency=medium
+
+  [ Chris Lamb ]
+  * Fix "SyntaxError: Generator expression must be parenthesized with
+    python3.7". (Closes: #902761)
+
+  [ Ondřej Nový ]
+  * d/control: Remove ancient X-Python-Version field
+
+ -- Chris Lamb <lamby@debian.org>  Sat, 30 Jun 2018 19:37:08 +0100
+
+python-django (1:1.11.13-1) unstable; urgency=medium
+
+  [ Chris Lamb ]
+  * New upstream bugfix release.
+    <https://docs.djangoproject.com/en/2.0/releases/1.11.13/>.
+  * Bump Standards-Version to 4.1.4.
+
+  [ Ondřej Nový ]
+  * d/tests: Use AUTOPKGTEST_TMP instead of ADTTMP
+
+ -- Chris Lamb <lamby@debian.org>  Wed, 02 May 2018 08:51:18 -0700
+
+python-django (1:1.11.12-1) unstable; urgency=medium
+
+  * New upstream bugfix release
+    <https://docs.djangoproject.com/en/2.0/releases/1.11.12/>.
+  * Bump debhelper compatibility level to 11.
+  * Drop debian/python-django-doc.examples.
+  * python-django-doc.doc-base: Update locations of documentation files as they
+    are installed to /usr/share/doc/python-django, not [...]/python-django-doc.
+
+ -- Chris Lamb <lamby@debian.org>  Tue, 03 Apr 2018 09:51:51 +0100
+
+python-django (1:1.11.11-1) unstable; urgency=medium
+
+  [ Chris Lamb ]
+  * New upstream security release:
+    - CVE-2018-7536: Denial-of-service possibility in urlize and urlizetrunc
+      template filters.
+    - CVE-2018-7537: Denial-of-service possibility in truncatechars_html and
+      truncatewords_html template filters
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+
+ -- Chris Lamb <lamby@debian.org>  Tue, 06 Mar 2018 22:44:12 -0800
+
+python-django (1:1.11.10-1~bpo9+1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+
+ -- Chris Lamb <lamby@debian.org>  Thu, 01 Feb 2018 18:10:22 +0000
+
+python-django (1:1.11.10-1) unstable; urgency=medium
+
+  * New upstream security release:
+    - CVE-2018-6188: A regression in Django 1.11.8 made
+      django.contrib.auth.forms.AuthenticationForm run its
+      confirm_login_allowed() method even if an incorrect password is entered.
+      This can leak information about a user, depending on what messages
+      confirm_login_allowed() raises. If confirm_login_allowed() isn't
+      overridden, an attacker enter an arbitrary username and see if that user
+      has been set to is_active=False. If confirm_login_allowed() is
+      overridden, more sensitive details could be leaked.
+  * Use HTTPS "Format" URI in debian/copyright.
+
+ -- Chris Lamb <lamby@debian.org>  Thu, 01 Feb 2018 17:42:06 +0000
+
+python-django (1:1.11.9-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+    <https://docs.djangoproject.com/en/2.0/releases/1.11.9/>
+  * Bump Standards-Version to 4.1.3.
+  * Update debian/python-django-common.lintian-overrides for updated Lintian
+    output.
+
+ -- Chris Lamb <lamby@debian.org>  Tue, 02 Jan 2018 11:12:54 +0000
+
+python-django (1:1.11.7-1~bpo9+1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+  * Drop build-dep on python-six-doc which doesn't exist in stretch and
+    stretch-backports.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Mon, 20 Nov 2017 10:51:35 +0100
+
+python-django (1:1.11.7-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+    <https://www.djangoproject.com/weblog/2017/nov/01/bugfix-release/>
+  * debian/watch: Only match 1.x versions on this branch.
+
+ -- Chris Lamb <lamby@debian.org>  Thu, 02 Nov 2017 07:47:22 +0100
+
+python-django (1:1.11.6-2) unstable; urgency=medium
+
+  * Add Breaks: openstack-dashboard (<< 3:12) to ensure this package gets
+    upgraded (etc.) first. The version in experimental (3:12.x) is supposed to
+    work with the newer python-django. (Closes: #880409)
+  * wrap-and-sort -sa.
+  * Use HTTPS URI in debian/watch.
+  * Tidy whitespace in debian/changelog.
+
+ -- Chris Lamb <lamby@debian.org>  Wed, 01 Nov 2017 11:35:53 +0100
+
+python-django (1:1.11.6-1~bpo9+1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+  * Set debian-branch to debian/stretch-backports in debian/gbp.conf.
+
+ -- Chris Lamb <lamby@debian.org>  Thu, 12 Oct 2017 10:22:46 -0400
+
+python-django (1:1.11.6-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+    <https://docs.djangoproject.com/en/1.11/releases/1.11.6/>
+  * Build documentation using the Python 3 version of Sphinx to ease the
+    Python 2.x migration.
+
+ -- Chris Lamb <lamby@debian.org>  Fri, 06 Oct 2017 15:45:44 +0100
+
+python-django (1:1.11.5-2~bpo9+1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+
+ -- Chris Lamb <lamby@debian.org>  Mon, 02 Oct 2017 20:24:48 +0100
+
+python-django (1:1.11.5-2) unstable; urgency=medium
+
+  * Fix QuerySet.defer() with super and subclass fields. (Closes: #876816)
+  * Use --abbrev=7 when using git pq export.
+
+ -- Chris Lamb <lamby@debian.org>  Tue, 26 Sep 2017 17:51:23 +0100
+
+python-django (1:1.11.5-1~bpo9+1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+
+ -- Chris Lamb <lamby@debian.org>  Mon, 11 Sep 2017 08:06:29 +0100
+
+python-django (1:1.11.5-1) unstable; urgency=medium
+
+  * CVE-2017-12794: New upstream security release. (Closes: #874415)
+    <https://docs.djangoproject.com/en/dev/releases/1.11.5/>
+
+ -- Chris Lamb <lamby@debian.org>  Tue, 05 Sep 2017 21:39:37 +0100
+
+python-django (1:1.11.4-1~bpo9+1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+    - Drop python-six-doc from Build-Depends.
+
+ -- Chris Lamb <lamby@debian.org>  Mon, 07 Aug 2017 07:52:49 -0400
+
+python-django (1:1.11.4-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+    <https://docs.djangoproject.com/en/1.11/releases/1.11.4/>
+
+ -- Chris Lamb <lamby@debian.org>  Tue, 01 Aug 2017 14:27:31 -0400
+
+python-django (1:1.11.3-1) unstable; urgency=medium
+
+  [ Chris Lamb ]
+  * New upstream bugfix release.
+    - Drop 0003-Fixed-test_middleware_classes_headers-if-Django-sour.patch as
+      it was merged upstream.
+  * Check DEB_BUILD_PROFILES consistently, not DEB_BUILD_OPTIONS.
+
+  [ Brian May ]
+  * Use locally installed intersphinx mapping sources. (Closes: #852512)
+
+ -- Chris Lamb <lamby@debian.org>  Sun, 02 Jul 2017 15:56:22 +0100
+
+python-django (1:1.11.2-2) unstable; urgency=medium
+
+  * Upload (LTS) release to unstable.
+    - Incorporate Python 3.6 compatibility. (Closes: #865053)
+  * Use !nocheck profile for build dependencies that are only required for
+    tests.
+  * Move to debhelper compatibility level 10.
+  * Bump Standards-Version to 4.0.0.
+  * wrap-and-sort -sa.
+
+ -- Chris Lamb <lamby@debian.org>  Mon, 19 Jun 2017 11:27:46 +0800
+
+python-django (1:1.11.2-1) experimental; urgency=medium
+
+  [ Chris Lamb ]
+  * New upstream minor release.
+    <https://docs.djangoproject.com/en/1.11/releases/1.11.2/>
+  * Backport patch from <https://code.djangoproject.com/ticket/26755> to
+    prevent test_middleware_classes_headers from failing if the Django source
+    is not writable. This should fix the autopkgtests. (Closes: #816435)
+  * Refresh all patches with ``pq import && pq export --renumber``.
+
+  [ Raphaël Hertzog ]
+  * Update README.source and debian/gbp.conf.
+  * Document a minimal Django packaging policy in
+    README.Django-packaging-policy. (Closes: #863514)
+  * Remove README.Debian which contained only outdated information.
+  * Drop FastCGI initscript, it's obsolete, WSGI is required nowadays.
+  * Drop migrate-south helper script as south is gone for a long time already.
+  * Add same documentation in python3-django as in python-django.
+    (Closes: #831838)
+
+ -- Chris Lamb <lamby@debian.org>  Fri, 02 Jun 2017 09:38:16 +0100
+
+python-django (1:1.11.1-3) experimental; urgency=medium
+
+  * Really add Build-Depends on libgdal-dev.
+
+ -- Chris Lamb <lamby@debian.org>  Sat, 06 May 2017 20:32:33 +0200
+
+python-django (1:1.11.1-2) experimental; urgency=medium
+
+  * Add missing Build-Depends on libgdal-dev due to new GIS tests.
+
+ -- Chris Lamb <lamby@debian.org>  Sat, 06 May 2017 19:18:47 +0200
+
+python-django (1:1.11.1-1) experimental; urgency=medium
+
+  * New upstream minor release.
+    <https://docs.djangoproject.com/en/1.11/releases/1.11.1/>
+
+ -- Chris Lamb <lamby@debian.org>  Sat, 06 May 2017 16:33:25 +0200
+
+python-django (1:1.11-1) experimental; urgency=medium
+
+  * New upstream stable release. (Closes: #859515, #859516)
+
+ -- Chris Lamb <lamby@debian.org>  Wed, 05 Apr 2017 09:54:00 +0200
+
+python-django (1:1.11~rc1-1) experimental; urgency=medium
+
+  * New upstream beta release.
+
+ -- Chris Lamb <lamby@debian.org>  Wed, 22 Mar 2017 20:53:02 +0000
+
+python-django (1:1.11~beta1-1) experimental; urgency=medium
+
+  * New upstream beta release.
+  * Update debian/gbp.conf.
+  * Drop taskset calls when running testsuite now that
+    <https://code.djangoproject.com/ticket/27741> has been resolved.
+
+ -- Chris Lamb <lamby@debian.org>  Wed, 22 Feb 2017 07:43:29 +0800
+
+python-django (1:1.11~alpha1-1) experimental; urgency=medium
+
+  * New upstream alpha release.
+  * Match/mangle upstream versions using (eg.) "b1" instead of "beta1" in
+    debian/watch.
+  * Drop now-unused source-is-missing Lintian overrides.
+  * Limit parallelism in testsuite to avoid FTBFS. See:
+    <https://code.djangoproject.com/ticket/27741>
+
+ -- Chris Lamb <lamby@debian.org>  Wed, 25 Jan 2017 14:30:58 +1300
+
+python-django (1:1.10~beta1-2) experimental; urgency=medium
+
+  * Need to bump Debian revision due to change of .dsc contents.
+
+ -- Chris Lamb <lamby@debian.org>  Sun, 26 Jun 2016 12:22:46 +0200
+
+python-django (1:1.10~beta1-1) experimental; urgency=medium
+
+  * New upstream beta release.
+
+ -- Chris Lamb <lamby@debian.org>  Sun, 26 Jun 2016 10:24:45 +0200
+
+python-django (1:1.9.7-2) unstable; urgency=medium
+
+  * Re-upload 1.9.7 to unstable with epoch.
+
+ -- Chris Lamb <lamby@debian.org>  Sun, 26 Jun 2016 09:58:19 +0200
+
+python-django (1.10~beta1-1) unstable; urgency=medium
+
+  [ Chris Lamb ]
+  * New upstream beta release.
+  * Drop fix-25761-add-traceback-attribute.patch; applied upstream.
+
+  [ Raphaël Hertzog ]
+  * Remove obsolete /etc/bash_completion.d/django_bash_completion on upgrade.
+    Closes: #801744
+
+ -- Chris Lamb <lamby@debian.org>  Sat, 25 Jun 2016 19:17:49 +0200
+
+python-django (1.9.7-1) unstable; urgency=medium
+
+  [ Raphaël Hertzog ]
+  * New upstream bugfix release.
+  * Bump python-sphinx build dependency to >= 1.3. Closes: #824108
+  * Drop build dependency on locales. C.UTF-8 that we currently use is part of
+    libc-bin.
+
+  [ Chris Lamb ]
+  * Remove duplicated "of of" in python-django's README.Debian.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Tue, 14 Jun 2016 00:05:22 +0200
+
+python-django (1.9.6-1) unstable; urgency=medium
 
   * New upstream bugfix release.
 
- -- Raphaël Hertzog <hertzog@debian.org>  Thu, 12 May 2016 10:28:30 +0200
+ -- Chris Lamb <lamby@debian.org>  Sat, 07 May 2016 07:01:17 +0100
 
-python-django (1.8.12-1~bpo8+1) jessie-backports; urgency=medium
+python-django (1.9.5-2) unstable; urgency=medium
 
-  * New upstream bugfix release.
+  * Drop the dir_to_symlink transition that was only really needed
+    for upgrades between versions 1.9~rc2 and 1.9.4. Closes: #821789
 
- -- Raphaël Hertzog <hertzog@debian.org>  Mon, 04 Apr 2016 13:53:21 +0200
+ -- Raphaël Hertzog <hertzog@debian.org>  Wed, 20 Apr 2016 17:47:05 +0200
 
-python-django (1.8.11-1~bpo8+1) jessie-backports; urgency=medium
+python-django (1.9.5-1) unstable; urgency=medium
 
-  * New upstream release of Django 1.8.x (LTS version) fixing
-    security issues CVE-2016-2513 and CVE-2016-2512.
+  * New upstream bugfix release:
+    https://docs.djangoproject.com/en/1.9/releases/1.9.5/
+  * Fix the DEP-8 test suite (django-admin --with python3 failing
+    because ./manage.py does not have a good shebang).
+  * Update Standards-Version to 3.9.8.
+  * Add some lintian overrides.
+  * Tweak Vcs-Browser to use https.
+  * Drop obsolete parts of the copyright file.
 
- -- Raphaël Hertzog <hertzog@debian.org>  Tue, 08 Mar 2016 17:51:47 +0100
+ -- Raphaël Hertzog <hertzog@debian.org>  Wed, 06 Apr 2016 18:05:42 +0200
 
-python-django (1.8.9-1~bpo8+1) jessie-backports; urgency=medium
+python-django (1.9.4-1) unstable; urgency=high
 
-  * New upstream release of Django 1.8.x (LTS version).
+  [ Luke Faraone ]
+  * New upstream security release:
+    https://www.djangoproject.com/weblog/2016/mar/01/security-releases/
+    - CVE-2016-2512: Malicious redirect and possible XSS via user-supplied
+      redirect URLs containing basic auth
+    - CVE-2016-2513: User enumeration through timing difference on password
+      hasher work factor upgrade
+      Closes: #816434
 
- -- Raphaël Hertzog <hertzog@debian.org>  Tue, 02 Feb 2016 09:52:08 +0100
+  [ Raphaël Hertzog ]
+  * Fix rules file to no longer mess with *_templates directories. They no
+    longer contain invalid .py files but only *-tpl template files that are
+    instantiated at runtime.
 
-python-django (1.8.8-1~bpo8+1) jessie-backports; urgency=medium
+ -- Luke Faraone <lfaraone@debian.org>  Mon, 07 Mar 2016 17:09:54 +0000
 
-  * New upstream release of Django 1.8.x (LTS version).
+python-django (1.9.2-1) unstable; urgency=medium
+
+  * New upstream security release fixing:
+    - CVE-2016-2048: User with "change" but not "add" permission can create
+      objects for ModelAdmin objects with save_as=True
+      Closes: #813448
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Tue, 02 Feb 2016 09:06:46 +0100
+
+python-django (1.9.1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Chris Lamb <lamby@debian.org>  Mon, 04 Jan 2016 17:51:40 +0000
+
+python-django (1.9-2) unstable; urgency=medium
+
+  [ Chris Lamb ]
+  * Use dpkg-maintscript-helper's dir_to_symlink to correctly replace the
+    app_template and project_template symlinks added in 1.9~rc2-2.
+    (Closes: #807683)
+
+  [ Raphaël Hertzog ]
   * Add some DEP-8 tests testing "django-admin" and running the test suite
     against the installed package. In both cases, we do it with python2 and
     python3.
+  * Add python-tblib and python3-tblib to Build-Depends for the benefit of
+    the parallel testing feature of the test suite.
+  * Add "set -e" in the command line running the tests with all supported
+    versions so that it actually fails as soon as one version is failing
+    (and thus disallow later successes to shadow earlier failures).
 
- -- Raphaël Hertzog <hertzog@debian.org>  Tue, 05 Jan 2016 10:57:29 +0100
+ -- Raphaël Hertzog <hertzog@debian.org>  Wed, 30 Dec 2015 16:44:04 +0100
 
-python-django (1.8.7-2~bpo8+1) jessie-backports; urgency=medium
+python-django (1.9-1) unstable; urgency=medium
 
-  * Rebuild for jessie-backports. Django 1.8 is an LTS version that I'd like
-    to maintain in jessie-backports (even though Django 1.9 is on its way to
-    testing).
+  * Upload to unstable
+  * Adjust uversionmangle in debian/watch to mangle "1.9rc2" scheme
+    (previously only "1.9-rc-2" would have matched).
 
- -- Raphaël Hertzog <hertzog@debian.org>  Wed, 09 Dec 2015 22:18:48 +0100
+ -- Chris Lamb <lamby@debian.org>  Thu, 03 Dec 2015 16:48:30 +0200
+
+python-django (1.9~rc2-2) experimental; urgency=medium
+
+  * Move {app,project}_template to python-django-common to prevent
+    byte-compilation (via pycompile) on installation, causing failure. They are
+    not valid Python files until variables have been interpolated.
+
+ -- Chris Lamb <lamby@debian.org>  Thu, 26 Nov 2015 14:53:11 +0200
+
+python-django (1.9~rc2-1) experimental; urgency=medium
+
+  * New upstream release candidate.
+  * Add myself to Uploaders.
+
+ -- Chris Lamb <lamby@debian.org>  Thu, 26 Nov 2015 10:14:15 +0200
 
 python-django (1.8.7-2) unstable; urgency=high
 
@@ -343,7 +792,7 @@ python-django (1.7~c1+20140722-1) experimental; urgency=medium
   * Add all those dependencies in Build-Depends for the benefit of the
     test suite.
   * Run the test suite for python2 and python3.
-  * Differentiate descriptions of python2 and python3 packages. 
+  * Differentiate descriptions of python2 and python3 packages.
 
  -- Raphaël Hertzog <hertzog@debian.org>  Mon, 21 Jul 2014 21:57:07 +0200
 
@@ -414,7 +863,7 @@ python-django (1.6.3-1) unstable; urgency=high
 python-django (1.6.1-2) unstable; urgency=medium
 
   * Team upload.
-  * d/patches/ticket21869.diff: Cherry pick upstream fix for building 
+  * d/patches/ticket21869.diff: Cherry pick upstream fix for building
     documentation against Sphinx 1.2.1.
 
  -- Barry Warsaw <barry@debian.org>  Wed, 29 Jan 2014 18:37:51 +0000
@@ -498,7 +947,7 @@ python-django (1.4.5-1) unstable; urgency=high
 
 python-django (1.4.4-1) unstable; urgency=low
 
-  * New upstream security and maintenance release. Closes: #701186 
+  * New upstream security and maintenance release. Closes: #701186
     https://www.djangoproject.com/weblog/2013/feb/19/security/
     Fixes mulptiple security issues:
     - Further fixes for Host header poisoning. CVE-2012-4520
@@ -664,7 +1113,7 @@ python-django (1.2.5-1) unstable; urgency=low
 
   * New upstream release.
   * Do not compress objects.inv used by Sphinx generated documentation.
-    Thanks to Michael Fladischer for the report. Closes: #608769 
+    Thanks to Michael Fladischer for the report. Closes: #608769
 
  -- Raphaël Hertzog <hertzog@debian.org>  Sat, 12 Feb 2011 08:59:33 +0100
 
@@ -757,7 +1206,7 @@ python-django (1.2~alpha1-1) experimental; urgency=low
 
      This is the first in a series of preview/development releases leading up
      to the eventual release of Django 1.2, currently scheduled to take place
-     in March 2010. 
+     in March 2010.
 
      <http://docs.djangoproject.com/en/dev//releases/1.2-alpha-1/>
 
@@ -933,8 +1382,8 @@ python-django (1.0~beta2+ds-1) unstable; urgency=low
 python-django (1.0~beta2-3) unstable; urgency=low
 
   [ David Spreen ]
-  * Updated the copyright information to include copyright and 
-    licenses for individual contributions. 
+  * Updated the copyright information to include copyright and
+    licenses for individual contributions.
   * Added the documentation to the main python-django package:
   * debian/python-django.install
     - Added installation of html documentation.
@@ -947,20 +1396,20 @@ python-django (1.0~beta2-3) unstable; urgency=low
     - Readded code to link to libjs-jquery.
   * debian/NEWS
     - Fixed format.
-    - Added more comprehensive list of changes and references to 
-      local documentation as well as the wiki pages for 
+    - Added more comprehensive list of changes and references to
+      local documentation as well as the wiki pages for
       backwards-incompatible changes.
   * debian/python-django.docs
-    - Removed docs/*.txt since those are templates for the 
+    - Removed docs/*.txt since those are templates for the
       generated docs now included with doc-base.
-  
+
  -- David Spreen <netzwurm@debian.org>  Fri, 29 Aug 2008 09:20:45 -0700
 
 python-django (1.0~beta2-2) unstable; urgency=low
 
   [ David Spreen ]
-  * Removed all -doc related files temporarily to push beta2 into 
-    unstable for extensive testing. The -doc package will be 
+  * Removed all -doc related files temporarily to push beta2 into
+    unstable for extensive testing. The -doc package will be
     readded once this package is in unstable as recommended in
     http://lists.debian.org/debian-release/2008/08/msg01475.html.
   * debian/python-django-doc.install
@@ -983,8 +1432,8 @@ python-django (1.0~beta2-1) experimental; urgency=low
 
   [ David Spreen ]
   * The `hooray for the documentation' release!
-  * New upstream beta release. 
-  * debian/control 
+  * New upstream beta release.
+  * debian/control
     - Updated standards version.
     - Added python-sphinx and libjs-jquery.
     - Added python-django-doc package depending on libjs-jquery.
@@ -1003,10 +1452,10 @@ python-django (1.0~beta2-1) experimental; urgency=low
   * debian/python-django-doc.install:
     - Added install file for sphinx generated documentation.
   * debian/rules:
-    - Added code to generate documentation with sphinx and 
+    - Added code to generate documentation with sphinx and
       replace convenience file of jquery.js with the respective
       symlink to libjs-jquery.
-  
+
  -- David Spreen <netzwurm@debian.org>  Thu, 28 Aug 2008 10:22:29 -0700
 
 python-django (1.0~beta1-1) experimental; urgency=low
@@ -1014,18 +1463,18 @@ python-django (1.0~beta1-1) experimental; urgency=low
   [ David Spreen ]
   * New upstream beta release. Closes: #492956
   * debian/control: Added myself to Uploaders field.
-  * debian/watch: Added mangling for filename and version. Old watch file would 
-    name the download 'tarball'. Also added mangling to handle alpha and beta 
+  * debian/watch: Added mangling for filename and version. Old watch file would
+    name the download 'tarball'. Also added mangling to handle alpha and beta
     versioning.
   * Drop debian/patches/01_add_shebang.diff as this has been fixed upstream.
   * Drop debian/patches/02_bash_completion.diff as this has been committed
     upstream http://code.djangoproject.com/ticket/7268.
   * debian/control: Added python-flup to the Suggest field. Closes: #488123
   * debian/patches/03_manpage.diff: Adapted patch to new upstream version.
-  
+
   [ Jan Dittberner ]
   * add debian/watch file.
-  
+
  -- David Spreen <netzwurm@debian.org>  Fri, 15 Aug 2008 16:05:07 -0700
 
 python-django (0.97~svn7534-1) experimental; urgency=low

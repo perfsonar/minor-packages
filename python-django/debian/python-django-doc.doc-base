@@ -7,13 +7,13 @@ Abstract: This documentation gives an introduction
 Section: Programming/Python
 
 Format: HTML
-Index: /usr/share/doc/python-django-doc/html/index.html
-Files: /usr/share/doc/python-django-doc/html/*.html
- /usr/share/doc/python-django-doc/html/faq/*.html
- /usr/share/doc/python-django-doc/html/howto/*.html
- /usr/share/doc/python-django-doc/html/internals/*.html
- /usr/share/doc/python-django-doc/html/intro/*.html
- /usr/share/doc/python-django-doc/html/misc/*.html
- /usr/share/doc/python-django-doc/html/ref/*.html
- /usr/share/doc/python-django-doc/html/releases/*.html
- /usr/share/doc/python-django-doc/html/topics/*.html
+Index: /usr/share/doc/python-django/html/index.html
+Files: /usr/share/doc/python-django/html/*.html
+ /usr/share/doc/python-django/html/faq/*.html
+ /usr/share/doc/python-django/html/howto/*.html
+ /usr/share/doc/python-django/html/internals/*.html
+ /usr/share/doc/python-django/html/intro/*.html
+ /usr/share/doc/python-django/html/misc/*.html
+ /usr/share/doc/python-django/html/ref/*.html
+ /usr/share/doc/python-django/html/releases/*.html
+ /usr/share/doc/python-django/html/topics/*.html

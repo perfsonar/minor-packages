@@ -1,2 +1,3 @@
-README.rst
 AUTHORS
+README.rst
+debian/README.Django-packaging-policy

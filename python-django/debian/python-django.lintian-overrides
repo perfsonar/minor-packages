@@ -1,0 +1,4 @@
+# We ship upstream's comprehensive, referenced and hyperlinked upstream
+# changelog in python-django-doc which we would be doing a disservice to our
+# users by duplicating here.
+python-django: no-upstream-changelog

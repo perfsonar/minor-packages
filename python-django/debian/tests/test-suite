@@ -2,8 +2,8 @@
 
 set -e
 
-cp -a tests $ADTTMP/tests
-cd $ADTTMP/tests
+cp -a tests $AUTOPKGTEST_TMP/tests
+cd $AUTOPKGTEST_TMP/tests
 
 for python in "$@"; do
     echo "Running “$python ./runtests.py --verbosity 2”"

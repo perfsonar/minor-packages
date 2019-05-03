@@ -1,3 +1,6 @@
-02_disable-sources-in-sphinxdoc.diff
-06_use_debian_geoip_database_as_default.diff
-fix-25761-add-traceback-attribute.patch
+0001-disable-sources-in-sphinxdoc.diff
+0002-use_debian_geoip_database_as_default.diff
+0004-Use-locally-installed-documentation-sources.patch
+0004-Fix-QuerySet.defer-with-super-and-subclass-fields.patch
+0006-Default-to-supporting-Spatialite-4.2.patch
+0007-Fixed-29182-Adjusted-SQLite-schema-table-alteration-.patch

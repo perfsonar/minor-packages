@@ -1,0 +1,36 @@
+Introduction of new Django versions to Unstable
+-----------------------------------------------
+
+As a large part of the Django ecosystem is developed and validated against
+LTS versions of Django, we have decided to keep only LTS versions of
+Django in Debian Unstable and Debian Testing.
+
+Non-LTS versions will be made available in Debian Experimental to make it
+easier for everybody to run the last stable release and possibly prepare
+the field for the next LTS release.
+
+Update of python-django in Unstable to a new major/minor version should be
+coordinated with maintainers of reverse-depends, much like a library
+transition is handled. Micro version updates do not require coordination.
+
+Requirements for Django reverse dependencies
+--------------------------------------------
+
+To make Django transitions easier, all Django reverse dependencies should
+ensure that they are running with the current LTS version without
+generating any deprecation warning:
+https://docs.djangoproject.com/en/dev/internals/release-process/#internal-release-deprecation-policy
+https://docs.djangoproject.com/en/dev/howto/upgrade-version/#resolving-deprecation-warnings
+
+This can be ensured for example by running tests with "python3 -W error"
+(which will make the tests fails when such a warning is emitted) although
+you will most likely also need some other -W flags to ignore legitimate
+warnings which are unrelated to Django (ex: “-W ignore:::site:“). Another
+approach is to use “-W all” to print all the generated warnings without
+actually failing.
+
+Usage of “-W error” is forbidden in a package build, but it could be used
+in an autopkgtest (DEP-8) test. Even in that case, it is advised to only
+run tests with “-W error” when you detect that you are running against the
+Django LTS version that you are supporting (so that autopkgtests do not
+immediately fail when they are run against a newer Django version).

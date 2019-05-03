@@ -2,16 +2,31 @@
 
 export PYBUILD_NAME=django
 
-PREFIX = debian/python-django
+PREFIX2 = debian/python-django
 PREFIX3 = debian/python3-django
 PREFIXC = debian/python-django-common
 
+PYTHON2_DIST = /usr/lib/python2.7/dist-packages
+PYTHON3_DIST = /usr/lib/python3/dist-packages
+
+MANAGE_PY_TPL = django/conf/project_template/manage.py-tpl
+
 %:
-	dh $@ --with python2,python3 --buildsystem=pybuild
+	dh $@ --with sphinxdoc,python2,python3 --buildsystem=pybuild
+
+override_dh_auto_clean:
+	dh_auto_clean
+	make -C docs clean
+
+override_dh_auto_build:
+	dh_auto_build
+ifeq (,$(filter nodoc,$(DEB_BUILD_PROFILES)))
+	make -C docs html
+endif
 
 override_dh_auto_test:
-ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	cd tests && for python in $$(pyversions -s) $$(py3versions -s); do \
+ifeq (,$(filter nocheck,$(DEB_BUILD_PROFILES)))
+	set -e; cd tests && for python in $$(pyversions -s) $$(py3versions -s); do \
 	    	echo "——— Running tests with $$python ———"; \
 		LC_ALL=C.UTF-8 PYTHONPATH=.. $$python ./runtests.py --verbosity=2; \
 	done
@@ -25,16 +40,16 @@ override_dh_auto_install:
 	dh_auto_install
 
 	# Drop extra license files
-	find $(PREFIX) -name LICENSE -o -name license.txt -o -name license.python.txt | \
-	    xargs --no-run-if-empty rm
-	find $(PREFIX3) -name LICENSE -o -name license.txt -o -name license.python.txt | \
-	    xargs --no-run-if-empty rm
+	find $(PREFIX2) -name LICENSE -o -name license.txt -o -name license.python.txt \
+	    -o -name LICENSE.txt | xargs --no-run-if-empty rm
+	find $(PREFIX3) -name LICENSE -o -name license.txt -o -name license.python.txt \
+	    -o -name LICENSE.txt | xargs --no-run-if-empty rm
 
 	# Drop django-admin{,.py} which is in python-django-common and
 	# clean up empty parent directories
-	rm $(PREFIX)/usr/bin/django-admin*
+	rm $(PREFIX2)/usr/bin/django-admin*
 	rm $(PREFIX3)/usr/bin/django-admin*
-	rmdir --ignore-fail-on-non-empty --parents $(PREFIX)/usr/bin $(PREFIX3)/usr/bin
+	rmdir --ignore-fail-on-non-empty --parents $(PREFIX2)/usr/bin $(PREFIX3)/usr/bin
 
 	# Fix the shebang lines to use python3 in python3-django
 	find $(PREFIX3) -name django-admin.py -or -name manage.py | \
@@ -42,7 +57,7 @@ override_dh_auto_install:
 
 	# Remove embedded Javascript libraries
 	set -e; for FILENAME in jquery.js jquery.min.js; do \
-		find $(PREFIX) -name $$FILENAME -exec \
+		find $(PREFIX2) -name $$FILENAME -exec \
 			ln -sf /usr/share/javascript/jquery/$$FILENAME {} \;; \
 		find $(PREFIX3) -name $$FILENAME -exec \
 			ln -sf /usr/share/javascript/jquery/$$FILENAME {} \;; \
@@ -54,12 +69,19 @@ override_dh_install:
 	# Fix permissions
 	chmod 644 $(PREFIXC)/usr/share/bash-completion/completions/django_bash_completion
 	chmod 755 $(PREFIXC)/usr/bin/django-admin
-
+	
 override_dh_python3:
 	dh_python3
-	find debian/python3-django/usr/lib/python3/dist-packages/ -type f -not -name '*.py' | \
+	# Move documentation to /usr/share/doc
+	set -e; for X in fonts img; do \
+		mv $(PREFIX2)/$(PYTHON2_DIST)/django/contrib/admin/static/admin/$$X/README.txt \
+			$(PREFIXC)/usr/share/doc/python-django-common/README-$$X.txt; \
+		rm $(PREFIX3)/$(PYTHON3_DIST)/django/contrib/admin/static/admin/$$X/README.txt; \
+	done
+	find debian | grep /README
+	find $(PREFIX3)/$(PYTHON3_DIST)/ -type f -not -name '*.py' | \
 	(while read file; do \
-		relname=$${file##debian/python3-django/usr/lib/python3/dist-packages/}; \
+		relname=$${file##$(PREFIX3)/$(PYTHON3_DIST)/}; \
 		reldirname=$$(dirname $$relname); \
 		mkdir -p debian/python-django-common/usr/share/python-django-common/$$reldirname; \
 		mv $$file debian/python-django-common/usr/share/python-django-common/$$reldirname/; \
@@ -68,10 +90,16 @@ override_dh_python3:
 		    rm debian/python-django/usr/share/pyshared/$$relname; \
 		    ln -sf /usr/share/python-django-common/$$relname debian/python-django/usr/share/pyshared/$$relname; \
 		else \
-		    rm debian/python-django/usr/lib/python2.7/dist-packages/$$relname; \
-		    ln -sf /usr/share/python-django-common/$$relname debian/python-django/usr/lib/python2.7/dist-packages/$$relname; \
+		    rm $(PREFIX2)/$(PYTHON2_DIST)/$$relname; \
+		    ln -sf /usr/share/python-django-common/$$relname $(PREFIX2)/$(PYTHON2_DIST)/$$relname; \
 		fi \
 	done)
+	
+	# Ensure that "django-admin startproject foo" using python3-django
+	# emits the corrent shebang (#833275)
+	rm $(PREFIX3)/$(PYTHON3_DIST)/$(MANAGE_PY_TPL)
+	sed -e '1s/python$$/python3/' $(PREFIXC)/usr/share/python-django-common/$(MANAGE_PY_TPL) > \
+		$(PREFIX3)/$(PYTHON3_DIST)/$(MANAGE_PY_TPL)
 
 override_dh_compress:
 	dh_compress -X.js -Xobjects.inv
