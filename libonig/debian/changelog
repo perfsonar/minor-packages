@@ -1,3 +1,9 @@
+libonig (5.9.5-3.2+deb8u1~deb9+2) perfsonar-patch-staging; urgency=medium
+
+  * Removing unneeded hardening-wrapper
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Mon, 06 May 2019 16:50:45 +0000
+
 libonig (5.9.5-3.2+deb8u1~deb9+1) perfsonar-jessie-staging; urgency=medium
 
   * Backport for stretch.

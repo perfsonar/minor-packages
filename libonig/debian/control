@@ -5,8 +5,7 @@ Maintainer: Jörg Frings-Fürst <debian@jff-webhosting.net>
 Homepage: http://www.geocities.jp/kosako3/oniguruma/
 Build-Depends: 
  debhelper (>= 9), 
- dh-autoreconf,
- hardening-wrapper
+ dh-autoreconf
 Standards-Version: 3.9.5
 
 Package: libonig2
