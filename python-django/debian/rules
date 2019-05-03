@@ -12,17 +12,7 @@ PYTHON3_DIST = /usr/lib/python3/dist-packages
 MANAGE_PY_TPL = django/conf/project_template/manage.py-tpl
 
 %:
-	dh $@ --with sphinxdoc,python2,python3 --buildsystem=pybuild
-
-override_dh_auto_clean:
-	dh_auto_clean
-	make -C docs clean
-
-override_dh_auto_build:
-	dh_auto_build
-ifeq (,$(filter nodoc,$(DEB_BUILD_PROFILES)))
-	make -C docs html
-endif
+	dh $@ --with python2,python3 --buildsystem=pybuild
 
 override_dh_auto_test:
 ifeq (,$(filter nocheck,$(DEB_BUILD_PROFILES)))
