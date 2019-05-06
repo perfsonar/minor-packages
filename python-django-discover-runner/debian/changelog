@@ -1,8 +1,8 @@
-python-django-discover-runner (1.0-2~bionic+2) jessie-backports; urgency=medium
+python-django-discover-runner (1.0-2~bionic+2) perfsonar-patch-staging; urgency=medium
 
   * Rebuild for staging.
 
- -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Mon, 09 Jul 2018 10:45:27 +0200
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Mon, 06 May 2019 17:32:07 +0000
 
 python-django-discover-runner (1.0-2~bionic+1) unstable; urgency=low
 
