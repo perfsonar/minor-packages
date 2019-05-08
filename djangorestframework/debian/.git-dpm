@@ -1,11 +1,11 @@
 # see git-dpm(1) from git-dpm package
-276f8e50e128e71aea35116d7f400e7f49c7e741
-276f8e50e128e71aea35116d7f400e7f49c7e741
-1bd539431e14611590d5a1ff551253bdb0376e67
-1bd539431e14611590d5a1ff551253bdb0376e67
-djangorestframework_3.3.2.orig.tar.gz
-6f815f8ba6e00c0741173da1e89ed4f0cf12e906
-2129791
+952392f91a2177bbc41cfed8ae76579a9c81b266
+952392f91a2177bbc41cfed8ae76579a9c81b266
+a05b6ba96710a9b0bf3f3ba34c84a6eb32d1cc53
+a05b6ba96710a9b0bf3f3ba34c84a6eb32d1cc53
+djangorestframework_3.4.0.orig.tar.gz
+b37fe03ba071537396543ef389d26035c9bf93ae
+2830352
 debianTag="debian/%e%v"
 patchedTag="patched/%e%v"
 upstreamTag="upstream/%e%u"

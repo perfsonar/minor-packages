@@ -8,11 +8,19 @@ export PYBUILD_NAME=djangorestframework
 %:
 	dh $@ --with python2,python3 --buildsystem=pybuild
 
-override_dh_python3:
-	dh_python3
-	set -e 
-	install -d $(CURDIR)/debian/python3-djangorestframework/usr/share/doc/python3-djangorestframework/img/
-	mv -f $(CURDIR)/debian/python3-djangorestframework/usr/lib/python3/dist-packages/rest_framework/static/rest_framework/img/grid.png \
-	$(CURDIR)/debian/python3-djangorestframework/usr/share/doc/python3-djangorestframework/img/
+override_dh_auto_build:
+	dh_auto_build
+
+	# Build the HTML documentation.
+	mkdir $(CURDIR)/docs.debian
+	LC_ALL=C.UTF-8 PYTHONPATH=/usr/share/mkdocs/themes mkdocs build && mv site docs.debian/html
 
 override_dh_auto_test:
+# Disabling test for the perfSONAR only backport
+#	PYBUILD_SYSTEM=custom \
+#	PYBUILD_TEST_ARGS="{interpreter} $(CURDIR)/runtests.py --nolint" \
+#	dh_auto_test
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf docs.debian

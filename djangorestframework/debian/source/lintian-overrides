@@ -1,2 +1,1 @@
-djangorestframework source: source-is-missing debian/missing-sources/prettify-1.0.js
-djangorestframework source: source-is-missing debian/missing-sources/prettify.js
+djangorestframework source: source-is-missing debian/missing-sources/*

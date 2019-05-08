@@ -1,4 +1,4 @@
-From 276f8e50e128e71aea35116d7f400e7f49c7e741 Mon Sep 17 00:00:00 2001
+From 952392f91a2177bbc41cfed8ae76579a9c81b266 Mon Sep 17 00:00:00 2001
 From: SVN-Git Migration <python-modules-team@lists.alioth.debian.org>
 Date: Thu, 8 Oct 2015 08:58:40 -0700
 Subject: remove_google_analytics
@@ -9,7 +9,7 @@ Patch-Name: remove_google_analytics.patch
  1 file changed, 15 deletions(-)
 
 diff --git a/docs_theme/base.html b/docs_theme/base.html
-index 369927b..0b4af51 100644
+index 6cb929d..d60fbce 100644
 --- a/docs_theme/base.html
 +++ b/docs_theme/base.html
 @@ -22,21 +22,6 @@
@@ -32,5 +32,5 @@ index 369927b..0b4af51 100644
 -  </script>
 -
    <style>
-     span.fusion-wrap a {
-       display: block;
+   #sidebarInclude img {
+       margin-bottom: 10px;

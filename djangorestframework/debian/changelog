@@ -1,8 +1,29 @@
-djangorestframework (3.3.2-1~bpo8+1) perfsonar-jessie-staging; urgency=medium
+djangorestframework (3.4.0-2~ubuntu16) perfsonar-minor-staging; urgency=medium
 
-  * Update distribution to staging.
+  * Backport to Xenial.
 
- -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Mon, 09 Oct 2017 11:54:13 +0200
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 08 May 2019 18:56:21 +0000
+
+djangorestframework (3.4.0-2) unstable; urgency=medium
+
+  * Don't move grid.png to wrong spot in python3 package. Closes: #858811.
+
+ -- Brian May <bam@debian.org>  Mon, 27 Mar 2017 18:15:43 +1100
+
+djangorestframework (3.4.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update standards version to 3.9.8
+  * Update source for jquery-1.12.4.js
+  * Fix FTBFS. Closes: #830633.
+
+ -- Brian May <bam@debian.org>  Fri, 15 Jul 2016 19:44:22 +1000
+
+djangorestframework (3.3.2-2) unstable; urgency=medium
+
+  * Fix FTBFS by setting LC_CTYPE and LC_ALL. Closes: #812672.
+
+ -- Brian May <bam@debian.org>  Tue, 26 Jan 2016 15:50:22 +1100
 
 djangorestframework (3.3.2-1) unstable; urgency=medium
 
