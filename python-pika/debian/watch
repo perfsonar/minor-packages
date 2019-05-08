@@ -1,3 +1,0 @@
-version=3
-opts=filenamemangle=s/.+\/([\d.]+)\.tar\.gz/python-pika-$1.tar.gz/ \
-https://github.com/pika/pika/releases /pika/pika/archive/([\d.]+)\.tar\.gz

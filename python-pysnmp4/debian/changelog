@@ -1,3 +1,9 @@
+python-pysnmp4 (4.3.2-2~bpo80+2) perfsonar-minor-staging; urgency=medium
+
+  * Make it build on Stretch.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 08 May 2019 17:51:05 +0000
+
 python-pysnmp4 (4.3.2-2~bpo80+1) perfsonar-jessie-release; urgency=medium
 
   * Backport to jessie.

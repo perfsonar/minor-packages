@@ -1,2 +1,0 @@
-# requests.packages.urllib3 is used as import location for urllib3
-usr/lib/python2.7/dist-packages/urllib3 usr/lib/python2.7/dist-packages/requests/packages/urllib3
