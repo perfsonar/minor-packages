@@ -1,4 +1,4 @@
-python-dlnetsnmp (0.4.1-3) perfsonar-jessie-staging; urgency=medium
+python-dlnetsnmp (0.4.1-3) perfsonar-minor-staging; urgency=medium
 
   * Update distribution to staging.
 

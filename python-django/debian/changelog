@@ -1,4 +1,4 @@
-python-django (1:1.11.20-1~bpo9+1) stretch-backports; urgency=medium
+python-django (1:1.11.20-1~bpo9+1) perfsonar-minor-staging; urgency=low
 
   * Rebuild for stretch-backports.
 

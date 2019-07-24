@@ -1,6 +1,6 @@
-python-attrs (17.4.0-2~bpo9+1) stretch-backports; urgency=medium
+python-attrs (17.4.0-2~bpo9+1) perfsonar-minor-staging; urgency=low
 
-  * Rebuild for jessie-backports.
+  * Rebuild for stretch-backports.
 
  -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 10 Apr 2019 16:15:53 +0000
 

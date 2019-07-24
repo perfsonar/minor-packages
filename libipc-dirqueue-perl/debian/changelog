@@ -1,3 +1,9 @@
+libipc-dirqueue-perl (1.0-4) perfsonar-minor-staging; urgency=low
+
+  * Rebuild for stretch.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 24 Jul 2019 16:07:47 +0000
+
 libipc-dirqueue-perl (1.0-3~bpo8+1) perfsonar-jessie-staging; urgency=medium
 
   * Rebuild for jessie staging.
