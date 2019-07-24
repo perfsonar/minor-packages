@@ -1,6 +1,6 @@
-python-django-discover-runner (1.0-2~bionic+2) jessie-backports; urgency=medium
+python-django-discover-runner (1.0-2~bionic+2) perfsonar-minor-staging; urgency=low
 
-  * Rebuild for staging.
+  * Rebuild for perfsonar-minor-staging.
 
  -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Mon, 09 Jul 2018 10:45:27 +0200
 

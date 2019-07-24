@@ -1,4 +1,10 @@
-django-filter (1.1.0-2) perfsonar-minor-staging; urgency=medium
+django-filter (1.1.0-3) perfsonar-minor-staging; urgency=low
+
+  * Release to perfsonar-minor-staging
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 24 Jul 2019 18:33:29 +0000
+
+django-filter (1.1.0-2) jessie-backports; urgency=medium
 
   * Rebuild for staging.
 
