@@ -1,113 +1,8 @@
-libonig (6.9.1-1~bpo9+1) perfsonar-minor-staging; urgency=medium
+libonig (6.1.3-2~bpo9+1) perfsonar-minor-staging; urgency=medium
 
-  * Backport to Stretch.
+  * Rebuild for stretch.
 
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 08 May 2019 15:06:22 +0000
-
-libonig (6.9.1-1) unstable; urgency=medium
-
-  * New upstream release:
-    - Refresh symbols file.
-
- -- Jörg Frings-Fürst <debian@jff.email>  Fri, 21 Dec 2018 14:09:48 +0100
-
-libonig (6.9.0-1) unstable; urgency=medium
-
-  * New upstream release.
-    - Refresh symbols file.
-  * debian/control:
-    - Change VCS-* to point to the new repository.
-  * Declare compliance with Debian Policy 4.2.1 (No changes needed).
-
- -- Jörg Frings-Fürst <debian@jff.email>  Thu, 06 Sep 2018 07:14:48 +0200
-
-libonig (6.8.2-1) unstable; urgency=medium
-
-  * New upstream release (Closes: #897250).
-    - Refresh symbols file.
-  * Declare compliance with Debian Policy 4.1.4 (No changes needed).
-
- -- Jörg Frings-Fürst <debian@jff.email>  Fri, 04 May 2018 18:41:47 +0200
-
-libonig (6.8.1-2) unstable; urgency=medium
-
-  * Upload to unstable.
-
- -- Jörg Frings-Fürst <debian@jff.email>  Tue, 01 May 2018 09:45:05 +0200
-
-libonig (6.8.1-1) experimental; urgency=medium
-
-  * New upstream release.
-    - Refresh symbols file.
-    - Refresh debian/copyright.
-  * Rename libonig4 to libonig5.
-    - debian/control:
-      + Rename binaray package.
-      + Set Depends to libonig5.
-    - Rename debian/libonig4* to debian/libonig5*
-    - debian/rules:
-      + Rename liboing4 to libonig5.
-  * Migrate to debhelper 11:
-    - Change debian/compat to 11.
-    - Bump minimum debhelper version in debian/control to >= 11.
-  * Declare compliance with Debian Policy 4.1.3 (No changes needed).
-
- -- Jörg Frings-Fürst <debian@jff.email>  Wed, 21 Mar 2018 19:56:23 +0100
-
-libonig (6.7.0-1) unstable; urgency=medium
-
-  * New upstream release.
-    - Refresh symbols file.
-  * Change to my new email address:
-    - debian/control
-    - debian/copyright
-  * debian/changelog:
-    - Remove trailing whitespaces.
-  * Declare compliance with Debian Policy 4.1.2.0. (No changes needed).
-
- -- Jörg Frings-Fürst <debian@jff.email>  Thu, 14 Dec 2017 17:26:05 +0100
-
-libonig (6.6.1-1) unstable; urgency=medium
-
-  * New upstream release.
-    - Refresh symbols file.
-  * Declare compliance with Debian Policy 4.1.0.0. (No changes needed).
-  * Remove missing README.ja from debian/libonig-dev.docs and
-    debian/libonig-dev.doc-base.
-
- -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Fri, 01 Sep 2017 19:57:42 +0200
-
-libonig (6.5.0-1) unstable; urgency=medium
-
-  * New upstream release.
-    + Refresh symbols file.
-
- -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Sun, 06 Aug 2017 19:31:50 +0200
-
-libonig (6.4.0-1) unstable; urgency=medium
-
-  * New upstream release.
-    + Refresh symbols file.
-  * Remove not longer needed patches.
-
- -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Sun, 23 Jul 2017 11:51:31 +0200
-
-libonig (6.3.0-1) unstable; urgency=medium
-
-  * New upstream release.
-    - Update symbols file.
-    - Refresh patches.
-  * Drop dh-autoreconf from both build-depends and dh --with arguments.
-    because this is all defaults when using dh compat 10.
-  * debian/copyright: Add year 2017.
-  * Remove upstream applied debian/patches/0500-CVE-2017-922[4-9].patch.
-  * Use the automatic debug symbol packages:
-    - Remove libonig4-dbg section from debian/control.
-    - Remove override_dh_strip from debian/rules.
-  * New README.source to explain the branching model used.
-  * Declare compliance with Debian Policy 4.0.0. (No changes needed).
-
- -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Sun, 25 Jun 2017 09:55:31 +0200
+ -- Valentin Vidic <Valentin.Vidic@CARNet.hr>  Wed, 17 Apr 2019 15:16:41 +0200
 
 libonig (6.1.3-2) unstable; urgency=high
 
@@ -193,14 +88,14 @@ libonig (5.9.6-1) unstable; urgency=medium
   * Refresh debian/symbols.
   * debian/rules:
     - rewrite override_dh_strip.
-    - Add dpkg-gensymbols to generate symbol file(s)
+    - Add dpkg-gensymbols to generate symbol file(s) 
       on every build.
   * debian/copyright:
     Add year 2015 to my entry at debian/*.
   * debian/control:
     - Remove useless Depends ${shlibs:Depends} from libonig2-dbg
       and libonig-dev
-    - Add dpkg and ${misc:Pre-Depends} to Depends of libonig2-dbg
+    - Add dpkg and ${misc:Pre-Depends} to Depends of libonig2-dbg 
       to prevent error on upgrade wheezy to jessie (Closes: #769556).
     - Bump Standards-Version to 3.9.6 (no changes required).
     - Add Vcs-* fields pointed to alioth.
