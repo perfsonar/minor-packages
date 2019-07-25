@@ -1,3 +1,9 @@
+python-django-discover-runner (1.0-2~bionic+3) perfsonar-minor-staging; urgency=low
+
+  * Proper release for perfsonar-minor-staging.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Thu, 25 Jul 2019 21:28:11 +0000
+
 python-django-discover-runner (1.0-2~bionic+2) perfsonar-minor-staging; urgency=low
 
   * Rebuild for perfsonar-minor-staging.
