@@ -1,3 +1,9 @@
+libmojolicious-perl (7.81+dfsg-1~bpo90+1) perfsonar-4.3-staging; urgency=medium
+
+  * Backport to stretch.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 28 Aug 2019 10:52:52 +0000
+
 libmojolicious-perl (7.81+dfsg-1~bpo80+2) perfsonar-jessie-staging; urgency=medium
 
   * Correcting compatibility to IO::Socket::SSL <= 1.965

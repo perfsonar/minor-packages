@@ -1,3 +1,9 @@
+libjson-validator-perl (1.08+dfsg-1~bpo90+1) perfsonar-4.3-staging; urgency=medium
+
+  * Backport for stretch.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 28 Aug 2019 10:49:02 +0000
+
 libjson-validator-perl (1.08+dfsg-1~bpo80+1) perfsonar-jessie-staging; urgency=medium
 
   * Backport for jessie.
