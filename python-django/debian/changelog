@@ -1,3 +1,14 @@
+python-django (1:1.11.20-1~bpo9+3) perfsonar-4.2-staging; urgency=medium
+
+  * SECURITY UPDATE: Possible SQL injection in the postgres aggregates
+    StringAgg function
+    - debian/patches/CVE-2020-7471.patch: Update
+      django/contrib/postgres/aggregates/general.py to escape delimited
+      parameter to the StringAgg function. Upstream patch.
+    - CVE-2020-7471
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 12 Feb 2020 15:02:13 +0000
+
 python-django (1:1.11.20-1~bpo9+2) perfsonar-4.2-staging; urgency=medium
 
   * SECURITY UPDATE: Potential account hijack via password reset form
