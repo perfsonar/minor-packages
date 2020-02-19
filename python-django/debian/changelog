@@ -1,3 +1,63 @@
+python-django (1:1.11.20-1~bpo9+3) perfsonar-4.2-staging; urgency=medium
+
+  * SECURITY UPDATE: Possible SQL injection in the postgres aggregates
+    StringAgg function
+    - debian/patches/CVE-2020-7471.patch: Update
+      django/contrib/postgres/aggregates/general.py to escape delimited
+      parameter to the StringAgg function. Upstream patch.
+    - CVE-2020-7471
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 12 Feb 2020 15:02:13 +0000
+
+python-django (1:1.11.20-1~bpo9+2) perfsonar-4.2-staging; urgency=medium
+
+  * SECURITY UPDATE: Potential account hijack via password reset form
+    - debian/patches/CVE-2019-19844.patch: Use verified user email for
+      password reset requests.
+    - CVE-2019-19844
+  * SECURITY UPDATE: Denial-of-service possibility in
+    django.utils.text.Truncator
+    - debian/patches/CVE-2019-14232.patch: adjusted regex to avoid
+      backtracking issues when truncating HTML in django/utils/text.py,
+      tests/template_tests/filter_tests/test_truncatewords_html.py,
+      tests/utils_tests/test_text.py.
+    - CVE-2019-14232
+  * SECURITY UPDATE: Denial-of-service
+    possibility in strip_tags()
+    - debian/patches/CVE-2019-14233.patch: prevented excessive HTMLParser
+      recursion in strip_tags() when handling incomplete HTML entities in
+      django/utils/html.py, tests/utils_tests/test_html.py.
+    - CVE-2019-14233
+  * SECURITY UPDATE: SQL injection possibility in key and index lookups for
+      JSONField/HStoreField
+    - debian/patches/CVE-2019-14234.patch: protected JSONField/HStoreField
+      key and index lookups against SQL injection in
+      django/contrib/postgres/fields/hstore.py,
+      django/contrib/postgres/fields/jsonb.py,
+      tests/postgres_tests/test_hstore.py,
+      tests/postgres_tests/test_json.py.
+    - CVE-2019-14234
+  * SECURITY UPDATE: Potential memory exhaustion in
+      django.utils.encoding.uri_to_iri()
+    - debian/patches/CVE-2019-14235.patch: fixed potential memory
+      exhaustion in django.utils.encoding.uri_to_iri() in
+      django/utils/encoding.py, tests/utils_tests/test_encoding.py.
+    - CVE-2019-14235
+  * SECURITY UPDATE: Incorrect HTTP detection with reverse-proxy
+    connecting via HTTPS
+    - debian/patches/CVE-2019-12781.patch: made HttpRequest always
+      trusty SECURE_PROXY_SSL_HEADER if set in django/http/request.py,
+      docs/ref/settings.txt and added tests to tests/settings_test/tests.py.
+    - CVE-2019-12781
+  * SECURITY UPDATE: XSS in Django admin via AdminURLFieldWidget
+    - debian/patches/CVE-2019-12308.patch: made AdminURLFieldWidget
+      validate URL before rendering clickable link in
+      django/contrib/admin/templates/admin/widgets/url.html, django/contrib/admin/widgets.py add test
+      test/admin_widgets/tests.py.
+    - CVE-2019-12308
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 28 Jan 2020 15:08:23 +0000
+
 python-django (1:1.11.20-1~bpo9+1) perfsonar-minor-staging; urgency=low
 
   * Rebuild for stretch-backports.
