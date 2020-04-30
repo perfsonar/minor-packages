@@ -1,0 +1,4 @@
+usr/include/thrift/c_glib/
+usr/lib/*/libthrift_c_glib.a
+usr/lib/*/libthrift_c_glib.so
+usr/lib/*/pkgconfig/thrift_c_glib.pc

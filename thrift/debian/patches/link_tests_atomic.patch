@@ -1,0 +1,262 @@
+Description: fix tests FTBFS with atomic link
+ On armel and at least mipsel needs atomic to link with.
+Author: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Forwarded: no
+Last-Update: 2019-12-08
+
+---
+
+--- thrift-0.13.0.orig/lib/c_glib/test/Makefile.am
++++ thrift-0.13.0/lib/c_glib/test/Makefile.am
+@@ -186,7 +186,7 @@ testthrifttest_CFLAGS = -I$(top_srcdir)/
+ 
+ testthrifttestclient_SOURCES = testthrifttestclient.cpp
+ testthrifttestclient_CPPFLAGS = -I../../cpp/src $(BOOST_CPPFLAGS) -I./gen-cpp -I../src -I./gen-c_glib $(GLIB_CFLAGS)
+-testthrifttestclient_LDADD = ../../cpp/.libs/libthrift.la ../libthrift_c_glib.la libtestgenc.la libtestgencpp.la
++testthrifttestclient_LDADD = ../../cpp/.libs/libthrift.la ../libthrift_c_glib.la libtestgenc.la libtestgencpp.la -latomic
+ testthrifttestclient_LDFLAGS = -L../.libs -L../../cpp/.libs $(GLIB_LIBS) $(GOBJECT_LIBS)
+ 
+ check_LTLIBRARIES = libtestgenc.la
+--- thrift-0.13.0.orig/lib/cpp/test/Makefile.am
++++ thrift-0.13.0/lib/cpp/test/Makefile.am
+@@ -83,7 +83,8 @@ noinst_PROGRAMS = Benchmark \
+ Benchmark_SOURCES = \
+ 	Benchmark.cpp
+ 
+-Benchmark_LDADD = libtestgencpp.la
++Benchmark_LDADD = libtestgencpp.la \
++	-latomic
+ 
+ check_PROGRAMS = \
+ 	UnitTests \
+@@ -139,7 +140,8 @@ UnitTests_LDADD = \
+   libtestgencpp.la \
+   $(BOOST_TEST_LDADD) \
+   $(BOOST_SYSTEM_LDADD) \
+-  $(BOOST_THREAD_LDADD)
++  $(BOOST_THREAD_LDADD) \
++  -latomic
+ 
+ TInterruptTest_SOURCES = \
+ 	TSocketInterruptTest.cpp \
+@@ -151,7 +153,8 @@ TInterruptTest_LDADD = \
+   $(BOOST_FILESYSTEM_LDADD) \
+   $(BOOST_CHRONO_LDADD) \
+   $(BOOST_SYSTEM_LDADD) \
+-  $(BOOST_THREAD_LDADD)
++  $(BOOST_THREAD_LDADD) \
++  -latomic
+ 
+ TServerIntegrationTest_SOURCES = \
+ 	TServerIntegrationTest.cpp
+@@ -161,7 +164,8 @@ TServerIntegrationTest_LDADD = \
+   libprocessortest.la \
+   $(BOOST_TEST_LDADD) \
+   $(BOOST_SYSTEM_LDADD) \
+-  $(BOOST_THREAD_LDADD)
++  $(BOOST_THREAD_LDADD) \
++  -latomic
+ 
+ SecurityTest_SOURCES = \
+ 	SecurityTest.cpp
+@@ -181,7 +185,8 @@ TransportTest_LDADD = \
+   libtestgencpp.la \
+   $(top_builddir)/lib/cpp/libthriftz.la \
+   $(BOOST_TEST_LDADD) \
+-  -lz
++  -lz \
++  -latomic
+ 
+ ZlibTest_SOURCES = \
+ 	ZlibTest.cpp
+@@ -190,7 +195,8 @@ ZlibTest_LDADD = \
+   libtestgencpp.la \
+   $(top_builddir)/lib/cpp/libthriftz.la \
+   $(BOOST_TEST_LDADD) \
+-  -lz
++  -lz \
++  -latomic
+ 
+ EnumTest_SOURCES = \
+ 	EnumTest.cpp
+@@ -215,7 +221,8 @@ TFileTransportTest_SOURCES = \
+ 
+ TFileTransportTest_LDADD = \
+   libtestgencpp.la \
+-  $(BOOST_TEST_LDADD)
++  $(BOOST_TEST_LDADD) \
++  -latomic
+ 
+ #
+ # TFDTransportTest
+@@ -225,7 +232,8 @@ TFDTransportTest_SOURCES = \
+ 
+ TFDTransportTest_LDADD =  \
+ 	$(top_builddir)/lib/cpp/libthrift.la \
+-	$(BOOST_TEST_LDADD)
++	$(BOOST_TEST_LDADD) \
++	-latomic
+ 
+ 
+ #
+@@ -240,7 +248,8 @@ TPipedTransportTest_LDADD = \
+ 	$(top_builddir)/lib/cpp/libthrift.la \
+ 	$(BOOST_TEST_LDADD) \
+ 	$(BOOST_SYSTEM_LDADD) \
+-	$(BOOST_THREAD_LDADD)
++	$(BOOST_THREAD_LDADD) \
++	-latomic
+ 
+ #
+ # AllProtocolsTest
+@@ -252,7 +261,8 @@ AllProtocolsTest_SOURCES = \
+ 
+ AllProtocolsTest_LDADD = \
+   libtestgencpp.la \
+-  $(BOOST_TEST_LDADD)
++  $(BOOST_TEST_LDADD) \
++  -latomic
+ 
+ #
+ # DebugProtoTest
+@@ -262,7 +272,8 @@ DebugProtoTest_SOURCES = \
+ 
+ DebugProtoTest_LDADD = \
+ 	libtestgencpp.la \
+-	$(BOOST_TEST_LDADD)
++	$(BOOST_TEST_LDADD) \
++	-latomic
+ 
+ 
+ #
+@@ -273,7 +284,8 @@ JSONProtoTest_SOURCES = \
+ 
+ JSONProtoTest_LDADD = \
+ 	libtestgencpp.la \
+-	$(BOOST_TEST_LDADD)
++	$(BOOST_TEST_LDADD) \
++	-latomic
+ 
+ #
+ # TNonblockingServerTest
+@@ -285,7 +297,8 @@ TNonblockingServerTest_LDADD = libproces
+                                $(top_builddir)/lib/cpp/libthriftnb.la \
+                                $(BOOST_TEST_LDADD) \
+                                $(BOOST_LDFLAGS) \
+-                               $(LIBEVENT_LIBS)
++                               $(LIBEVENT_LIBS) \
++			       -latomic
+ #
+ # TNonblockingSSLServerTest
+ #
+@@ -300,7 +313,8 @@ TNonblockingSSLServerTest_LDADD = libpro
+                                $(BOOST_CHRONO_LDADD) \
+                                $(BOOST_SYSTEM_LDADD) \
+                                $(BOOST_THREAD_LDADD) \
+-                               $(LIBEVENT_LIBS)
++                               $(LIBEVENT_LIBS) \
++			       -latomic
+ 
+ #
+ # OptionalRequiredTest
+@@ -310,7 +324,8 @@ OptionalRequiredTest_SOURCES = \
+ 
+ OptionalRequiredTest_LDADD = \
+ 	libtestgencpp.la \
+-	$(BOOST_TEST_LDADD)
++	$(BOOST_TEST_LDADD) \
++	-latomic
+ 
+ #
+ # OptionalRequiredTest
+@@ -320,7 +335,8 @@ RecursiveTest_SOURCES = \
+ 
+ RecursiveTest_LDADD = \
+ 	libtestgencpp.la \
+-	$(BOOST_TEST_LDADD)
++	$(BOOST_TEST_LDADD) \
++	-latomic
+ 
+ #
+ # SpecializationTest
+@@ -330,7 +346,8 @@ SpecializationTest_SOURCES = \
+ 
+ SpecializationTest_LDADD = \
+ 	libtestgencpp.la \
+-	$(BOOST_TEST_LDADD)
++	$(BOOST_TEST_LDADD) \
++	-latomic
+ 
+ concurrency_test_SOURCES = \
+ 	concurrency/Tests.cpp \
+@@ -339,7 +356,8 @@ concurrency_test_SOURCES = \
+ 	concurrency/TimerManagerTests.h
+ 
+ concurrency_test_LDADD = \
+-  $(top_builddir)/lib/cpp/libthrift.la
++  $(top_builddir)/lib/cpp/libthrift.la \
++  -latomic  
+ 
+ link_test_SOURCES = \
+   link/LinkTest.cpp \
+@@ -359,7 +377,8 @@ processor_test_LDADD = libprocessortest.
+                        $(top_builddir)/lib/cpp/libthriftnb.la \
+                        $(BOOST_TEST_LDADD) \
+                        $(BOOST_LDFLAGS) \
+-                       $(LIBEVENT_LIBS)
++                       $(LIBEVENT_LIBS) \
++		       -latomic
+ 
+ OpenSSLManualInitTest_SOURCES = \
+ 	OpenSSLManualInitTest.cpp
+@@ -368,7 +387,8 @@ OpenSSLManualInitTest_LDADD = \
+ 	$(top_builddir)/lib/cpp/libthrift.la \
+ 	$(BOOST_TEST_LDADD) \
+ 	$(OPENSSL_LDFLAGS) \
+-	$(OPENSSL_LIBS)
++	$(OPENSSL_LIBS) \
++	-latomic
+ 
+ #
+ # Common thrift code generation rules
+--- thrift-0.13.0.orig/test/cpp/Makefile.am
++++ thrift-0.13.0/test/cpp/Makefile.am
+@@ -73,7 +73,8 @@ TestServer_LDADD = \
+ 	$(top_builddir)/lib/cpp/libthrift.la \
+ 	$(top_builddir)/lib/cpp/libthriftz.la \
+ 	$(top_builddir)/lib/cpp/libthriftnb.la \
+-	-levent -lboost_program_options -lboost_system -lboost_filesystem $(ZLIB_LIBS)
++	-levent -lboost_program_options -lboost_system -lboost_filesystem $(ZLIB_LIBS) \
++	-latomic
+ 
+ TestClient_SOURCES = \
+ 	src/TestClient.cpp
+@@ -83,14 +84,16 @@ TestClient_LDADD = \
+ 	$(top_builddir)/lib/cpp/libthrift.la \
+ 	$(top_builddir)/lib/cpp/libthriftz.la \
+ 	$(top_builddir)/lib/cpp/libthriftnb.la \
+-	-levent -lboost_program_options -lboost_system -lboost_filesystem $(ZLIB_LIBS)
++	-levent -lboost_program_options -lboost_system -lboost_filesystem $(ZLIB_LIBS) \
++	-latomic
+ 
+ StressTest_SOURCES = \
+ 	src/StressTest.cpp
+ 
+ StressTest_LDADD = \
+ 	libstresstestgencpp.la \
+-	$(top_builddir)/lib/cpp/libthrift.la
++	$(top_builddir)/lib/cpp/libthrift.la \
++	-latomic
+ 
+ StressTestNonBlocking_SOURCES = \
+ 	src/StressTestNonBlocking.cpp
+@@ -98,7 +101,8 @@ StressTestNonBlocking_SOURCES = \
+ StressTestNonBlocking_LDADD = \
+ 	libstresstestgencpp.la \
+ 	$(top_builddir)/lib/cpp/libthriftnb.la \
+-	-levent
++	-levent \
++	-latomic
+ #
+ # Common thrift code generation rules
+ #

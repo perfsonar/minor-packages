@@ -1,0 +1,18 @@
+Description: don't use gradlew in any way
+ Not enabled for compilation, but clean would like to use it anyway.
+Author: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Last-Update: 2019-10-23
+
+---
+
+--- a/lib/as3/Makefile.am
++++ b/lib/as3/Makefile.am
+@@ -28,7 +28,7 @@ install-exec-hook:
+ 		--console=plain
+ 
+ clean-local:
+-	./gradlew $(GRADLE_OPTS) clean \
++	echo ./gradlew $(GRADLE_OPTS) clean \
+ 		-Prelease=true \
+                 --console=plain
+ 	$(RM) -r .gradle
