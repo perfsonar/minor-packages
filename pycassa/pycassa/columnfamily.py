@@ -57,6 +57,12 @@ class ColumnValidatorDict(DictMixin):
         del self.packers[packed_item]
         del self.unpackers[packed_item]
 
+    def __iter__(self):
+        return iter(self.__dict__)
+
+    def __len__(self):
+        return len(self.__dict__)
+
     def keys(self):
         return list(map(self.name_unpacker, list(self.type_map.keys())))
 
