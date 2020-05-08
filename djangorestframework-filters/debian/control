@@ -1,17 +1,15 @@
 Source: djangorestframework-filters
-Maintainer: Valentin Vidic <Valentin.Vidic@CARNet.hr>
+Maintainer: Antoine Delvaux <antoine.delvaux@man.poznan.pl>
 Section: python
 Priority: optional
-Build-Depends: debhelper (>= 9), dh-python, python-all (>=2.6.6-3), python-setuptools,
- python3-all, python3-setuptools
-Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 9), dh-python, python3-all, python3-setuptools
+Standards-Version: 3.9.8
 Homepage: https://github.com/philipn/django-rest-framework-filters
-X-Python-Version: >= 2.6
 X-Python3-Version: >= 3.3
 
-Package: python-djangorestframework-filters
+Package: python3-djangorestframework-filters
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends}, python-django-filters (>= 0.11.0)
+Depends: ${python3:Depends}, ${misc:Depends}, python3-django-filters (>= 0.11.0)
 Description: Django REST framework extension that makes working with filtering much easier
  In addition to fixing some underlying warts and limitations of django-filter,
  it allows arbitrary chaining of both relations and lookup filters without
