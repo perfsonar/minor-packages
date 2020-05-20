@@ -3,11 +3,11 @@ Section: python
 Priority: optional
 Maintainer: Paul Cannon <paul@datastax.com>
 Uploaders: Tyler Hobbs <tyler@datastax.com>, Sebastien Badia <seb@sebian.fr>
-Build-Depends: debhelper (>= 7.0.50~),
+Build-Depends: debhelper (>= 7.0.50~), dh-python,
                python3-all,
                python3-setuptools,
                python3-sphinx,
-               python3-thrift
+               python3-thrift | python3-thrift-u18
 Homepage: http://pycassa.github.io/pycassa/
 Vcs-Git: git://github.com/pycassa/pycassa.git
 Vcs-Browser: https://github.com/pycassa/pycassa/
@@ -15,7 +15,7 @@ Standards-Version: 3.9.8
 
 Package: python3-pycassa
 Architecture: all
-Depends: python3-thrift, ${misc:Depends}, ${python3:Depends}
+Depends: python3-thrift | python3-thrift-u18, python3:any, ${misc:Depends}
 Suggests: ipython
 Description: Client library for Apache Cassandra
  Pycassa is a client library for Apache Cassandra with the following
@@ -27,7 +27,8 @@ Description: Client library for Apache Cassandra
   * A batch interface
   * A class for mapping classes to Cassandra column families
  .
- This version is compatible with Cassandra 0.7 and 0.8.
+ This version is compatible with Cassandra 0.7 and 0.8
+ and with Cassandra 2.1 shipped with perfSONAR.
 
 Package: pycassa-doc
 Architecture: all

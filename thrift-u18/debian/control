@@ -1,4 +1,4 @@
-Source: thrift
+Source: thrift-u18
 Section: devel
 Priority: optional
 Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
@@ -11,7 +11,7 @@ Build-Depends: debhelper (>= 10), dh-python,
 Standards-Version: 4.4.0
 Homepage: https://thrift.apache.org/
 
-Package: python3-thrift
+Package: python3-thrift-u18
 Section: python
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}
