@@ -64,9 +64,10 @@ override_dh_auto_test:
 	mkdir -p $(CURDIR)/vendor/bin/
 	dh_auto_test --no-parallel
 
+# Ubuntu .ddeb are currently not supported by reprepro, so we don't build them
 override_dh_strip:
-	dh_strip -ppython3-thrift-u18
-	dh_strip
+	dh_strip --no-automatic-dbgsym -ppython3-thrift-u18
+	dh_strip --no-automatic-dbgsym
 
 %:
 	dh $@ --with python3
