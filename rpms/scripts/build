@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 PACKAGE"
+    echo ""
+    echo "Must specify a PACKAGE (i.e. the name of the minor packge directory in the minor repo)"
+    exit 1
+fi
+mkdir -p /home/vagrant/source
+ln -fs /vagrant /home/vagrant/source/minor-packages
+psrpm_build_perl $1 minor-packages
+

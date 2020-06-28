@@ -1,2 +1,3 @@
 # Ignore quilt cache directory
 .pc/
+.vagrant/
