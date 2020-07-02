@@ -40,7 +40,7 @@ python3 setup.py build
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f INSTALLED_FILES
+%files -n python3-%{name} -f INSTALLED_FILES
 %defattr(-,root,root)
 %license LICENSE
 
