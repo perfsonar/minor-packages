@@ -1,3 +1,0 @@
-usr/lib/postgresql/*/lib/*plperl*.so
-usr/share/postgresql/*/extension/*plperl*
-usr/share/locale/*/*/plperl-*.mo
