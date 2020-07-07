@@ -1,2 +1,2 @@
-remove_remote_resources.patch
-remove_google_analytics.patch
+0001-Disable-Postgresql-tests.patch
+0002-Clean-all-privacy-breaches-in-the-package.patch

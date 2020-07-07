@@ -1,3 +1,10 @@
+djangorestframework (3.9.0-1~bpo9+1) perfsonar-4.3-staging; urgency=low
+
+  * Backport to stretch
+  * Python3 only packages and no documentation.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 07 Jul 2020 18:57:42 +0000
+
 djangorestframework (3.4.0-2~ubuntu16) perfsonar-minor-staging; urgency=medium
 
   * Backport to Xenial.
