@@ -1,3 +1,10 @@
+cassandra (2.1.21-1~bpo90+2) perfsonar-4.3-staging; urgency=low
+
+  * Depends on OpenJDK-8 only and Conflicts with anything higher.
+    See https://bugs.java.com/bugdatabase/view_bug.do?bug_id=8054494
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Thu, 16 Jul 2020 16:43:28 +0000
+
 cassandra (2.1.21-1~bpo90+1) perfsonar-4.3-staging; urgency=medium
 
   * Build new release for stretch
