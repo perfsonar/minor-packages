@@ -23,12 +23,12 @@ Vcs-Git: https://salsa.debian.org/python-team/modules/djangorestframework.git
 
 Package: python3-djangorestframework
 Architecture: all
-Depends: fonts-glewlwyd,
-         libjs-jquery,
+Depends: libjs-jquery,
          python3-django,
          ${misc:Depends},
          ${python3:Depends}
-Recommends: python3-coreapi (>= 2.3.3),
+Recommends: fonts-glewlwyd,
+            python3-coreapi (>= 2.3.3),
             python3-coreschema (>= 0.0.4),
             python3-django-filters (>= 0.5.4),
             python3-django-guardian (>= 1.1.1),
