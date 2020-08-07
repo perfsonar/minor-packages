@@ -11,14 +11,11 @@ Subject: Clean all privacy breaches in the package
  docs/index.md                                      |  16 --
  docs/topics/documenting-your-api.md                |   3 +-
  docs_theme/main.html                               |  22 ---
- .../rest_framework/css/bootstrap-theme.min.css     |   2 +-
- 9 files changed, 11 insertions(+), 248 deletions(-)
+ 8 files changed, 11 insertions(+), 248 deletions(-)
 
-diff --git a/docs/community/3.0-announcement.md b/docs/community/3.0-announcement.md
-index 83aec9e..9eb47ad 100644
---- a/docs/community/3.0-announcement.md
-+++ b/docs/community/3.0-announcement.md
-@@ -32,9 +32,7 @@ Significant new functionality continues to be planned for the 3.1 and 3.2 releas
+--- django-rest-framework-3.9.4.orig/docs/community/3.0-announcement.md	2020-08-07 19:51:48.028166000 +0000
++++ django-rest-framework-3.9.4/docs/community/3.0-announcement.md	2020-08-07 19:54:22.197257000 +0000
+@@ -32,9 +32,7 @@
  
  #### REST framework: Under the hood.
  
@@ -29,11 +26,9 @@ index 83aec9e..9eb47ad 100644
  
  ---
  
-diff --git a/docs/community/3.9-announcement.md b/docs/community/3.9-announcement.md
-index 3cd9b1a..79a49a3 100644
---- a/docs/community/3.9-announcement.md
-+++ b/docs/community/3.9-announcement.md
-@@ -120,7 +120,7 @@ from `BasePermission` in order to enable this support.
+--- django-rest-framework-3.9.4.orig/docs/community/3.9-announcement.md	2020-08-07 19:51:48.028515000 +0000
++++ django-rest-framework-3.9.4/docs/community/3.9-announcement.md	2020-08-07 19:54:22.197570000 +0000
+@@ -120,7 +120,7 @@
  Following the introduction of the `action` decorator in v3.8, _extra actions_ defined on a ViewSet are now available
  from the Browsable API.
  
@@ -42,11 +37,9 @@ index 3cd9b1a..79a49a3 100644
  
  When defined, a dropdown of "Extra Actions", appropriately filtered to detail/non-detail actions, is displayed.
  
-diff --git a/docs/community/funding.md b/docs/community/funding.md
-index 8f0e025..415448b 100644
---- a/docs/community/funding.md
-+++ b/docs/community/funding.md
-@@ -173,43 +173,7 @@ This subscription is recommended for individuals with an interest in seeing REST
+--- django-rest-framework-3.9.4.orig/docs/community/funding.md	2020-08-07 19:51:48.028938000 +0000
++++ django-rest-framework-3.9.4/docs/community/funding.md	2020-08-07 19:54:22.197875000 +0000
+@@ -173,43 +173,7 @@
  
  If you are using REST framework as a full-time employee, consider recommending that your company takes out a [corporate&nbsp;plan](#corporate-plans).
  
@@ -91,7 +84,7 @@ index 8f0e025..415448b 100644
  
  ---
  
-@@ -221,117 +185,7 @@ In exchange for funding you'll also receive advertising space on our site, allow
+@@ -221,117 +185,7 @@
  
  Our professional and premium plans also include **priority support**. At any time your engineers can escalate an issue or discussion group thread, and we'll ensure it gets a guaranteed response within the next working day.
  
@@ -210,9 +203,9 @@ index 8f0e025..415448b 100644
  
  Once you've signed up, we will contact you via email and arrange your ad placements on the site.
  
-@@ -343,32 +197,7 @@ For further enquires please contact <a href=mailto:funding@django-rest-framework
+@@ -343,32 +197,7 @@
  
- In an effort to keep the project as transparent as possible, we are releasing [monthly progress reports](https://www.encode.io/reports/march-2018) and regularly include financial reports and cost breakdowns.
+ In an effort to keep the project as transparent as possible, we are releasing [monthly progress reports](https://www.encode.io/reports/march-2018/) and regularly include financial reports and cost breakdowns.
  
 -<!-- Begin MailChimp Signup Form -->
 -<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
@@ -244,7 +237,7 @@ index 8f0e025..415448b 100644
  
  ---
  
-@@ -393,6 +222,4 @@ A: No, we value individual sponsors just as much as corporate sponsors and appre
+@@ -393,6 +222,4 @@
  
  ## Our sponsors
  
@@ -252,10 +245,8 @@ index 8f0e025..415448b 100644
 -
 -<script src="https://fund.django-rest-framework.org/funding_include.js"></script>
 +For privacy reasons, the content here, which was imported from an external website, has been stripped out from Debian's package. See the original content <a href="https://fund.django-rest-framework.org/topics/funding/#our-sponsors">here</a>.
-diff --git a/docs/community/kickstarter-announcement.md b/docs/community/kickstarter-announcement.md
-index 0e5d95b..164bdcd 100644
---- a/docs/community/kickstarter-announcement.md
-+++ b/docs/community/kickstarter-announcement.md
+--- django-rest-framework-3.9.4.orig/docs/community/kickstarter-announcement.md	2020-08-07 19:51:48.029246000 +0000
++++ django-rest-framework-3.9.4/docs/community/kickstarter-announcement.md	2020-08-07 19:54:22.198059000 +0000
 @@ -2,7 +2,7 @@
  
  ---
@@ -265,11 +256,9 @@ index 0e5d95b..164bdcd 100644
  
  ---
  
-diff --git a/docs/community/mozilla-grant.md b/docs/community/mozilla-grant.md
-index 5248f5c..77edc39 100644
---- a/docs/community/mozilla-grant.md
-+++ b/docs/community/mozilla-grant.md
-@@ -39,29 +39,4 @@ act as the business entity behind REST framework. I will be issuing monthly repo
+--- django-rest-framework-3.9.4.orig/docs/community/mozilla-grant.md	2020-08-07 19:51:48.029524000 +0000
++++ django-rest-framework-3.9.4/docs/community/mozilla-grant.md	2020-08-07 19:54:22.198215000 +0000
+@@ -39,29 +39,4 @@
  from Encode on progress both towards the Mozilla grant, and for development time
  funded via the [REST framework paid plans](funding.md).
  
@@ -300,10 +289,8 @@ index 5248f5c..77edc39 100644
 -<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 -<!--End mc_embed_signup-->
 +For privacy reasons, the mailchimp subscription form provided here by the original author has been stripped from the Debian's package. See the original content <a href="http://www.django-rest-framework.org/topics/mozilla-grant/#accountability">here</a>.
-diff --git a/docs/index.md b/docs/index.md
-index c250aa0..8c5ed8c 100644
---- a/docs/index.md
-+++ b/docs/index.md
+--- django-rest-framework-3.9.4.orig/docs/index.md	2019-05-10 17:52:20.000000000 +0000
++++ django-rest-framework-3.9.4/docs/index.md	2020-08-07 19:54:22.198446000 +0000
 @@ -17,19 +17,6 @@
  }
  </style>
@@ -324,7 +311,7 @@ index c250aa0..8c5ed8c 100644
  
  <p>
  <h1 style="position: absolute;
-@@ -191,9 +178,6 @@ For priority support please sign up for a [professional or premium sponsorship p
+@@ -193,9 +180,6 @@
  
  For updates on REST framework development, you may also want to follow [the author][twitter] on Twitter.
  
@@ -334,11 +321,9 @@ index c250aa0..8c5ed8c 100644
  ## Security
  
  If you believe you’ve found something in Django REST framework which has security implications, please **do not raise the issue in a public forum**.
-diff --git a/docs/topics/documenting-your-api.md b/docs/topics/documenting-your-api.md
-index 778ebb0..f2fac45 100644
---- a/docs/topics/documenting-your-api.md
-+++ b/docs/topics/documenting-your-api.md
-@@ -261,7 +261,7 @@ Supports:
+--- django-rest-framework-3.9.4.orig/docs/topics/documenting-your-api.md	2020-08-07 19:51:48.030157000 +0000
++++ django-rest-framework-3.9.4/docs/topics/documenting-your-api.md	2020-08-07 19:54:22.198688000 +0000
+@@ -245,7 +245,7 @@
    * permission_classes
    * extra url params(GET params)
  
@@ -347,7 +332,7 @@ index 778ebb0..f2fac45 100644
  
  ---
  
-@@ -352,6 +352,7 @@ To implement a hypermedia API you'll need to decide on an appropriate media type
+@@ -334,6 +334,7 @@
  [markdown]: https://daringfireball.net/projects/markdown/
  [hypermedia-docs]: rest-hypermedia-hateoas.md
  [image-drf-docs]: ../img/drfdocs.png
@@ -355,10 +340,8 @@ index 778ebb0..f2fac45 100644
  [image-django-rest-swagger]: ../img/django-rest-swagger.png
  [image-apiary]: ../img/apiary.png
  [image-self-describing-api]: ../img/self-describing.png
-diff --git a/docs_theme/main.html b/docs_theme/main.html
-index b60b231..bb17e9a 100644
---- a/docs_theme/main.html
-+++ b/docs_theme/main.html
+--- django-rest-framework-3.9.4.orig/docs_theme/main.html	2019-05-10 17:52:20.000000000 +0000
++++ django-rest-framework-3.9.4/docs_theme/main.html	2020-08-07 19:54:22.198867000 +0000
 @@ -6,7 +6,6 @@
    <meta charset="utf-8">
    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
@@ -402,13 +385,3 @@ index b60b231..bb17e9a 100644
    <script>var base_url = '{{ base_url }}';</script>
    <script src="{{ base_url }}/mkdocs/js/require.js"></script>
    <script src="{{ base_url }}/js/theme.js"></script>
-diff --git a/rest_framework/static/rest_framework/css/bootstrap-theme.min.css b/rest_framework/static/rest_framework/css/bootstrap-theme.min.css
-index 5b8a17d..6fae10c 100644
---- a/rest_framework/static/rest_framework/css/bootstrap-theme.min.css
-+++ b/rest_framework/static/rest_framework/css/bootstrap-theme.min.css
-@@ -1,4 +1,4 @@
--@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");/*!
-+/*!
-  * bootswatch v3.3.7
-  * Homepage: http://bootswatch.com
-  * Copyright 2012-2016 Thomas Park
