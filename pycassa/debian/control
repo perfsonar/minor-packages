@@ -17,6 +17,8 @@ Package: python3-pycassa
 Architecture: all
 Depends: python3-thrift | python3-thrift-u18, python3:any, ${misc:Depends}
 Suggests: ipython
+Conflicts: python-pycassa
+Replaces: python-pycassa
 Description: Client library for Apache Cassandra
  Pycassa is a client library for Apache Cassandra with the following
  features:
