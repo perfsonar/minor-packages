@@ -1,3 +1,28 @@
+python-django (1:1.11.22-1~bpo9+1) perfsonar-4.3-staging; urgency=medium
+
+  * Upgrade to 1.11.22 from upstream
+  * SECURITY UPDATE: Potential data leakage via malformed memcached keys
+    - debian/patches/CVE-2020-13254.patch: enforced cache key validation in
+      memcached backends in django/core/cache/__init__.py,
+      django/core/cache/backends/base.py,
+      django/core/cache/backends/memcached.py, tests/cache/tests.py.
+    - CVE-2020-13254
+  * SECURITY UPDATE: Possible XSS via admin ForeignKeyRawIdWidget
+    - debian/patches/CVE-2020-13596.patch: fixed potential XSS in admin
+      ForeignKeyRawIdWidget in django/contrib/admin/widgets.py,
+      tests/admin_widgets/models.py, tests/admin_widgets/tests.py. 
+    - CVE-2020-13596
+
+  * SECURITY UPDATE: SQL injection in Oracle GIS functions and aggregates
+    - debian/patches/CVE-2020-9402.patch: properly escaped tolerance
+      parameter in GIS functions and aggregates on Oracle in
+      django/contrib/gis/db/models/aggregates.py,
+      django/contrib/gis/db/models/functions.py,
+      tests/gis_tests/distapp/tests.py, tests/gis_tests/geoapp/tests.py.
+    - CVE-2020-9402
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 07 Jul 2020 16:11:31 +0000
+
 python-django (1:1.11.20-1~bpo9+3) perfsonar-4.2-staging; urgency=medium
 
   * SECURITY UPDATE: Possible SQL injection in the postgres aggregates

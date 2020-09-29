@@ -1,3 +1,15 @@
+djangorestframework-filters (0.10.2.post0-1~bpo9+1) perfsonar-4.3-staging; urgency=low
+
+  * Rebuild for perfsonar-4.3
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pL>  Tue, 07 Jul 2020 18:48:21 +0000
+
+djangorestframework-filters (0.10.2-4) perfsonar-4.3-staging; urgency=low
+
+  * Python 3 only port.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pL>  Fri, 08 May 2020 19:59:55 +0000
+
 djangorestframework-filters (0.10.2-3) perfsonar-minor-staging; urgency=low
 
   * Releasing for perfsonar-minor-staging.

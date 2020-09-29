@@ -1,3 +1,0 @@
-# requires source files.
-# only requires modules, which we do later anyway.
-t/00compile.t

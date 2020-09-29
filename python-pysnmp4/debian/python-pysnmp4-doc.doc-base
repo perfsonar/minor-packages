@@ -1,9 +1,0 @@
-Document: python-pysnmp4-doc
-Title: python-pysnmp4 notes
-Author: Ilya Etingof
-Abstract: This manual describes pysnmp4 tools for Python and how to use it.
-Section: Programming
-
-Format: HTML
-Index: /usr/share/doc/python-pysnmp4-doc/html/quick-start.html
-Files: /usr/share/doc/python-pysnmp4-doc/html/*.html

@@ -1,0 +1,27 @@
+Description: disable failing tests
+ .
+Author: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Last-Update: 2019-10-05
+
+---
+
+--- thrift-0.12.0.orig/lib/c_glib/test/Makefile.am
++++ thrift-0.12.0/lib/c_glib/test/Makefile.am
+@@ -47,7 +47,6 @@ check_PROGRAMS = \
+   testapplicationexception \
+   testcontainertest \
+   testtransportsocket \
+-  testtransportsslsocket \
+   testbinaryprotocol \
+   testcompactprotocol \
+   testbufferedtransport \
+--- thrift-0.12.0.orig/lib/cpp/test/Makefile.am
++++ thrift-0.12.0/lib/cpp/test/Makefile.am
+@@ -98,7 +98,6 @@ check_PROGRAMS = \
+ 	TransportTest \
+ 	TInterruptTest \
+ 	TServerIntegrationTest \
+-	SecurityTest \
+ 	ZlibTest \
+ 	TFileTransportTest \
+ 	link_test \

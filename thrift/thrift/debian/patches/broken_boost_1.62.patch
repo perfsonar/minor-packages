@@ -1,0 +1,22 @@
+Description: <short summary of the patch>
+Author: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Last-Update: 2019-01-09
+
+---
+
+--- thrift-0.10.0.orig/lib/cpp/test/Makefile.am
++++ thrift-0.10.0/lib/cpp/test/Makefile.am
+@@ -116,9 +116,10 @@ check_PROGRAMS += \
+ endif
+ 
+ TESTS_ENVIRONMENT= \
+-	BOOST_TEST_LOG_SINK=tests.xml \
+-	BOOST_TEST_LOG_LEVEL=test_suite \
+-	BOOST_TEST_LOG_FORMAT=XML
++	BOOST_TEST_LOGGER=XML,test_suite,tests.xml
++#	BOOST_TEST_LOG_SINK=tests.xml \
++#	BOOST_TEST_LOG_LEVEL=test_suite \
++#	BOOST_TEST_LOG_FORMAT=XML
+ 
+ TESTS = \
+ 	$(check_PROGRAMS)

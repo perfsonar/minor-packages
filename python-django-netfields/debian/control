@@ -4,15 +4,14 @@ Uploaders: Antoine Delvaux <antoine.delvaux@man.poznan.pl>,
  Valentin Vidic <Valentin.Vidic@CARNet.hr>
 Section: python
 Priority: optional
-Build-Depends: debhelper (>= 10), dh-python, python-all (>=2.6.6-3), python-setuptools, python-django, python-netaddr, python-django, python-psycopg2, python-ipaddress
+Build-Depends: debhelper (>= 10), dh-python, python3-all, python3-setuptools, python3-django, python3-netaddr, python3-psycopg2
 Standards-Version: 3.9.8
 Homepage: https://github.com/jimfunk/django-postgresql-netfields
-X-Python-Version: >= 2.6
 X-Python3-Version: >= 3.3
 
-Package: python-django-netfields
+Package: python3-django-netfields
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends}, python-netaddr, python-django, python-psycopg2, python-ipaddress
+Depends: ${python3:Depends}, ${misc:Depends}, python3-netaddr, python3-django, python3-psycopg2
 Description: Use proper PostgreSQL net related fields for Django
  This project is an attempt at making proper PostgreSQL net related fields for
  Django. In Django pre 1.4 the built in IPAddressField does not support IPv6 and
@@ -23,4 +22,4 @@ Description: Use proper PostgreSQL net related fields for Django
  have been added. This library also provides a manager that allows for advanced
  IP based lookup directly in the ORM.
  .
- This is the Python 2 version of the package.
+ This is the Python 3 version of the package.
