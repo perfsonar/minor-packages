@@ -1,3 +1,9 @@
+python-attrs (17.4.0-2~bpo9+2) perfsonar-4.3-staging; urgency=low
+
+  * Rebuild for perfsonar-4.3-staging.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 06 Oct 2020 17:33:40 +0000
+
 python-attrs (17.4.0-2~bpo9+1) perfsonar-minor-staging; urgency=low
 
   * Rebuild for stretch-backports.
