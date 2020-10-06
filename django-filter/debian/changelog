@@ -1,3 +1,9 @@
+django-filter (1.1.0-4) perfsonar-release; urgency=low
+
+  * Rebuild for perfsonar-release
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 06 Oct 2020 21:42:46 +0000
+
 django-filter (1.1.0-3) perfsonar-minor-staging; urgency=low
 
   * Release to perfsonar-minor-staging

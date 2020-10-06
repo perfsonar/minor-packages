@@ -1,3 +1,9 @@
+libonig (6.1.3-2~bpo9+2) perfsonar-release; urgency=medium
+
+  * Rebuild for perfsonar-release
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 06 Oct 2020 21:45:15 +0000
+
 libonig (6.1.3-2~bpo9+1) perfsonar-minor-staging; urgency=medium
 
   * Rebuild for stretch.
