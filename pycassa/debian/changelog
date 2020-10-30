@@ -1,8 +1,8 @@
-pycassa (1.11.2-1) unstable; urgency=low
+pycassa (1.11.2-1) perfsonar-4.3-staging; urgency=low
 
   * Python 3 port.
 
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Wed, 01 Jul 2020 18:25:14 +0000
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 06 Oct 2020 21:36:24 +0000
 
 pycassa (1.11.0-1) unstable; urgency=low
 
