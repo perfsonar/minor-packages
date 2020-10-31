@@ -1,3 +1,9 @@
+thrift-u18 (0.13.0-2~u18+2) perfsonar-4.3-staging; urgency=low
+
+  * Conflicting with python3-thrift for smoother upgrade.
+
+ -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Sat, 31 Oct 2020 17:54:05 +0000
+
 thrift-u18 (0.13.0-2~u18+1) perfsonar-4.3-staging; urgency=low
 
   * Backport to Ubuntu 18.

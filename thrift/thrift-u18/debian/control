@@ -14,6 +14,8 @@ Homepage: https://thrift.apache.org/
 Package: python3-thrift-u18
 Section: python
 Architecture: any
+Conflicts: python3-thrift
+Provides: python3-thrift
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}
 Description: Python 3 library for Thrift
  Thrift is a software framework for the development of reliable and
