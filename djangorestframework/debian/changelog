@@ -1,4 +1,4 @@
-djangorestframework (3.9.4-1~bpo9+2) perfsonar-4.4-staging; urgency=low
+djangorestframework (3.9.4-1~bpo9+2) perfsonar-release; urgency=low
 
   * Building for snapshot repository too.
 
