@@ -1,11 +1,12 @@
 Source: libipc-dirqueue-perl
 Section: perl
 Priority: optional
-Maintainer: Valentin Vidic <Valentin.Vidic@CARNet.hr>
-Build-Depends: debhelper (>= 8)
+Maintainer: perfSONAR developers <debian@perfsonar.net>
+Uploaders: Antoine Delvaux <antoine.delvaux@man.poznan.pl>
+Build-Depends: debhelper (>= 10)
 Build-Depends-Indep: perl
-Standards-Version: 3.9.2
-Homepage: http://search.cpan.org/dist/IPC-DirQueue/
+Standards-Version: 3.9.8
+Homepage: https://metacpan.org/dist/IPC-DirQueue
 
 Package: libipc-dirqueue-perl
 Architecture: all

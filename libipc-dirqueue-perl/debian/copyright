@@ -1,6 +1,6 @@
 Format-Specification: http://anonscm.debian.org/viewvc/dep/web/deps/dep5.mdwn?view=markup&pathrev=135
 Maintainer: Justin Mason <dq@jmason.org>
-Source: http://search.cpan.org/dist/IPC-DirQueue/
+Source: https://metacpan.org/dist/IPC-DirQueue
 Name: IPC-DirQueue
 
 Files: *
@@ -20,7 +20,7 @@ License: GPL-1+ or Artistic
  the Artistic Licence in `/usr/share/common-licenses/Artistic'.
 
 Files: debian/*
-Copyright: 2015, Valentin Vidic <Valentin.Vidic@CARNet.hr>
+Copyright: 2015-2021 perfSONAR project
 License: Apache-2.0
 
 License: Apache-2.0
