@@ -1,30 +1,45 @@
 logstash-oss:
   url: https://artifacts.elastic.co/packages/oss-7.x/yum/7.12.1/logstash-oss-7.12.1-x86_64.rpm
+  rpm_name: logstash-oss-7.12.1.x86_64.rpm
 elasticsearch-oss:
   url: https://artifacts.elastic.co/packages/oss-7.x/yum/7.10.2/elasticsearch-oss-7.10.2-x86_64.rpm
+  rpm_name: elasticsearch-oss-7.10.2.x86_64.rpm
 opendistro-alerting:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-alerting-1.13.1.0.rpm
+  rpm_name: opendistro-alerting-1.13.1.0.noarch.rpm
 opendistro-anomaly-detection:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-anomaly-detection-1.13.0.0.rpm
+  rpm_name: opendistro-anomaly-detection-1.13.0.0.noarch.rpm
 opendistro-asynchronous-search:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-asynchronous-search-1.13.0.1.rpm
+  rpm_name: opendistro-asynchronous-search-1.13.0.1.noarch.rpm
 opendistro-index-management:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-index-management-1.13.2.0.rpm
+  rpm_name: opendistro-index-management-1.13.2.0.noarch.rpm
 opendistro-job-scheduler:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-job-scheduler-1.13.0.0.rpm
+  rpm_name: opendistro-job-scheduler-1.13.0.0.noarch.rpm
 opendistro-knn:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-knn-1.13.0.0.rpm
+  rpm_name: opendistro-knn-1.13.0.0.noarch.rpm
 opendistro-knnlib:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-knnlib-1.13.0.0-linux-x64.rpm
+  rpm_name: opendistro-knnlib-1.13.0.0-linux-x64.noarch.rpm
 opendistro-performance-analyzer:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-performance-analyzer-1.13.0.0.rpm
+  rpm_name: opendistro-performance-analyzer-1.13.0.0.noarch.rpm
 opendistro-reports-scheduler:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-reports-scheduler-1.13.0.0.rpm
+  rpm_name: opendistro-reports-scheduler-1.13.0.0.noarch.rpm
 opendistro-security:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-security-1.13.1.0.rpm
+  rpm_name: opendistro-security-1.13.1.0.noarch.rpm
 opendistro-sql:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-sql-1.13.2.0.rpm
+  rpm_name: opendistro-sql-1.13.2.0.noarch.rpm
 opendistroforelasticsearch:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistroforelasticsearch-1.13.2-linux-x64.rpm
+  rpm_name: opendistroforelasticsearch-1.13.2-linux-x64.noarch.rpm
 opendistroforelasticsearch-kibana:
   url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistroforelasticsearch-kibana-1.13.2-linux-x64.rpm
+  rpm_name: opendistroforelasticsearch-kibana-1.13.2-linux-x64.noarch.rpm
