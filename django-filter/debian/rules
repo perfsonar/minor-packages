@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+export PYBUILD_NAME=django-filters
+
+%:
+	dh $@ --with python2,python3,sphinxdoc --buildsystem=pybuild
+
+.PHONY: override_dh_auto_build
+override_dh_auto_build:
+	PYTHONPATH=. sphinx-build -b html -d docs/.build/.doctrees -N docs docs/.build/html
+	dh_auto_build
+
+.PHONY: override_dh_auto_test
+override_dh_auto_test:

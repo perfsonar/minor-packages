@@ -1,0 +1,8 @@
+Git packaging rules for python-django
+-------------------------------------
+
+The package is following DEP-14 for the branches layout:
+http://dep.debian.net/deps/dep14/
+
+We are using git-buildpackage to manage the Git repository
+and the appropriate debian/gbp.conf is included.

@@ -1,0 +1,7 @@
+# This is not a true python script, it's a template only
+python-django-common: python-script-but-no-python-dep usr/share/python-django-common/django/conf/project_template/manage.py-tpl #!python
+
+# We ship upstream's comprehensive, referenced and hyperlinked upstream
+# changelog in python-django-doc which we would be doing a disservice to our
+# users by duplicating here.
+python-django-common: no-upstream-changelog

@@ -1,0 +1,10 @@
+Document: python-djangorestframework-doc
+Title: Python Django REST framework Documentation
+Author: Tom Christie
+Abstract: This documentation gives an introduction 
+ to Django REST framework and API Guide.
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/python-djangorestframework/html/index.html
+Files: /usr/share/doc/python-djangorestframework/html/*.html

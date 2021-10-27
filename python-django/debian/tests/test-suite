@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+cp -a tests $AUTOPKGTEST_TMP/tests
+cd $AUTOPKGTEST_TMP/tests
+
+for python in "$@"; do
+    echo "Running “$python ./runtests.py --verbosity 2”"
+    LC_ALL=C.UTF-8 $python ./runtests.py --verbosity 2
+done

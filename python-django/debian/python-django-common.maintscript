@@ -1,0 +1,1 @@
+rm_conffile /etc/bash_completion.d/django_bash_completion 1.9.7-1

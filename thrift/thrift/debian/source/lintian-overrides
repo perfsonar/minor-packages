@@ -1,0 +1,8 @@
+# Long lines only
+source-is-missing lib/js/test/phantom-client.js line length is 2016 characters (>512)
+source-is-missing lib/js/test/test-async.js line length is 2018 characters (>512)
+source-is-missing lib/js/test/test-es6.js line length is 2018 characters (>512)
+source-is-missing lib/js/test/test.js line length is 2018 characters (>512)
+
+# Only one file, not the whole source
+thrift source: license-problem-php-license debian/copyright

@@ -1,0 +1,37 @@
+Description: golang dependencies already installed as build dependency
+Forwarded: no
+Author: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Last-Update: 2019-12-01
+
+---
+
+--- thrift-0.13.0.orig/lib/go/test/Makefile.am
++++ thrift-0.13.0/lib/go/test/Makefile.am
+@@ -71,9 +71,9 @@ gopath: $(THRIFT) $(THRIFTTEST) \
+ 	$(THRIFT) $(THRIFTARGS) ConflictNamespaceTestD.thrift
+ 	$(THRIFT) $(THRIFTARGS) ConflictNamespaceTestSuperThing.thrift
+ 	$(THRIFT) $(THRIFTARGS) ConflictNamespaceServiceTest.thrift
+-	GOPATH=`pwd`/gopath $(GO) get github.com/golang/mock/gomock || true
+-	sed -i 's/\"context\"/\"golang.org\/x\/net\/context\"/g' gopath/src/github.com/golang/mock/gomock/controller.go || true
+-	GOPATH=`pwd`/gopath $(GO) get github.com/golang/mock/gomock
++	echo GOPATH=`pwd`/gopath $(GO) get github.com/golang/mock/gomock || true
++	echo sed -i 's/\"context\"/\"golang.org\/x\/net\/context\"/g' gopath/src/github.com/golang/mock/gomock/controller.go || true
++	echo GOPATH=`pwd`/gopath $(GO) get github.com/golang/mock/gomock
+ 	ln -nfs ../../../thrift gopath/src/thrift
+ 	ln -nfs ../../tests gopath/src/tests
+ 	cp -r ./dontexportrwtest gopath/src
+--- thrift-0.13.0.orig/test/go/Makefile.am
++++ thrift-0.13.0/test/go/Makefile.am
+@@ -34,9 +34,9 @@ gopath: $(THRIFT) ThriftTest.thrift
+ 	mkdir -p src/gen
+ 	$(THRIFTCMD) ThriftTest.thrift
+ 	$(THRIFTCMD) ../StressTest.thrift
+-	GOPATH=`pwd` $(GO) get github.com/golang/mock/gomock || true
+-	sed -i 's/\"context\"/\"golang.org\/x\/net\/context\"/g' src/github.com/golang/mock/gomock/controller.go || true
+-	GOPATH=`pwd` $(GO) get github.com/golang/mock/gomock
++	echo GOPATH=`pwd` $(GO) get github.com/golang/mock/gomock || true
++	echo sed -i 's/\"context\"/\"golang.org\/x\/net\/context\"/g' src/github.com/golang/mock/gomock/controller.go || true
++	echo GOPATH=`pwd` $(GO) get github.com/golang/mock/gomock
+ 	ln -nfs ../../../lib/go/thrift src/thrift
+ 	touch gopath
+ 

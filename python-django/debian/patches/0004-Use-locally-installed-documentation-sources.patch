@@ -1,0 +1,27 @@
+From: Brian May <bam@debian.org>
+Date: Sat, 24 Jun 2017 17:05:58 +1000
+Subject: Use locally installed documentation sources
+
+---
+ docs/conf.py | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+--- python-django.orig/docs/conf.py	2020-01-28 14:48:52.162314000 +0000
++++ python-django/docs/conf.py	2020-01-28 14:49:09.010222000 +0000
+@@ -143,11 +143,11 @@
+ # Links to Python's docs should reference the most recent version of the 3.x
+ # branch, which is located at this URL.
+ intersphinx_mapping = {
+-    'python': ('https://docs.python.org/3/', None),
+-    'sphinx': ('http://sphinx-doc.org/', None),
+-    'six': ('https://pythonhosted.org/six/', None),
+-    'formtools': ('https://django-formtools.readthedocs.io/en/latest/', None),
+-    'psycopg2': ('http://initd.org/psycopg/docs/', None),
++    'python': ('/usr/share/doc/python-doc/html/', None),
++    'sphinx': ('/usr/share/doc/sphinx-doc/html/', None),
++    'six': ('/usr/share/doc/python-six-doc/html/', None),
++    'formtools': ('/usr/share/doc/python-django-formtools-doc/html/', None),
++    'psycopg2': ('/usr/share/doc/python-psycopg2-doc/html/', None),
+ }
+ 
+ # Python's docs don't change every week.

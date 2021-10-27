@@ -1,0 +1,180 @@
+Source: python-django
+Section: python
+Priority: optional
+Maintainer: Debian Python Modules Team <python-modules-team@lists.alioth.debian.org>
+Uploaders:
+ Luke Faraone <lfaraone@debian.org>,
+ Raphaël Hertzog <hertzog@debian.org>,
+ Brian May <bam@debian.org>,
+ Chris Lamb <lamby@debian.org>,
+Standards-Version: 4.3.0
+Build-Depends:
+ debhelper (>= 9),
+ dh-python,
+ dpkg-dev (>= 1.17.14),
+ libgdal-dev <!nocheck>,
+ libsqlite3-mod-spatialite <!nocheck>,
+ python-all (>= 2.6.6-3~),
+ python-bcrypt <!nocheck>,
+ python-django-formtools-doc <!nodoc>,
+ python-doc <!nodoc>,
+ python-docutils <!nodoc>,
+ python-jinja2 <!nocheck>,
+ python-mock <!nocheck>,
+ python-numpy <!nocheck>,
+ python-pil <!nocheck>,
+ python-psycopg2-doc <!nodoc>,
+ python-setuptools,
+# Not in stretch and not in stretch-backports
+# python-six-doc <!nodoc>,
+ python-sqlparse <!nocheck>,
+ python-tblib <!nocheck>,
+ python-tz <!nocheck>,
+ python-yaml <!nocheck>,
+ python3-all,
+ python3-bcrypt <!nocheck>,
+ python3-docutils <!nodoc>,
+ python3-jinja2 <!nocheck>,
+ python3-mock <!nocheck>,
+ python3-numpy <!nocheck>,
+ python3-pil <!nocheck>,
+ python3-setuptools,
+ python3-sqlparse <!nocheck>,
+ python3-tblib <!nocheck>,
+ python3-tz <!nocheck>,
+ python3-yaml  <!nocheck>,
+Build-Depends-Indep:
+ libjs-jquery,
+Homepage: http://www.djangoproject.com/
+Vcs-Git: https://salsa.debian.org/python-team/modules/python-django.git
+Vcs-Browser: https://salsa.debian.org/python-team/modules/python-django
+
+Package: python-django
+Architecture: all
+Breaks:
+ openstack-dashboard (<< 3:12),
+Pre-Depends:
+ dpkg (>= 1.17.14),
+Depends:
+ python-django-common (= ${binary:Version}),
+ ${misc:Depends},
+ ${python:Depends},
+Recommends:
+ libjs-jquery,
+ python-sqlparse,
+ python-tz,
+Suggests:
+ bpython,
+ geoip-database-extra | geoip-database-contrib,
+ gettext,
+ ipython,
+ libgdal20,
+ libsqlite3-mod-spatialite,
+ python-bcrypt,
+ python-django-doc,
+ python-flup,
+ python-memcache,
+ python-mysqldb,
+ python-pil,
+ python-psycopg2,
+ python-sqlite,
+ python-yaml,
+Description: High-level Python web development framework (Python 2 version)
+ Django is a high-level web application framework that loosely follows the
+ model-view-controller design pattern.
+ .
+ Python's equivalent to Ruby on Rails, Django lets you build complex
+ data-driven websites quickly and easily - Django focuses on automating as much
+ as possible and adhering to the "Don't Repeat Yourself" (DRY) principle.
+ .
+ Django additionally emphasizes reusability and "pluggability" of components;
+ many generic third-party "applications" are available to enhance projects or
+ to simply to reduce development time even further.
+ .
+ Notable features include:
+  * An object-relational mapper (ORM)
+  * Automatic admin interface
+  * Elegant URL dispatcher
+  * Form serialization and validation system
+  * Templating system
+  * Lightweight, standalone web server for development and testing
+  * Internationalization support
+  * Testing framework and client
+ .
+ This package is built for Python 2.
+
+Package: python-django-common
+Architecture: all
+Depends:
+ ${misc:Depends},
+Recommends:
+ libjs-jquery,
+Breaks:
+ python-django (<< 1.7~),
+Replaces:
+ python-django (<< 1.7~),
+Description: High-level Python web development framework (common)
+ Django is a high-level web application framework that loosely follows the
+ model-view-controller design pattern.
+ .
+ Python's equivalent to Ruby on Rails, Django lets you build complex
+ data-driven websites quickly and easily - Django focuses on automating as much
+ as possible and adhering to the "Don't Repeat Yourself" (DRY) principle.
+ .
+ Django additionally emphasizes reusability and "pluggability" of components;
+ many generic third-party "applications" are available to enhance projects or
+ to simply to reduce development time even further.
+ .
+ This package contains files common to both Python 2.7 and Python 3.
+
+Package: python3-django
+Architecture: all
+Depends:
+ python-django-common (= ${binary:Version}),
+ ${misc:Depends},
+ ${python3:Depends},
+Pre-Depends:
+ dpkg (>= 1.17.14),
+Recommends:
+ libjs-jquery,
+ python3-sqlparse,
+ python3-tz,
+Suggests:
+ bpython3,
+ geoip-database-contrib,
+ gettext,
+ ipython3,
+ libgdal20,
+ libsqlite3-mod-spatialite,
+ python-django-doc,
+ python3-bcrypt,
+ python3-flup,
+ python3-memcache,
+ python3-mysqldb,
+ python3-pil,
+ python3-psycopg2,
+ python3-sqlite,
+ python3-yaml,
+Description: High-level Python web development framework (Python 3 version)
+ Django is a high-level web application framework that loosely follows the
+ model-view-controller design pattern.
+ .
+ Python's equivalent to Ruby on Rails, Django lets you build complex
+ data-driven websites quickly and easily - Django focuses on automating as much
+ as possible and adhering to the "Don't Repeat Yourself" (DRY) principle.
+ .
+ Django additionally emphasizes reusability and "pluggability" of components;
+ many generic third-party "applications" are available to enhance projects or
+ to simply to reduce development time even further.
+ .
+ Notable features include:
+  * An object-relational mapper (ORM)
+  * Automatic admin interface
+  * Elegant URL dispatcher
+  * Form serialization and validation system
+  * Templating system
+  * Lightweight, standalone web server for development and testing
+  * Internationalization support
+  * Testing framework and client
+ .
+ This package is built for Python 3.

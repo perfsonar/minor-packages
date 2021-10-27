@@ -1,0 +1,25 @@
+Source: thrift-u18
+Section: devel
+Priority: optional
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Build-Depends: debhelper (>= 10), dh-python,
+ bison, flex,
+ libboost-all-dev (>= 1.61.0), libevent-dev, zlib1g-dev,
+ libssl-dev, libglib2.0-dev,
+ python3-all-dev,
+ python3-six,
+Standards-Version: 4.4.0
+Homepage: https://thrift.apache.org/
+
+Package: python3-thrift-u18
+Section: python
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python3:Depends}
+Description: Python 3 library for Thrift
+ Thrift is a software framework for the development of reliable and
+ performant communication and data serialization. It combines a software
+ stack with a code generation to build services that operate seamlessly
+ across a number of different development languages.
+ .
+ This package provides the Python 3 bindings for Thrift.
+
