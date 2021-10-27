@@ -1,4 +1,0 @@
-# We ship upstream's comprehensive, referenced and hyperlinked upstream
-# changelog under /usr/share/docwhich we would be doing a disservice to our
-# users by duplicating elsewhere.
-python-django-doc: no-upstream-changelog
