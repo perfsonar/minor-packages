@@ -1,2 +1,0 @@
-version=3
-https://github.com/tomchristie/django-rest-framework/tags .*/(\d[\d\.]+)\.tar\.gz
