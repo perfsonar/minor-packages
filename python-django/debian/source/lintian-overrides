@@ -1,7 +1,0 @@
-# This is not a bug and/or upstream will not remove them from the orig tarball.
-source-contains-prebuilt-javascript-object django/contrib/admin/static/admin/js/actions.min.js
-source-contains-prebuilt-javascript-object django/contrib/admin/static/admin/js/collapse.min.js
-source-contains-prebuilt-javascript-object django/contrib/admin/static/admin/js/inlines.min.js
-source-contains-prebuilt-javascript-object django/contrib/admin/static/admin/js/prepopulate.min.js
-source-contains-prebuilt-javascript-object django/contrib/admin/static/admin/js/vendor/jquery/jquery.min.js
-source-contains-prebuilt-javascript-object django/contrib/admin/static/admin/js/vendor/xregexp/xregexp.min.js
