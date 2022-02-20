@@ -18,6 +18,7 @@ fi
 if [ "$package" = "opensearch" ] || [ "$package" = "dashboards" ]; then
     docker-compose -p minor-packages -f opensearch/docker-compose.yml up --build --no-start $package
     docker cp minor-packages_${package}_1:/usr/share/opensearch/artifact/. ./
+    docker-compose -p minor-packages -f opensearch/docker-compose.yml down -v
 else
     #get url to download package
     if [ "$version" = "DEB" ]; then
