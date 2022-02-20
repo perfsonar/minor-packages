@@ -1,6 +1,6 @@
 logstash-oss:
-  rpm_url: https://artifacts.elastic.co/packages/oss-7.x/yum/7.12.1/logstash-oss-7.12.1-x86_64.rpm
-  rpm_name: logstash-oss-7.12.1.x86_64.rpm
+  rpm_url: https://artifacts.elastic.co/packages/oss-7.x/yum/7.17.0/logstash-oss-7.17.0-x86_64.rpm
+  rpm_name: logstash-oss-7.17.0.x86_64.rpm
   deb_url: https://artifacts.elastic.co/packages/oss-7.x/apt/pool/main/l/logstash-oss/logstash-oss-7.17.0-amd64.deb
   deb_name: logstash-oss-7.17.0-amd64.deb
 elasticsearch-oss:

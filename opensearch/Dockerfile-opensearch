@@ -1,0 +1,11 @@
+FROM opensearchstaging/ci-runner:ci-runner-centos7-v1
+
+RUN git clone -b opensearch-rpm-assemble https://github.com/peterzhuamazon/opensearch-build && \
+    cd opensearch-build && \
+    #last commit that 1.2.3 build works
+    git checkout 998cfb1d946c8343804b5350e868dfeff907dc51 && \
+    ./build.sh manifests/1.2.3/opensearch-1.2.3.yml && \
+    rvm --default use 2.4.0 && \
+    ./assemble.sh builds/opensearch/manifest.yml --distribution rpm && \
+    mkdir -p ~/artifact/ && \
+    mv opensearch-1.2.3-linux-x64.rpm ~/artifact/
