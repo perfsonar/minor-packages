@@ -20,9 +20,9 @@ if [ "$package" = "opensearch" ] || [ "$package" = "dashboards" ]; then
     #docker cp minor-packages_${package}_1:/usr/share/opensearch/artifact/. ./
     #docker-compose -p minor-packages -f opensearch/docker-compose.yml down -v
     if [ "$package" = "opensearch" ]; then
-        curl -o opensearch-1.2.3-linux-x64.rpm -L http://monipe-central.rnp.br:8002/opensearch-1.2.3-linux-x64.rpm
+        curl -o opensearch-1.2.3.x86_64.rpm -L http://monipe-central.rnp.br:8002/opensearch-1.2.3-linux-x64.rpm
     else
-        curl -o opensearch-dashboards-1.2.0-linux-x64.rpm -L http://monipe-central.rnp.br:8002/opensearch-dashboards-1.2.0-linux-x64.rpm
+        curl -o opensearch-dashboards-1.2.0.x86_64.rpm -L http://monipe-central.rnp.br:8002/opensearch-dashboards-1.2.0-linux-x64.rpm
     fi
 else
     #get url to download package
