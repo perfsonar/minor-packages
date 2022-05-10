@@ -1,3 +1,0 @@
-version=3
-opts=dversionmangle=s/\+dfsg\d*//,repacksuffix=+dfsg \
-https://metacpan.org/release/Mojolicious   .*/Mojolicious-v?(\d[\d.-]+)\.(?:tar(?:\.gz|\.bz2)?|tgz|zip)$
