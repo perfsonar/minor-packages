@@ -45,7 +45,8 @@ mv NEWS.new NEWS
 
 %build
 %py3_build
-make -C docs html
+# Skip docs build to avoid sphinx-build vs sphinx-build-3 issues
+#make -C docs html
 
 %install
 %py3_install
