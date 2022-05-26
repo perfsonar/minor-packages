@@ -62,7 +62,7 @@ mv NEWS.new NEWS
 
 %files doc
 %license LICENSE
-%doc docs/_build/html
+#%doc docs/_build/html
 
 %changelog
 * Mon Jul 16 2018 Honza Horak <hhorak@redhat.com> - 1:2.6.1-6
