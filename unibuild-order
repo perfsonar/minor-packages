@@ -21,9 +21,7 @@ perl-IPC-DirQueue
 # perl-JSON-Validator
 perl-Net-Interface
 perl-Net-Traceroute
-perl-RPM2
+# perl-RPM2
 python-attrs
 python-dateutil
 python-elasticsearch
-tcptrace
-xplot-tcptrace

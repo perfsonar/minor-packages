@@ -1,8 +1,0 @@
---- tcpdump2xplot.pl	2016-05-18 09:48:53.166011463 +0200
-+++ tcpdump2xplot.pl	2016-05-18 09:49:02.329832416 +0200
-@@ -1,4 +1,4 @@
--#!/usr/local/bin/perl
-+#!/usr/bin/perl
- # -*- Perl -*-
- #
- # Copyright 1996 Massachusetts Institute of Technology
