@@ -26,3 +26,4 @@ ifelse(FAMILY/MAJOR,RedHat/7,perl-RPM2)
 python-attrs
 python-dateutil
 python-elasticsearch
+ifelse(FAMILY/MAJOR,RedHat/7,external-pkgs-el7)
