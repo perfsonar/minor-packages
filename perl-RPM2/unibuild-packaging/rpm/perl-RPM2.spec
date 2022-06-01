@@ -47,9 +47,6 @@ perl Build.PL installdirs=vendor
 find %{buildroot} -type f -name '*.bs' -size 0 -delete
 %{_fixperms} $RPM_BUILD_ROOT/*
 
-%check
-./Build test verbose=1
-
 %files
 %doc Changes README
 %{perl_vendorarch}/auto/*
