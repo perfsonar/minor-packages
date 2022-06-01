@@ -6,6 +6,7 @@ URL: ftp://ftp.lcp.nrl.navy.mil/pub/nuttcp/
 Summary: Tool for testing TCP connections
 Group: Applications/Internet
 License: Open Source
+BuildRequires: gcc
 
 %description
 nuttcp is a network performance measurement tool intended for use by
