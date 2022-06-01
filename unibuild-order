@@ -11,14 +11,14 @@ changecom()dnl
 libipc-dirqueue-perl
 libonig
 nuttcp
-# opensearch
+opensearch
 perl-CGI-Ajax
 perl-Data-Validate-Domain
 perl-Data-Validate-IP
 perl-Hash-Merge
 perl-IPC-DirQueue
-# perl-Mojolicious
-# perl-JSON-Validator
+perl-Mojolicious
+perl-JSON-Validator
 perl-Net-Interface
 perl-Net-Traceroute
 # Only build perl-RPM2 on EL7 since newer distros have required version 
@@ -26,4 +26,3 @@ ifelse(FAMILY/MAJOR,RedHat/7,perl-RPM2)
 python-attrs
 python-dateutil
 python-elasticsearch
-ifelse(FAMILY/MAJOR,RedHat/7,external-pkgs-el7)
