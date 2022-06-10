@@ -19,6 +19,7 @@ BuildRequires:  perl(YAML::Syck)
 Requires:       perl(Mojolicious) >= 7.15
 Requires:       perl(Data::Validate::IP)
 Requires:       perl-Data-Validate-Domain
+Provides:       perl(JSON::Validator)
 
 %description
 JSON::Validator is a class for validating data against JSON schemas. You

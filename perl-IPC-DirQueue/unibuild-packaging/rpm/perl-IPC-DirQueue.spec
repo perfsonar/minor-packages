@@ -9,6 +9,7 @@ Source0:        IPC-DirQueue-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl(ExtUtils::MakeMaker)
+Provides:       perl(IPC::DirQueue)
 
 %if %{?rhel}%{!?rhel:0} == 4
 BuildRequires:  perl(Time::HiRes) 

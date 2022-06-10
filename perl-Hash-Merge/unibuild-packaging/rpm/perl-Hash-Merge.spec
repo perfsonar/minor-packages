@@ -11,6 +11,7 @@ BuildArch:      noarch
 
 BuildRequires:  perl(Test::More), perl(Clone), perl(ExtUtils::MakeMaker)
 Requires:  perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
+Provides:  perl(Hash::Merge)
 
 %{?perl_default_filter}
 

@@ -15,6 +15,7 @@ BuildRequires:  perl(Test::More)
 # neither are picked up automagically.
 Requires:       perl(CGI), perl(Class::Accessor)
 Requires:       perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
+Provides:       perl(CGI::Ajax)
 
 %description
 CGI::Ajax is an object-oriented module that provides a unique mechanism for

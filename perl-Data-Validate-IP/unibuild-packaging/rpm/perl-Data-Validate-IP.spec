@@ -18,6 +18,7 @@ BuildRequires:  perl(Net::Netmask)
 BuildRequires:  perl(Test::Simple)
 BuildRequires:  perl
 BuildRequires:  coreutils
+Provides:       perl(Data::Validate::IP)
 
 %description
 This module collects ip validation routines to make input validation, and

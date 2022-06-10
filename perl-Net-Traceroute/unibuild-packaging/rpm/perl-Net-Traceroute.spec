@@ -12,7 +12,7 @@ BuildRequires:	perl(ExtUtils::MakeMaker)
 BuildRequires:	perl(Test::Simple)
 BuildRequires:	perl(Time::HiRes)
 Requires:		perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
-
+Provides:		perl(Net::Traceroute)
 %description
 This module implements a parser for various traceroute implementations.
 At present, it can parse most LBL traceroute derivatives used on typical

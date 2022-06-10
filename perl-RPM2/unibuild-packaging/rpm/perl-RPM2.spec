@@ -26,6 +26,7 @@ BuildRequires:  perl(overload)
 BuildRequires:  perl(POSIX)
 BuildRequires:  perl(Test)
 Requires:       perl(:MODULE_COMPAT_%(eval "`perl -V:version`"; echo $version))
+Provides:       perl(RPM2)
 
 %{?perl_default_filter}
 

@@ -18,6 +18,7 @@ BuildRequires:  perl(Test::More)
 BuildRequires:  perl(Net::Domain::TLD) >= 1.62
 BuildRequires:  perl
 BuildRequires:  coreutils
+Provides:       perl(Data::Validate::Domain)
 
 %description
 This module collects domain validation routines to make input validation,

@@ -11,6 +11,7 @@ BuildRequires:  gcc
 BuildRequires:	perl(ExtUtils::MakeMaker)
 BuildRequires:	perl(Test::Simple)
 Requires:		perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
+Provides:		perl(Net::Interface)
 
 %description
 Net::Interface is a module that allows access to the host network interfaces
