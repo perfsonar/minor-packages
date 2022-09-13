@@ -3,7 +3,7 @@
 if [ $# -ne 2 ]
   then
     echo "Illegal number of parameters"
-    echo "Usage: $0 PACKAGE deb/rpm"
+    echo "Usage: $0 (PACKAGE|all) DEB/RPM"
     exit 1
 fi
 
@@ -15,17 +15,26 @@ if [ "$version" != "deb" ] && [ "$version" != "rpm" ]; then
     exit 1
 fi
 
-#get url to download package
-if [ "$version" = "deb" ]; then
-    url=$(grep -A4 ${package}: archive_ext_packages.yml | grep -m 1 deb_url | awk '{ print $2 }')
-    filename=$(grep -A4 ${package}: archive_ext_packages.yml | grep -m 1 deb_name | awk '{ print $2 }')
-elif [ "$version" = "rpm" ]; then
-    url=$(grep -A4 ${package}: archive_ext_packages.yml | grep -m 1 rpm_url | awk '{ print $2 }')
-    filename=$(grep -A4 ${package}: archive_ext_packages.yml | grep -m 1 rpm_name | awk '{ print $2 }')
+my_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+package_list=${my_dir}"/archive_ext_packages.yml"
+
+if [ "${package}" = "all" ]; then
+    package=$(awk -F ':' '/^[^ ]+:/ {print $1}' ${package_list})
 fi
 
-if [ ! -z "$url" ]; then
-    curl -o $filename -L $url;
-else
-    echo "Error: $package not found";
-fi
+for p in ${package}; do
+    # Get url to download package
+    if [ "$version" = "DEB" ]; then
+        url=$(grep -A4 ^${p}: ${package_list} | awk '/deb_url:/ { print $2 }')
+        filename=$(grep -A4 ^${p}: ${package_list} | awk '/deb_name:/ { print $2 }')
+    elif [ "$version" = "RPM" ]; then
+        url=$(grep -A4 ^${p}: ${package_list} | awk '/rpm_url:/ { print $2 }')
+        filename=$(grep -A4 ^${p}: ${package_list} | awk '/rpm_name:/ { print $2 }')
+    fi
+
+    if [ ! -z "$url" ]; then
+        curl -o $filename -L $url;
+    else
+        echo "Error: $p not found";
+    fi
+done
