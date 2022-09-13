@@ -74,12 +74,12 @@ opendistroforelasticsearch-kibana:
   deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistroforelasticsearch-kibana/opendistroforelasticsearch-kibana-1.13.2-linux-x64.deb
   deb_name: opendistroforelasticsearch-kibana-1.13.2-linux-x64.deb
 opensearch:
-  rpm_url: https://artifacts.opensearch.org/releases/bundle/opensearch/2.1.0/opensearch-2.1.0-linux-x64.rpm
-  rpm_name: opensearch-2.1.0.x86_64.rpm
+  rpm_url: https://artifacts.opensearch.org/releases/bundle/opensearch/2.2.1/opensearch-2.2.1-linux-x64.rpm
+  rpm_name: opensearch-2.2.1.x86_64.rpm
   deb_url:
   deb_name:
 opensearch-dashboards:
-  rpm_url: https://artifacts.opensearch.org/releases/bundle/opensearch-dashboards/2.1.0/opensearch-dashboards-2.1.0-linux-x64.rpm
-  rpm_name: opensearch-dashboards-2.1.0.x86_64.rpm
+  rpm_url: https://artifacts.opensearch.org/releases/bundle/opensearch-dashboards/2.2.1/opensearch-dashboards-2.2.1-linux-x64.rpm
+  rpm_name: opensearch-dashboards-2.2.1.x86_64.rpm
   deb_url:
   deb_name:
