@@ -1,3 +1,9 @@
+libonig (6.9.1-1~bpo9+2) perfsonar-release; urgency=medium
+
+  * Building on bullseye for bionic.
+
+ -- Antoine Delvaux <adelvaux@man.poznan.pl>  Sat, 15 Oct 2022 13:42:27 +0000 
+
 libonig (6.9.1-1~bpo9+1) perfsonar-release; urgency=medium
 
   * Backport to stretch.

@@ -33,7 +33,8 @@ for p in ${package}; do
     fi
 
     if [ ! -z "$url" ]; then
-        curl -o $filename -L $url;
+        echo "$p:"
+        curl -sS -o $filename -L $url;
     else
         echo "Error: $p not found";
     fi
