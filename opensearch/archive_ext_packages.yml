@@ -1,0 +1,85 @@
+logstash-oss:
+  rpm_url: https://artifacts.elastic.co/packages/oss-7.x/yum/7.17.0/logstash-oss-7.17.0-x86_64.rpm
+  rpm_name: logstash-oss-7.17.0.x86_64.rpm
+  deb_url: https://artifacts.elastic.co/packages/oss-7.x/apt/pool/main/l/logstash-oss/logstash-oss-7.17.0-amd64.deb
+  deb_name: logstash-oss-7.17.0-amd64.deb
+elasticsearch-oss:
+  rpm_url: https://artifacts.elastic.co/packages/oss-7.x/yum/7.10.2/elasticsearch-oss-7.10.2-x86_64.rpm
+  rpm_name: elasticsearch-oss-7.10.2.x86_64.rpm
+  deb_url: https://artifacts.elastic.co/packages/oss-7.x/apt/pool/main/e/elasticsearch-oss/elasticsearch-oss-7.10.2-amd64.deb
+  deb_name: elasticsearch-oss-7.10.2-amd64.deb
+opendistro-alerting:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-alerting-1.13.1.0.rpm
+  rpm_name: opendistro-alerting-1.13.1.0.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistro-alerting/opendistro-alerting-1.13.1.0.deb
+  deb_name: opendistro-alerting-1.13.1.0.deb
+opendistro-anomaly-detection:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-anomaly-detection-1.13.0.0.rpm
+  rpm_name: opendistro-anomaly-detection-1.13.0.0.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistro-anomaly-detection/opendistro-anomaly-detection-1.13.0.0.deb
+  deb_name: opendistro-anomaly-detection-1.13.0.0.deb
+opendistro-asynchronous-search:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-asynchronous-search-1.13.0.1.rpm
+  rpm_name: opendistro-asynchronous-search-1.13.0.1.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistro-asynchronous-search/opendistro-asynchronous-search-1.13.0.1.deb
+  deb_name: opendistro-asynchronous-search-1.13.0.1.deb
+opendistro-index-management:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-index-management-1.13.2.0.rpm
+  rpm_name: opendistro-index-management-1.13.2.0.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistro-index-management/opendistro-index-management-1.13.2.0.deb
+  deb_name: opendistro-index-management-1.13.2.0.deb
+opendistro-job-scheduler:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-job-scheduler-1.13.0.0.rpm
+  rpm_name: opendistro-job-scheduler-1.13.0.0.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistro-job-scheduler/opendistro-job-scheduler-1.13.0.0.deb
+  deb_name: opendistro-job-scheduler-1.13.0.0.deb
+opendistro-knn:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-knn-1.13.0.0.rpm
+  rpm_name: opendistro-knn-1.13.0.0.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistro-knn/opendistro-knn-1.13.0.0.deb
+  deb_name: opendistro-knn-1.13.0.0.deb
+opendistro-knnlib:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-knnlib-1.13.0.0-linux-x64.rpm
+  rpm_name: opendistro-knnlib-1.13.0.0-linux-x64.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistro-knnlib/opendistro-knnlib-1.13.0.0-linux-x64.deb
+  deb_name: opendistro-knnlib-1.13.0.0-linux-x64.deb
+opendistro-performance-analyzer:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-performance-analyzer-1.13.0.0.rpm
+  rpm_name: opendistro-performance-analyzer-1.13.0.0.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistro-performance-analyzer/opendistro-performance-analyzer-1.13.0.0.deb
+  deb_name: opendistro-performance-analyzer-1.13.0.0.deb
+opendistro-reports-scheduler:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-reports-scheduler-1.13.0.0.rpm
+  rpm_name: opendistro-reports-scheduler-1.13.0.0.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistro-reports-scheduler/opendistro-reports-scheduler-1.13.0.0.deb
+  deb_name: opendistro-reports-scheduler-1.13.0.0.deb
+opendistro-security:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-security-1.13.1.0.rpm
+  rpm_name: opendistro-security-1.13.1.0.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistro-security/opendistro-security-1.13.1.0.deb
+  deb_name: opendistro-security-1.13.1.0.deb
+opendistro-sql:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistro-sql-1.13.2.0.rpm
+  rpm_name: opendistro-sql-1.13.2.0.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistro-sql/opendistro-sql-1.13.2.0.deb
+  deb_name: opendistro-sql-1.13.2.0.deb
+opendistroforelasticsearch:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistroforelasticsearch-1.13.2-linux-x64.rpm
+  rpm_name: opendistroforelasticsearch-1.13.2-linux-x64.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistroforelasticsearch/opendistroforelasticsearch-1.13.2-linux-x64.deb
+  deb_name: opendistroforelasticsearch-1.13.2-linux-x64.deb
+opendistroforelasticsearch-kibana:
+  rpm_url: https://d3g5vo6xdbdb9a.cloudfront.net/yum/noarch/opendistroforelasticsearch-kibana-1.13.2-linux-x64.rpm
+  rpm_name: opendistroforelasticsearch-kibana-1.13.2-linux-x64.noarch.rpm
+  deb_url: https://d3g5vo6xdbdb9a.cloudfront.net/apt/pool/main/o/opendistroforelasticsearch-kibana/opendistroforelasticsearch-kibana-1.13.2-linux-x64.deb
+  deb_name: opendistroforelasticsearch-kibana-1.13.2-linux-x64.deb
+opensearch:
+  rpm_url: https://artifacts.opensearch.org/releases/bundle/opensearch/2.2.1/opensearch-2.2.1-linux-x64.rpm
+  rpm_name: opensearch-2.2.1.x86_64.rpm
+  deb_url:
+  deb_name:
+opensearch-dashboards:
+  rpm_url: https://artifacts.opensearch.org/releases/bundle/opensearch-dashboards/2.2.1/opensearch-dashboards-2.2.1-linux-x64.rpm
+  rpm_name: opensearch-dashboards-2.2.1.x86_64.rpm
+  deb_url:
+  deb_name:
