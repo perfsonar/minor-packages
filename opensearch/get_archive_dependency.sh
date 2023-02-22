@@ -8,10 +8,10 @@ if [ $# -ne 2 ]
 fi
 
 package=$1
-version=$2
+version=$(echo $2 | tr [:lower:] [:upper:])
 
-if [ "$version" != "deb" ] && [ "$version" != "rpm" ]; then
-    echo "Unknown OS version. Use deb or rpm"
+if [ "$version" != "DEB" ] && [ "$version" != "RPM" ]; then
+    echo "Unknown OS version. Use DEB or RPM"
     exit 1
 fi
 
