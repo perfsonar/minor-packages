@@ -20,7 +20,7 @@ License: GPL-1+ or Artistic
  the Artistic Licence in `/usr/share/common-licenses/Artistic'.
 
 Files: debian/*
-Copyright: 2015-2021 perfSONAR project
+Copyright: 2015-2023 perfSONAR project
 License: Apache-2.0
 
 License: Apache-2.0

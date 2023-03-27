@@ -1,8 +1,8 @@
-libipc-dirqueue-perl (1.0-6) perfsonar-release; urgency=low
+libipc-dirqueue-perl (1.0.0-6) perfsonar-release; urgency=low
 
   * Rebuild for buster.
 
- -- Antoine Delvaux <antoine.delvaux@man.poznan.pl>  Tue, 21 Sep 2021 18:53:24 +0100
+ -- Lætitia Delvaux <adelvaux@man.poznan.pl>  Mon, 27 Mar 2023 23:23:43 +0000 
 
 libipc-dirqueue-perl (1.0-5) perfsonar-release; urgency=low
 
