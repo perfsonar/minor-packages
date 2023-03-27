@@ -9,7 +9,7 @@ changecom()dnl
 #
 
 libipc-dirqueue-perl
-opensearch
+opensearch --no-install
 perl-CGI-Ajax
 perl-Data-Validate-Domain
 perl-Data-Validate-IP
