@@ -16,6 +16,7 @@ default: build
 
 
 build:
+	bash get_archive_dependency.sh geoip-database-extra $(PACKAGE_FORMAT)
 	bash get_archive_dependency.sh opensearch $(PACKAGE_FORMAT)
 	bash get_archive_dependency.sh opensearch-dashboards $(PACKAGE_FORMAT)
 	bash get_archive_dependency.sh logstash-oss $(PACKAGE_FORMAT)

@@ -40,8 +40,3 @@ for p in ${package}; do
     fi
 done
 
-# Include package in local repository
-if [ "$version" = "DEB" ]; then
-    export REPREPRO_BASE_DIR=/var/local/repo
-    reprepro --waitforlock 12 -v includedeb ${REPO} *.deb
-fi
