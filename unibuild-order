@@ -9,7 +9,6 @@ changecom()dnl
 #
 
 libipc-dirqueue-perl
-nuttcp
 opensearch
 perl-CGI-Ajax
 perl-Data-Validate-Domain
