@@ -9,7 +9,6 @@ changecom()dnl
 #
 
 libipc-dirqueue-perl
-libonig
 nuttcp
 opensearch
 perl-CGI-Ajax
@@ -34,6 +33,5 @@ ifelse(FAMILY/MAJOR,RedHat/8,perl-Mo)
 
 # Only build perl-RPM2 on EL7 since newer distros have required version 
 ifelse(FAMILY/MAJOR,RedHat/7,perl-RPM2)
-python-attrs
 python-dateutil
 python-elasticsearch

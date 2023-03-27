@@ -1,9 +1,9 @@
 Patch Makefile so that nuttcp will build sanely on Debian systems.
 
 Author: Chris Taylor <ctaylor@debian.org>
---- a/Makefile
-+++ b/Makefile
-@@ -1,8 +1,8 @@
+--- a/Makefile	2023-03-27 21:15:53.883424223 +0000
++++ b/Makefile	2023-03-27 21:17:29.957660598 +0000
+@@ -1,9 +1,9 @@
 -APP = nuttcp-8.1.4
 -#EXTRAVERSION=-pre1
 +DESTDIR=
@@ -11,12 +11,13 @@ Author: Chris Taylor <ctaylor@debian.org>
 +APP = nuttcp
  CC = gcc -Wall
 -#OPT = -g -O0
+ ifeq ($(OPT),)
 -OPT = -O3
 +OPT = -g -O2
+ endif
  CFLAGS = $(OPT) $(NOIPV6)
  LIBS = 
- ifneq ($(NOIPV6),)
-@@ -69,3 +69,10 @@
+@@ -71,3 +71,10 @@
  tar:
  	(cd ..; $(TAR) cfj $(APP)$(EXTRAVERSION).tar.bz2 --exclude $(APP)/bin --exclude $(APP)/cygwin/*.bz2 --exclude $(APP)/rpm $(APP)$(EXTRAVERSION)$(APPEXT))
  	(cd ..; $(TAR) cfj $(APP)$(EXTRAVERSION).rpm.tar.bz2 --exclude $(APP)/bin --exclude $(APP)/cygwin  --exclude $(APP)/missing --exclude $(APP)/rpm $(APP)$(EXTRAVERSION)$(APPEXT))

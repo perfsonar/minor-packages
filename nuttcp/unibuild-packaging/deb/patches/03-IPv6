@@ -1,9 +1,9 @@
 Make nuttcp build with IPv6 support.
 
 Author: Chris Taylor <ctaylor@debian.org> 
---- a/Makefile
-+++ b/Makefile
-@@ -6,7 +6,7 @@
+--- a/Makefile	2023-03-27 21:17:29.957660598 +0000
++++ b/Makefile	2023-03-27 21:17:42.696285956 +0000
+@@ -8,7 +8,7 @@
  CFLAGS = $(OPT) $(NOIPV6)
  LIBS = 
  ifneq ($(NOIPV6),)
