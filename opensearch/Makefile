@@ -26,7 +26,9 @@ install-products:
 ifndef PRODUCTS_DEST
 	$(error PRODUCTS_DEST is not defined)
 else
+ifneq ($(wildcard /etc/redhat-release),)
 	cp *.rpm $(PRODUCTS_DEST)
+endif
 endif
 
 
