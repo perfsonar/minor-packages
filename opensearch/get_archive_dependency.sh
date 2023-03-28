@@ -32,11 +32,11 @@ for p in ${package}; do
         filename=$(grep -A4 ^${p}: ${package_list} | awk '/rpm_name:/ { print $2 }')
     fi
 
-    if [ ! -z "$url" ]; then
+    if [ ! -z $url ]; then
         curl -sS -o $filename -L $url;
         ls -lh $filename
     else
-        echo "Error: $p not found";
+        echo "$p not found";
     fi
 done
 
