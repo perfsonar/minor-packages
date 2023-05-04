@@ -8,6 +8,7 @@ URL:            http://search.cpan.org/dist/IPC-DirQueue/
 Source0:        IPC-DirQueue-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
+BuildRequires:  perl-macros
 BuildRequires:  perl(ExtUtils::MakeMaker)
 Provides:       perl(IPC::DirQueue)
 

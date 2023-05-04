@@ -10,6 +10,7 @@ URL:            http://search.cpan.org/dist/JSON-Validator/
 Source0:        JSON-Validator-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
+BuildRequires:  perl-macros
 BuildRequires:  perl(ExtUtils::MakeMaker)
 BuildRequires:  perl(Mojolicious) >= 7.15
 BuildRequires:  perl(Test::More) 

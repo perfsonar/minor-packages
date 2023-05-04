@@ -10,6 +10,7 @@ URL:            http://search.cpan.org/dist/Mojolicious/
 Source0:        Mojolicious-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
+BuildRequires:  perl-macros
 BuildRequires:  perl >= 0:5.010001
 BuildRequires:  perl(ExtUtils::MakeMaker)
 BuildRequires:  perl(IO::Socket::IP)

@@ -13,6 +13,7 @@ URL:            http://search.cpan.org/dist/Data-Validate-Domain/
 Source0:        Data-Validate-Domain-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
+BuildRequires:  perl-macros
 BuildRequires:  perl(ExtUtils::MakeMaker)
 BuildRequires:  perl(Test::More)
 BuildRequires:  perl(Net::Domain::TLD) >= 1.62

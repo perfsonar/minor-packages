@@ -10,6 +10,7 @@ BuildRequires:  coreutils
 BuildRequires:  findutils
 BuildRequires:  gcc
 BuildRequires:  perl
+BuildRequires:  perl-macros
 BuildRequires:  perl-devel
 BuildRequires:  perl(Module::Build)
 BuildRequires:  perl(strict)

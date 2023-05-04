@@ -8,6 +8,7 @@ URL:            http://search.cpan.org/dist/Module-Mask/
 Source0:        Module-Mask-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
+BuildRequires:  perl-macros
 BuildRequires:  perl >= 1:v5.8.0
 BuildRequires:  perl(Module::Build)
 BuildRequires:  perl(Module::Util) >= 1.00

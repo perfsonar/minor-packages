@@ -7,6 +7,7 @@ Group:          Development/Libraries
 URL:            http://search.cpan.org/dist/Digest-JHash/
 Source0:        Digest-JHash-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+BuildRequires:  perl-macros
 BuildRequires:  gcc
 BuildRequires:  perl >= 0:5.008
 BuildRequires:  perl(DynaLoader)
