@@ -20,14 +20,14 @@ perl-Net-Interface
 perl-Net-Traceroute
 
 #Requirements for perl pSConfig
-ifelse(FAMILY/MAJOR,RedHat/8,perl-Digest-JHash)
-ifelse(FAMILY/MAJOR,RedHat/8,perl-Hash-MoreUtils)
-ifelse(FAMILY/MAJOR,RedHat/8,perl-MooX-Types-MooseLike-Numeric)
-ifelse(FAMILY/MAJOR,RedHat/8,perl-Log-Any)
-ifelse(FAMILY/MAJOR,RedHat/8,perl-Module-Mask)
-ifelse(FAMILY/MAJOR,RedHat/8,perl-String-RewritePrefix)
-ifelse(FAMILY/MAJOR,RedHat/8,perl-CHI)
-ifelse(FAMILY/MAJOR,RedHat/8,perl-Mo)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Digest-JHash)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Hash-MoreUtils)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-MooX-Types-MooseLike-Numeric)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Log-Any)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Module-Mask)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-String-RewritePrefix)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-CHI)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Mo)
 
 # Only build perl-RPM2 on EL7 since newer distros have required version 
 ifelse(FAMILY/MAJOR,RedHat/7,perl-RPM2)
