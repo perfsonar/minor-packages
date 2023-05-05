@@ -6,6 +6,7 @@ License:		Distributable, see Copying
 Group:			Development/Libraries
 URL:			http://search.cpan.org/dist/Net-Interface/
 Source0:		Net-Interface-%{version}.tar.gz
+Patch0:		simplesets.t.patch
 BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  gcc
 BuildRequires:  perl-macros

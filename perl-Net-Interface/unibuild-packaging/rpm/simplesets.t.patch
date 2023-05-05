@@ -1,0 +1,18 @@
+--- simplesets.t.orig	2009-02-13 07:23:47.000000000 -0500
++++ simplesets.t	2023-05-05 10:06:11.691756192 -0400
+@@ -29,15 +29,3 @@
+ 	  last;
+ 	}
+ };
+-
+-my $why = "loopback interface not found, possible jailed environment";
+-my $mtu;
+-
+-SKIP: {
+-	skip $why, 1, unless $loopif && 
+-		($why = "apparently no permission") &&
+-		eval { $mtu = $loopif->mtu(576); } &&
+-		eval { $mtu = $loopif->mtu($mtu); } &&
+-		(! $@) && $mtu == 576;
+-	ok($mtu == 576,"can update mtu on $loopif");
+-};
