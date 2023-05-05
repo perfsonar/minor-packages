@@ -35,6 +35,7 @@ supported.
 
 %prep
 %setup -q -n Net-Interface-%{version}
+%patch0 -p0
 
 %build
 ./configure
