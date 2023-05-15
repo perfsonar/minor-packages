@@ -28,6 +28,7 @@ ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-CHI)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Mo)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-JSON-XS)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Params-Validate)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Class-Accessor)
 
 # Only build perl-RPM2 on EL7 since newer distros have required version 
 ifelse(FAMILY/MAJOR,RedHat/7,perl-RPM2)
