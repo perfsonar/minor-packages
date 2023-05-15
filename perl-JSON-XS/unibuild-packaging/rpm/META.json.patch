@@ -1,0 +1,10 @@
+--- META.json.orig	2023-05-09 15:41:09.135339592 -0400
++++ META.json	2023-05-09 15:41:46.391179833 -0400
+@@ -27,7 +27,6 @@
+       },
+       "configure" : {
+          "requires" : {
+-            "Canary::Stability" : "0",
+             "ExtUtils::MakeMaker" : "6.52"
+          }
+       },

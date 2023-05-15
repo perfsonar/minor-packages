@@ -28,6 +28,7 @@ ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Module-Mask)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-String-RewritePrefix)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-CHI)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Mo)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-JSON-XS)
 
 # Only build perl-RPM2 on EL7 since newer distros have required version 
 ifelse(FAMILY/MAJOR,RedHat/7,perl-RPM2)
