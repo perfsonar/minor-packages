@@ -18,6 +18,7 @@ perl-Mojolicious
 perl-JSON-Validator
 perl-Net-Interface
 perl-Net-Traceroute
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-DateTime-Format-ISO8601)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Digest-JHash)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Hash-MoreUtils)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-MooX-Types-MooseLike-Numeric)
