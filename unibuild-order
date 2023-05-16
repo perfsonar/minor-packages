@@ -31,6 +31,8 @@ ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Params-Validate)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Class-Accessor)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Data-UUID)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-XML-Twig)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-CGI-Session)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-RPC-XML-Client)
 
 # Only build perl-RPM2 on EL7 since newer distros have required version 
 ifelse(FAMILY/MAJOR,RedHat/7,perl-RPM2)

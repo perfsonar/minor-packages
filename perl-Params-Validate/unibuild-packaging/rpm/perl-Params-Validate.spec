@@ -5,7 +5,7 @@ Summary:        Validate method/function parameters
 License:        Artistic 2.0
 Group:          Development/Libraries
 URL:            http://search.cpan.org/dist/Params-Validate/
-Source0:        Params-Validate-%{version}.tar.gzh
+Source0:        Params-Validate-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  perl >= 0:5.008001
 BuildRequires:  perl(Carp)
