@@ -23,6 +23,7 @@ BuildRequires:  perl(blib) >= 1.01
 BuildRequires:  perl(strict)
 BuildRequires:  perl(vars)
 BuildRequires:  perl(warnings)
+BuildRequires:  perl-generators
 Requires:       perl(DynaLoader)
 Requires:       perl(Exporter)
 Requires:       perl(strict)
