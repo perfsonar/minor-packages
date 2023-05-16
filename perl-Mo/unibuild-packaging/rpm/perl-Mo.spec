@@ -9,6 +9,7 @@ Source0:        Mo-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl-macros
+BuildRequires:  perl-generators
 BuildRequires:  perl >= 1:v5.6.0
 BuildRequires:  perl(Class::XSAccessor)
 BuildRequires:  perl(ExtUtils::MakeMaker)

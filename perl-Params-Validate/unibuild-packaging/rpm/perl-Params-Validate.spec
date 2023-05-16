@@ -20,6 +20,7 @@ BuildRequires:  perl(Test::Fatal)
 BuildRequires:  perl(Test::More) >= 0.96
 BuildRequires:  perl(Test::Requires)
 BuildRequires:  gcc
+BuildRequires:  perl-generators
 Requires:       perl(Carp)
 Requires:       perl(Exporter)
 Requires:       perl(Module::Implementation)

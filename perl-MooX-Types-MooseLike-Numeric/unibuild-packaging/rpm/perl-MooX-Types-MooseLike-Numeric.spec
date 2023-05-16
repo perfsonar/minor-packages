@@ -9,6 +9,7 @@ Source0:        MooX-Types-MooseLike-Numeric-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl-macros
+BuildRequires:  perl-generators
 BuildRequires:  perl >= 0:5.006
 BuildRequires:  perl(ExtUtils::MakeMaker)
 BuildRequires:  perl(Moo) >= 1.004002

@@ -8,6 +8,7 @@ URL:            http://search.cpan.org/dist/Types-Serialiser/
 Source0:        Types-Serialiser-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
+BuildRequires:  perl-generators
 BuildRequires:  perl(common::sense)
 BuildRequires:  perl(ExtUtils::MakeMaker)
 Requires:       perl(common::sense)

@@ -9,6 +9,7 @@ Source0:        CGI-Ajax-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl-macros
+BuildRequires:  perl-generators
 BuildRequires:  perl(ExtUtils::MakeMaker)
 BuildRequires:  perl(CGI), perl(Class::Accessor)
 BuildRequires:  perl(Test::More)

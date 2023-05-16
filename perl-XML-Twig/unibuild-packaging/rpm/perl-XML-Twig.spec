@@ -9,6 +9,7 @@ Source0:        XML-Twig-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  expat
+BuildRequires:  perl-generators
 BuildRequires:  expat-devel
 BuildRequires:  perl(Test::More)
 BuildRequires:  perl(Test)

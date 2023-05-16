@@ -8,6 +8,7 @@ URL:            http://search.cpan.org/dist/Data-UUID/
 Source0:        Data-UUID-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  gcc
+BuildRequires:  perl-generators
 BuildRequires:  perl(Digest::MD5)
 BuildRequires:  perl(ExtUtils::MakeMaker)
 BuildRequires:  perl(Test::More)

@@ -9,6 +9,7 @@ Source0:        RPC-XML-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl >= 0:5.008008
+BuildRequires:  perl-generators
 BuildRequires:  perl(Carp)
 BuildRequires:  perl(DateTime)
 BuildRequires:  perl(DateTime::Format::ISO8601)

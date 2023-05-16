@@ -15,6 +15,7 @@ BuildRequires:  perl(Module::Build)
 BuildRequires:  perl(Scalar::Util)
 BuildRequires:  perl(Test::More)
 BuildRequires:  perl-Env
+BuildRequires:  perl-generators
 Requires:       perl-Env
 Requires:       perl(CGI) >= 3.26
 Requires:       perl(Data::Dumper)

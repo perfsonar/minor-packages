@@ -9,6 +9,7 @@ Source0:        CHI-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 BuildRequires:  perl-macros
+BuildRequires:  perl-generators
 BuildRequires:  perl(Cache::FileCache)
 BuildRequires:  perl(Carp::Assert) >= 0.20
 BuildRequires:  perl(Class::Load)

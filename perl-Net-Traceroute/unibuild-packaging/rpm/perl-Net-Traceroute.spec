@@ -8,6 +8,7 @@ URL:			http://search.cpan.org/dist/Net-Traceroute/
 Source0:		Net-Traceroute-%{version}.tar.gz
 BuildRoot:		%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:		noarch
+BuildRequires:  perl-generators
 BuildRequires:  perl-macros
 BuildRequires:	perl(ExtUtils::MakeMaker)
 BuildRequires:	perl(Test::Simple)

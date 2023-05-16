@@ -11,6 +11,7 @@ Patch1:         META.json.patch
 Patch2:         META.yml.patch 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  gcc
+BuildRequires:  perl-generators
 BuildRequires:  perl(common::sense)
 BuildRequires:  perl(ExtUtils::MakeMaker)
 BuildRequires:  perl(Types::Serialiser)
