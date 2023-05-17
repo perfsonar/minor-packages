@@ -9,4 +9,7 @@
 unibuild-log
 unibuild-work/
 unibuild-repo/
+DOSB/
 opensearch/*.rpm
+
+
