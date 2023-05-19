@@ -8,16 +8,24 @@ changecom()dnl
 # more information.
 #
 
-opensearch --no-install
-perl-CGI-Ajax
-perl-Data-Validate-Domain
-perl-Data-Validate-IP
-perl-Hash-Merge
-perl-IPC-DirQueue
-perl-Mojolicious
-perl-JSON-Validator
-perl-Net-Interface
-perl-Net-Traceroute
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-namespace-clean)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-namespace-autoclean)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Params-ValidationCompiler)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Specio)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Test-File-ShareDir)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-File-ShareDir-Install)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Module-Implementation)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Dist-CheckConflicts)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Package-Stash-XS)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Package-Stash)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Sub-Identify)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-B-Hooks-EndOfScope)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-DateTime-Locale)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-DateTime-TimeZone)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-DateTime-Format-Strptime)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-DateTime-Format-Builder)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-DateTime)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-DateTime-Format-ISO8601)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-DateTime-Format-ISO8601)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Digest-JHash)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Hash-MoreUtils)
@@ -28,7 +36,6 @@ ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-String-RewritePrefix)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-CHI)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Mo)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-JSON-XS)
-ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Module-Implementation)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Params-Validate)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Class-Accessor)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Data-UUID)
