@@ -1,3 +1,8 @@
+##
+# Exclude this dependency it auto-picks up which is local class only needed in build
+# and not included in final RPM
+%global __requires_exclude perl\\(Package::Stash::Conflicts\\)
+
 Name:           perl-Package-Stash
 Version:        0.40
 Release:        1%{?dist}
