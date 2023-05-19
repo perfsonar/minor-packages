@@ -1,3 +1,7 @@
+# Exclude this dependency it auto-picks up which is local class only needed in build
+# and not included in final RPM
+%global __requires_exclude perl\\(namespace::clean::_Util\\)
+
 Name:           perl-namespace-clean
 Version:        0.27
 Release:        1%{?dist}
