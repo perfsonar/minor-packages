@@ -57,6 +57,7 @@ ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Types-Serialiser)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-RPC-XML)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-IO-Tty)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-IPC-Run)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-IPC-Run3)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Net-NTP)
 
 # Only build perl-RPM2 on EL7 since newer distros have required version 
