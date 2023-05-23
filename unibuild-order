@@ -8,6 +8,17 @@ changecom()dnl
 # more information.
 #
 
+opensearch --no-install
+perl-CGI-Ajax
+perl-Data-Validate-Domain
+perl-Data-Validate-IP
+perl-Hash-Merge
+perl-IPC-DirQueue
+perl-Mojolicious
+perl-JSON-Validator
+perl-Net-Interface
+perl-Net-Traceroute
+
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Module-Implementation)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Dist-CheckConflicts)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Package-Stash-XS)
