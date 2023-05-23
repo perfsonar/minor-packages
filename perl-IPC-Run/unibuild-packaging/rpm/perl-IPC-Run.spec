@@ -18,7 +18,6 @@ BuildRequires:  perl(Readonly)
 BuildRequires:  perl(Readonly::Array)
 BuildRequires:  perl(Test::More) >= 0.47
 Requires:       perl(IO::Pty) >= 1.08
-Requires:       perl(Readonly)
 Requires:       perl(Test::More) >= 0.47
 Requires:       perl(:MODULE_COMPAT_%(eval "`%{__perl} -V:version`"; echo $version))
 
