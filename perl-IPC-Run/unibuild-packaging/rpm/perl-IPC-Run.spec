@@ -1,3 +1,5 @@
+%global __requires_exclude perl\\(Win32.*\\)
+
 Name:           perl-IPC-Run
 Version:        20220807.0
 Release:        1%{?dist}
