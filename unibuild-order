@@ -60,6 +60,7 @@ ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-IPC-Run)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-IPC-Run3)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Net-NTP)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-HTTP-Daemon)
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-YAML-Syck)
 
 # Only build perl-RPM2 on EL7 since newer distros have required version 
 ifelse(FAMILY/MAJOR,RedHat/7,perl-RPM2)
