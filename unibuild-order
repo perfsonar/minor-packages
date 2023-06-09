@@ -14,7 +14,8 @@ perl-Data-Validate-Domain
 perl-Data-Validate-IP
 perl-Hash-Merge
 perl-IPC-DirQueue
-perl-Mojolicious
+#Only build Mojolicious on Debian/Ubuntu variants and EL7
+ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,,perl-Mojolicious)
 perl-JSON-Validator
 perl-Net-Interface
 perl-Net-Traceroute
