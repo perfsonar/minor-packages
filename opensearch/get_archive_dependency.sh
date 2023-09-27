@@ -36,7 +36,7 @@ for p in ${package}; do
         curl -sS -o $filename -L $url;
         ls -lh $filename
     else
-        echo "$p not found";
+        echo "skipping $p";
     fi
 done
 
