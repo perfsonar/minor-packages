@@ -1,0 +1,11 @@
+--- t/Nagios-Plugin-Functions-01.t.old	2023-10-04 11:31:39.867850760 -0400
++++ t/Nagios-Plugin-Functions-01.t	2023-10-04 11:32:36.311103969 -0400
+@@ -19,7 +19,7 @@
+ is(get_shortname, "NAGIOS-PLUGIN-FUNCTIONS-01", "get_shortname ok");
+ 
+ # Hardcoded checks of constants
+-ok(defined %ERRORS, '%ERRORS defined');
++ok(%ERRORS, '%ERRORS defined');
+ is(OK,          $ERRORS{OK},            "OK        => $ERRORS{OK}");
+ is(WARNING,     $ERRORS{WARNING},       "WARNING   => $ERRORS{WARNING}");
+ is(CRITICAL,    $ERRORS{CRITICAL},      "CRITICAL  => $ERRORS{CRITICAL}");

@@ -14,6 +14,7 @@ perl-Data-Validate-Domain
 perl-Data-Validate-IP
 perl-Hash-Merge
 perl-IPC-DirQueue
+ifelse(FAMILY/eval(MAJOR > 9),RedHat/1,,perl-Nagios-Plugin)
 #Only build Mojolicious on Debian/Ubuntu variants and EL7
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,,perl-Mojolicious)
 perl-JSON-Validator
