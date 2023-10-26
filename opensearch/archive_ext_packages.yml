@@ -4,15 +4,15 @@ geoip-database-extra:
   deb_url: http://ftp.pl.debian.org/debian/pool/main/g/geoip-database/geoip-database-extra_20181108-1_all.deb
   deb_name: geoip-database-extra_20181108-1_all.deb
 logstash-oss:
-  rpm_url: https://artifacts.elastic.co/downloads/logstash/logstash-oss-7.17.9-x86_64.rpm
-  rpm_name: logstash-oss-7.17.9.x86_64.rpm
-  deb_url: https://artifacts.elastic.co/downloads/logstash/logstash-oss-7.17.9-amd64.deb
-  deb_name: logstash-oss-7.17.9-amd64.deb
+  rpm_url: https://artifacts.elastic.co/downloads/logstash/logstash-oss-8.10.4-x86_64.rpm
+  rpm_name: logstash-oss-8.10.4.x86_64.rpm
+  deb_url: https://artifacts.elastic.co/downloads/logstash/logstash-oss-8.10.4-amd64.deb
+  deb_name: logstash-oss-8.10.4-amd64.deb
 logstash-oss-arm64:
   rpm_url: 
   rpm_name: 
-  deb_url: https://artifacts.elastic.co/downloads/logstash/logstash-oss-7.17.9-arm64.deb
-  deb_name: logstash-oss-7.17.9-arm64.deb
+  deb_url: https://artifacts.elastic.co/downloads/logstash/logstash-oss-8.10.4-arm64.deb
+  deb_name: logstash-oss-8.10.4-arm64.deb
 opensearch:
   rpm_url: https://artifacts.opensearch.org/releases/bundle/opensearch/2.6.0/opensearch-2.6.0-linux-x64.rpm
   rpm_name: opensearch-2.6.0.x86_64.rpm
