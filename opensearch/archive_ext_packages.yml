@@ -33,3 +33,13 @@ opensearch-dashboards-arm64:
   rpm_name: 
   deb_url: https://artifacts.opensearch.org/releases/bundle/opensearch-dashboards/2.6.0/opensearch-dashboards-2.6.0-linux-arm64.deb
   deb_name: opensearch-dashboards-2.6.0.arm64.deb
+grafana:
+  rpm_url:
+  rpm_name:
+  deb_url:  https://dl.grafana.com/oss/release/grafana_10.2.0_amd64.deb
+  deb_name: grafana_10.2.0_amd64.deb
+grafana-arm64:
+  rpm_url: 
+  rpm_name: 
+  deb_url:  https://dl.grafana.com/oss/release/grafana_10.2.0_arm64.deb
+  deb_name: grafana_10.2.0_arm64.deb
