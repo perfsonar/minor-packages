@@ -3,26 +3,6 @@ geoip-database-extra:
   rpm_name:
   deb_url: http://ftp.pl.debian.org/debian/pool/main/g/geoip-database/geoip-database-extra_20181108-1_all.deb
   deb_name: geoip-database-extra_20181108-1_all.deb
-iptables:
-  rpm_url:
-  rpm_name:
-  deb_url: http://ftp.de.debian.org/debian/pool/main/i/iptables/iptables_1.8.5-3~bpo10+1_amd64.deb
-  deb_name: iptables_1.8.5-3~bpo10+1_amd64.deb
-iptables-arm64:
-  rpm_url:
-  rpm_name:
-  deb_url: http://ftp.de.debian.org/debian/pool/main/i/iptables/iptables_1.8.5-3~bpo10+1_arm64.deb
-  deb_name: iptables_1.8.5-3~bpo10+1_arm64.deb
-iptables-armhf:
-  rpm_url:
-  rpm_name:
-  deb_url: http://ftp.de.debian.org/debian/pool/main/i/iptables/iptables_1.8.5-3~bpo10+1_armhf.deb
-  deb_name: iptables_1.8.5-3~bpo10+1_armhf.deb
-iptables-ppc64el:
-  rpm_url:
-  rpm_name:
-  deb_url: http://ftp.de.debian.org/debian/pool/main/i/iptables/iptables_1.8.5-3~bpo10+1_ppc64el.deb
-  deb_name: iptables_1.8.5-3~bpo10+1_ppc64el.deb
 logstash-oss:
   rpm_url: https://artifacts.elastic.co/downloads/logstash/logstash-oss-8.10.4-x86_64.rpm
   rpm_name: logstash-oss-8.10.4.x86_64.rpm
