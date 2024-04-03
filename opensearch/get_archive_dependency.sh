@@ -33,11 +33,11 @@ for p in ${package}; do
     fi
 
     if [ ! -z $url ]; then
-        curl -sS -retry 5 -o $filename -L $url;
+        curl -sS --retry 5 -o $filename -L $url;
         if [ "$(ls -s $filename | awk '{print $1}' )" -eq "0" ]; then
             echo "$filename was empty, we drop it to not confues reprepro."
             rm -f $filename
-        else; then
+        else
             ls -lh $filename
         fi
     else
