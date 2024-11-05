@@ -1,8 +1,3 @@
-geoip-database-extra:
-  rpm_url:
-  rpm_name:
-  deb_url: http://ftp.pl.debian.org/debian/pool/main/g/geoip-database/geoip-database-extra_20181108-1_all.deb
-  deb_name: geoip-database-extra_20181108-1_all.deb
 logstash-oss:
   rpm_url: https://artifacts.elastic.co/downloads/logstash/logstash-oss-8.10.4-x86_64.rpm
   rpm_name: logstash-oss-8.10.4.x86_64.rpm

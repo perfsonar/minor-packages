@@ -50,7 +50,6 @@ default: build
 
 
 build:: $(PRODUCTS_DIR) $(BUILD_DIR)
-	bash get_archive_dependency.sh geoip-database-extra $(PACKAGE_FORMAT)
 	bash get_archive_dependency.sh logstash-oss $(PACKAGE_FORMAT)
 	bash get_archive_dependency.sh logstash-oss-arm64 $(PACKAGE_FORMAT)
 	bash get_archive_dependency.sh opensearch $(PACKAGE_FORMAT)
