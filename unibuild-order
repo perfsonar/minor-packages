@@ -8,6 +8,7 @@ changecom()dnl
 # more information.
 #
 
+common
 opensearch --no-install
 perl-CGI-Ajax
 perl-Data-Validate-Domain
