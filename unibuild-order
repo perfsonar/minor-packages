@@ -11,13 +11,26 @@ changecom()dnl
 common
 opensearch --no-install
 perl-CGI-Ajax
+
+# Modules in this block were dropped from EPEL in EL10
+ifelse(FAMILY/eval(MAJOR >= 10),RedHat/1,perl-Curses)
+ifelse(FAMILY/eval(MAJOR >= 10),RedHat/1,perl-POE)
+ifelse(FAMILY/eval(MAJOR >= 10),RedHat/1,perl-POE-Test-Loops)
+ifelse(FAMILY/eval(MAJOR >= 10),RedHat/1,perl-Net-Domain-TLD)
+
 perl-Data-Validate-Domain
 perl-Data-Validate-IP
+
+ifelse(FAMILY/eval(MAJOR >= 10),RedHat/1,perl-Module-Util)
 perl-Hash-Merge
+
 perl-IPC-DirQueue
 ifelse(FAMILY/eval(MAJOR > 8),RedHat/1,perl-Nagios-Plugin)
-#Only build Mojolicious on Debian/Ubuntu variants and EL7
-ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,,perl-Mojolicious)
+
+#Only build Mojolicious on Debian/Ubuntu variants and EL10+
+ifelse(FAMILY/eval(MAJOR < 10),RedHat/1,,perl-EV)
+ifelse(FAMILY/eval(MAJOR < 10),RedHat/1,,perl-Mojolicious)
+
 perl-JSON-Validator
 perl-Net-Interface
 perl-Net-Traceroute
@@ -31,6 +44,8 @@ ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Log-Any)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Module-Mask)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-String-RewritePrefix)
 ifelse(FAMILY/eval(MAJOR > 8),RedHat/1,perl-Carp-Assert)
+ifelse(FAMILY/eval(MAJOR >= 10),RedHat/1,perl-Time-Duration-Parse)
+ifelse(FAMILY/eval(MAJOR >= 10),RedHat/1,perl-Cache-FastMmap)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-CHI)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-Mo)
 ifelse(FAMILY/eval(MAJOR > 7),RedHat/1,perl-CGI-Session)
