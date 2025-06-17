@@ -47,7 +47,7 @@ jobs:
          run: tar -cvf minor-packages.tar  *
   
        - name: Archive repo
-         uses: actions/upload-artifact@v3
+         uses: actions/upload-artifact@v4
          with:
            name: perfsonar-minor-packages-${{ matrix.os }}.tar
            path: minor-packages.tar
