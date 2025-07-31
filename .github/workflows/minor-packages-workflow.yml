@@ -10,13 +10,13 @@ on:
 jobs:
        
   prepare-build:
-    uses: cs1867/project/.github/workflows/prepare-build.yml@master
+    uses: perfsonar/project/.github/workflows/prepare-build.yml@master
     with:
       BUILD_VARS_JSON: ${{ inputs.BUILD_VARS_JSON }}
     
   oneshot-build:
     needs: prepare-build
-    uses: cs1867/project/.github/workflows/oneshot-builder.yml@master
+    uses: perfsonar/project/.github/workflows/oneshot-builder.yml@master
     with:
       BUILD_OS: ${{ needs.prepare-build.outputs.BUILD_OS }}
       BUILD_TYPE: ${{ needs.prepare-build.outputs.BUILD_TYPE }}
@@ -27,7 +27,7 @@ jobs:
     needs: 
       - prepare-build
       - oneshot-build
-    uses: cs1867/project/.github/workflows/post-build.yml@master
+    uses: perfsonar/project/.github/workflows/post-build.yml@master
     secrets:
       GIT_ACTIONS: ${{ secrets.GIT_ACTIONS }}
     with:
