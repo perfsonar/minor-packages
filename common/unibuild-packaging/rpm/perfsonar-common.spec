@@ -1,4 +1,4 @@
-%define perfsonar_auto_version 5.2.1
+%define perfsonar_auto_version 5.2.2
 %define perfsonar_auto_relnum 1
 
 Version:        %{perfsonar_auto_version}
