@@ -38,7 +38,11 @@ available functionality.
 
 %prep
 %setup -q -n Nagios-Plugin-%{version}
+%if 0%{?el8}%{?ol8}
 %patch0 -p0
+%else
+%patch 0 -p0
+%endif
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor

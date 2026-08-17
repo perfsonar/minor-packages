@@ -29,7 +29,11 @@ supported and may be mixed.
 
 %prep
 %setup -q -n IPC-Run-%{version}
+%if 0%{?el8}%{?ol8}
 %patch0 -p0
+%else
+%patch 0 -p0
+%endif
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor

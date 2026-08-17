@@ -36,7 +36,11 @@ supported.
 
 %prep
 %setup -q -n Net-Interface-%{version}
+%if 0%{?el8}%{?ol8}
 %patch0 -p0
+%else
+%patch 0 -p0
+%endif
 
 %build
 ./configure

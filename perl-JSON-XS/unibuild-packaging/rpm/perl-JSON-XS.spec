@@ -28,9 +28,15 @@ reach the latter goal it was written in C.
 
 %prep
 %setup -q -n JSON-XS-%{version}
+%if 0%{?el8}%{?ol8}
 %patch0 -p0
 %patch1 -p0
 %patch2 -p0
+%else
+%patch 0 -p0
+%patch 1 -p0
+%patch 2 -p0
+%endif
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor OPTIMIZE="$RPM_OPT_FLAGS"
